@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e06effa9-5d83-4b69-8548-15d710e97204" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/FMainImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/FMainImpl.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="yys" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="hbmask" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\go_work\yys\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1YeSbikyryO6cqBYMIpDHSKusHz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\go_work\yys\ocr" />
+      <recent name="D:\go_work\yys\img" />
+      <recent name="D:\go_work\yys\uigen" />
+      <recent name="D:\go_work\yys\walk_demo" />
+      <recent name="D:\go_work\yys\data" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\go_work\yys\ocr" />
+      <recent name="D:\go_work\yys\ui" />
+      <recent name="D:\go_work\yys\vendor\github.com\therecipe\qt" />
+      <recent name="D:\go_work\yys" />
+      <recent name="D:\go_work\yys\img" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build yys">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="yys" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build yys" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="yys" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_JieTuCaptureRect in yys/flagpiex" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$/flagpiex" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="yys/flagpiex" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_JieTuCaptureRect$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_XuanShang in yys" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="yys" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_XuanShang$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_find_Pixel in yys/flagpiex (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$/flagpiex" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="yys/flagpiex" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_find_Pixel$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_find_Pixel in yys/flagpiex" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$/flagpiex" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="yys/flagpiex" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_find_Pixel$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="yys" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build yys" />
+      <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex" />
+      <item itemvalue="Go Test.Test_XuanShang in yys" />
+      <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex (2)" />
+      <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build yys" />
+        <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex (2)" />
+        <item itemvalue="Go Test.Test_XuanShang in yys" />
+        <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex" />
+        <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/examples" />
+      <path value="$PROJECT_DIR$/examples/examples" />
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/env_windows_amd64_513" />
+      <path value="$PROJECT_DIR$/vendor" />
+    </ignored-roots>
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>https://goproxy.cn</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="504" y="230" key="#GOROOT" timestamp="1583463208721">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="504" y="230" key="#GOROOT/63.0.1857.1080@63.0.1857.1080" timestamp="1583463208721" />
+    <state x="445" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585370057540">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="445" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/63.0.1857.1080@63.0.1857.1080" timestamp="1585370057540" />
+    <state x="811" y="364" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585969789852">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="811" y="364" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1585969789852" />
+    <state x="812" y="364" key="#com.intellij.fileTypes.FileTypeChooser/63.0.1857.1080@63.0.1857.1080" timestamp="1585288561256" />
+    <state x="289" y="201" width="991" height="487" key="#com.intellij.tools.ToolEditorDialog" timestamp="1585289681814">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="289" y="201" width="991" height="487" key="#com.intellij.tools.ToolEditorDialog/63.0.1857.1080@63.0.1857.1080" timestamp="1585289681814" />
+    <state x="699" y="175" key="#go_build_FMainImpl.go" timestamp="1585622860601">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="699" y="175" key="#go_build_FMainImpl.go/63.0.1857.1080@63.0.1857.1080" timestamp="1585622860601" />
+    <state x="682" y="171" key="#go_build_int_3.go" timestamp="1583718387017">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="682" y="171" key="#go_build_int_3.go/63.0.1857.1080@63.0.1857.1080" timestamp="1583718387017" />
+    <state x="699" y="175" key="#go_build_main.go" timestamp="1583314671157">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="699" y="175" key="#go_build_main.go/63.0.1857.1080@63.0.1857.1080" timestamp="1583314671157" />
+    <state x="699" y="174" key="#go_build_yys" timestamp="1583810751205">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="699" y="174" key="#go_build_yys/63.0.1857.1080@63.0.1857.1080" timestamp="1583810751205" />
+    <state x="699" y="174" key="#go_build_yys_(1)" timestamp="1584088953800">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="699" y="174" key="#go_build_yys_(1)/63.0.1857.1080@63.0.1857.1080" timestamp="1584088953800" />
+    <state x="699" y="175" key="#go_build_yys_gui.go" timestamp="1584324494569">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="699" y="175" key="#go_build_yys_gui.go/63.0.1857.1080@63.0.1857.1080" timestamp="1584324494569" />
+    <state x="636" y="229" key="#go_build_yys_juexing_yuhun.go" timestamp="1584087449984">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="636" y="229" key="#go_build_yys_juexing_yuhun.go/63.0.1857.1080@63.0.1857.1080" timestamp="1584087449984" />
+    <state x="535" y="146" key="#go_build_yys_screenshot.go" timestamp="1584191194111">
+      <screen x="63" y="0" width="1377" height="900" />
+    </state>
+    <state x="535" y="146" key="#go_build_yys_screenshot.go/63.0.1377.900@63.0.1377.900" timestamp="1584191194111" />
+    <state x="699" y="175" key="#go_build_yys_screenshot.go/63.0.1857.1080@63.0.1857.1080" timestamp="1584178143060" />
+    <state x="591" y="121" width="1024" height="838" key="CommitChangelistDialog2" timestamp="1586180561665">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="591" y="121" width="1024" height="838" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1586180561665" />
+    <state width="727" height="466" key="DebuggerActiveHint" timestamp="1584175178039">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state width="727" height="466" key="DebuggerActiveHint/63.0.1857.1080@63.0.1857.1080" timestamp="1584175178039" />
+    <state x="691" y="326" key="FileChooserDialogImpl" timestamp="1586179470878">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="691" y="326" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1586179470878" />
+    <state x="692" y="326" key="FileChooserDialogImpl/63.0.1857.1080@63.0.1857.1080" timestamp="1585288379619" />
+    <state x="816" y="508" width="382" height="173" key="Github.CreateGistDialog" timestamp="1586173069393">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="816" y="508" width="382" height="173" key="Github.CreateGistDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586173069393" />
+    <state x="793" y="407" key="Github.CreatePullRequestDialog" timestamp="1586177423024">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="793" y="407" key="Github.CreatePullRequestDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586177423024" />
+    <state x="871" y="486" width="273" height="291" key="Github.ShareDialog" timestamp="1586180209903">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="871" y="486" width="273" height="291" key="Github.ShareDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586180209903" />
+    <state x="799" y="245" key="Github.UntrackedFilesDialog" timestamp="1586180214111">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="799" y="245" key="Github.UntrackedFilesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586180214111" />
+    <state width="906" height="314" key="GridCell.Tab.0.bottom" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.0.bottom/63.0.1377.900@63.0.1377.900" timestamp="1584191205040" />
+    <state width="1814" height="353" key="GridCell.Tab.0.bottom/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
+    <state width="906" height="314" key="GridCell.Tab.0.center" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.0.center/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
+    <state width="1814" height="353" key="GridCell.Tab.0.center/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
+    <state width="906" height="314" key="GridCell.Tab.0.left" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.0.left/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
+    <state width="1814" height="353" key="GridCell.Tab.0.left/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
+    <state width="906" height="314" key="GridCell.Tab.0.right" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.0.right/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
+    <state width="1814" height="353" key="GridCell.Tab.0.right/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
+    <state width="906" height="314" key="GridCell.Tab.1.bottom" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.1.bottom/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
+    <state width="1814" height="353" key="GridCell.Tab.1.bottom/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
+    <state width="906" height="314" key="GridCell.Tab.1.center" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.1.center/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
+    <state width="1814" height="353" key="GridCell.Tab.1.center/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
+    <state width="906" height="314" key="GridCell.Tab.1.left" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.1.left/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
+    <state width="1814" height="353" key="GridCell.Tab.1.left/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
+    <state width="906" height="314" key="GridCell.Tab.1.right" timestamp="1586183663417">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="906" height="314" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586183663417" />
+    <state width="1329" height="182" key="GridCell.Tab.1.right/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
+    <state width="1814" height="353" key="GridCell.Tab.1.right/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
+    <state x="298" y="116" width="998" height="708" key="SettingsEditor" timestamp="1586180581890">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="298" y="116" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1586180581890" />
+    <state x="299" y="116" width="998" height="708" key="SettingsEditor/63.0.1857.1080@63.0.1857.1080" timestamp="1585887614652" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1586177299030">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1586177299030" />
+    <state x="701" y="267" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1585405214230">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="701" y="267" key="com.goide.refactor.move.GoMoveDeclarationDialog/63.0.1857.1080@63.0.1857.1080" timestamp="1585405214229" />
+    <state x="783" y="457" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586178518148">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="783" y="457" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1858.1080@62.0.1858.1080" timestamp="1586178518148" />
+    <state x="668" y="139" width="647" height="801" key="find.popup" timestamp="1583394207336">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="668" y="139" width="647" height="801" key="find.popup/63.0.1857.1080@63.0.1857.1080" timestamp="1583394207336" />
+    <state x="804" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1585961290976">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="804" y="186" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1585961290976" />
+    <state x="805" y="186" key="search.everywhere.popup/63.0.1857.1080@63.0.1857.1080" timestamp="1583301643997" />
+    <state x="494" y="421" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1584259877808">
+      <screen x="63" y="0" width="1857" height="1080" />
+    </state>
+    <state x="494" y="421" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/63.0.1857.1080@63.0.1857.1080" timestamp="1584259877808" />
+  </component>
+</project>

@@ -1,0 +1,141 @@
+# .goreleaser.yml
+builds:
+  # 您可以将多个版本定义为Yaml列表
+  -
+    # ID of the build.
+    # Defaults to the project name.
+	#构建的ID。
+	#默认为项目名称。
+    id: "my-build"
+
+	#包含Go代码的项目（子）目录的路径。
+     #是Go build命令的工作目录。
+     #默认为`.`。
+    dir: go
+
+    # Path to main.go file or main package.
+    # Default is `.`.
+	＃main.go文件或主软件包的路径。
+    ＃默认为`.`。
+    main: ./cmd/main.go
+
+    # Binary name.
+    # Can be a path (e.g. `bin/app`) to wrap the binary in a directory.
+    # Default is the name of the project directory.
+	＃二进制名称。
+	＃可以是将二进制文件包装在目录中的路径（例如bin / app）。
+	＃默认为项目目录的名称。
+    binary: program
+
+    # Custom flags templates.
+    # Default is empty.
+	＃自定义标志模板。
+     ＃默认为空。
+    flags:
+      - -tags=dev
+      - -v
+
+    # Custom asmflags templates.
+    # Default is empty.
+	＃自定义asmflags模板。
+     ＃默认为空。
+    asmflags:
+      - -D mysymbol
+      - all=-trimpath={{.Env.GOPATH}}
+
+    # Custom gcflags templates.
+    # Default is empty.
+	＃自定义gcflags模板。
+     ＃默认为空。
+    gcflags:
+      - all=-trimpath={{.Env.GOPATH}}
+      - ./dontoptimizeme=-N
+
+    # Custom ldflags templates.
+    # Default is `-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser`.
+    ＃自定义ldflags模板。
+     ＃默认值为-s -w -X main.version = {{。Version}} -X main.commit = {{。Commit}} -X main.date = {{。Date}} -X main.builtBy = goreleaser`。
+	ldflags:
+     - -s -w -X main.build={{.Version}}
+     - ./usemsan=-msan
+
+    # Custom environment variables to be set during the builds.
+    # Default is empty.
+	＃在构建过程中设置的自定义环境变量。
+     ＃默认为空。
+    env:
+      - CGO_ENABLED=0
+
+    # GOOS list to build for.
+    # For more info refer to: https://golang.org/doc/install/source#environment
+    # Defaults are darwin and linux.
+	＃要构建的GOOS列表。
+     ＃有关更多信息，请参阅：https://golang.org/doc/install/source#environment
+     ＃默认值为darwin和linux。
+    goos:
+      - freebsd
+      - windows
+
+    # GOARCH to build for.
+    # For more info refer to: https://golang.org/doc/install/source#environment
+    # Defaults are 386 and amd64.
+	＃GOARCH为建立。
+     ＃有关更多信息，请参阅：https://golang.org/doc/install/source#environment
+     ＃默认值为386和amd64。
+    goarch:
+      - amd64
+      - arm
+      - arm64
+
+    # GOARM to build for when GOARCH is arm.
+    # For more info refer to: https://golang.org/doc/install/source#environment
+    # Default is only 6.
+	＃当GOARCH为手臂时要建立的GOARM。
+     ＃有关更多信息，请参阅：https://golang.org/doc/install/source#environment
+     ＃默认仅为6。
+    goarm:
+      - 6
+      - 7
+
+    # GOMIPS and GOMIPS64 to build when GOARCH is mips, mips64, mipsle or mips64le.
+    # For more info refer to: https://golang.org/doc/install/source#environment
+    # Default is empty.
+	＃当GOARCH为mips，mips64，mipsle或mips64le时，将构建GOMIPS和GOMIPS64。
+     ＃有关更多信息，请参阅：https://golang.org/doc/install/source#environment
+     ＃默认为空。
+    gomips:
+      - hardfloat
+      - softfloat
+
+    # List of combinations of GOOS + GOARCH + GOARM to ignore.
+    # Default is empty.
+	＃忽略的GOOS + GOARCH + GOARM组合列表。
+     ＃默认为空。
+    ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: linux
+        goarch: arm
+        goarm: 7
+      - goarm: mips64
+        gomips: hardfloat
+
+    # Hooks can be used to customize the final binary,
+    # for example, to run generators.
+    # Those fields allow templates.
+    # Default is both hooks empty.
+	＃钩子可用于自定义最终二进制文件，
+     ＃例如，运行发电机。
+     ＃这些字段允许模板。
+     ＃默认为两个钩都为空。
+    hooks:
+      pre: rice embed-go
+      post: ./script.sh
+
+    # If true, skip the build.
+    # Useful for library projects.
+    # Default is false
+	＃如果为true，则跳过构建。
+     ＃对于图书馆项目很有用。
+     ＃默认为false
+    skip: false
