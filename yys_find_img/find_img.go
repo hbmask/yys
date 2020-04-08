@@ -174,7 +174,7 @@ func (r *Result)Find_template(im_source gocv.Mat,im_search gocv.Mat,threshold fl
 	return results[0]
 }
 
-//im_source string, im_search string, threshold=0.5 float64, maxcnt=0 int, rgb=False bool, bgremove=False bool
+
 func (r *Result)Find_all_template(im_source gocv.Mat,im_search gocv.Mat,threshold float32)[]*Result {
 	//,threshold float64,maxcnt int, ,bgremove bool
 	//Locate image position with cv2.templateFind
@@ -288,10 +288,10 @@ func (r *Result)Find_all_template(im_source gocv.Mat,im_search gocv.Mat,threshol
 		gocv.FillPoly(&i_gray_img,pts,blue)
 		//template_rectangle := image.Pt(top_left.X,top_left.Y)
 		//gocv.Rectangle(&i_gray_img,image.Rectangle{template_rectangle,max_loc}, blue, 2)
-		win :=gocv.NewWindow("123")
-		win.ResizeWindow(1138, 640)
-		win.IMShow(i_gray_img)
-		gocv.WaitKey(0)
+		//win :=gocv.NewWindow("123")
+		//win.ResizeWindow(1138, 640)
+		//win.IMShow(i_gray_img)
+		//gocv.WaitKey(0)
 		//defer win.Close()
 	}
 
