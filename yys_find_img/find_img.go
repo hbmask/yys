@@ -291,7 +291,7 @@ func (r *Result)Find_all_template(im_source gocv.Mat,im_search gocv.Mat,threshol
 		//win :=gocv.NewWindow("123")
 		//win.ResizeWindow(1138, 640)
 		//win.IMShow(i_gray_img)
-		//gocv.WaitKey(0)
+		//gocv.WaitKey(1)
 		//defer win.Close()
 	}
 

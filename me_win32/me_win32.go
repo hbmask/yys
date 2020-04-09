@@ -39,6 +39,9 @@ func init() {
 	}
 }
 
+func MAKELPARAM(lo,hi uint16)uintptr{
+	return uintptr(win.MAKELONG(lo,hi))
+}
 func GetWindowText(hWnd win.HWND, lpString *uint16,maxCount int) uintptr {
 	ret, _, _ := syscall.Syscall(getWindowText.Addr(), 3,
 		uintptr(hWnd),
