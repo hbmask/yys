@@ -198,9 +198,7 @@ func (f *TFMain)mv_mouse_Range(x,y,xr,yr int,s string) {
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
 	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
-	//win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON ,tmp)//按下
-	//win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
 	time.Sleep(time.Millisecond*500)
 }

@@ -191,7 +191,7 @@ func (f *TFMain) XuanShang(){
 	r:=yys_find_img.Result{}
 	fp :=flagpiex.FLagPiex{}
 	if fp.FlagXuanShangDingWei(){
-		xuanshangdata:= []string{data.XuanShangTiLi,}
+		xuanshangdata:= []string{data.XuanShangTiLi,data.XuanShangGouYu}
 		rdata :=r.RecognitionsBuTongTuAn(xuanshangdata,0.9)
 		for i,_:=range rdata{
 			if rdata[i]!=nil{
