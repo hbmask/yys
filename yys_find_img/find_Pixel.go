@@ -34,7 +34,8 @@ func (r *Result)Find_Pixels(colorxy [][]int)bool{
 	for i,_ :=range colorxy{
 		colorPixel :=win.GetPixel(hdc,int32(colorxy[i][0]),int32(colorxy[i][1]))
 		c :=uint32(colorPixel)
-		if c != uint32(colorxy[i][2]) {
+		b :=uint32(colorxy[i][2])
+		if c != b {
 			return false
 		}
 		//r.ColorrfeToRGB(c)

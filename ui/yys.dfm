@@ -889,6 +889,7 @@ object FMain: TFMain
       Height = 21
       Caption = #32465#23450
       TabOrder = 1
+      OnClick = ButtonBangDingClick
     end
     object ButtonStop: TButton
       Left = 3
@@ -967,6 +968,7 @@ object FMain: TFMain
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
+      OnClick = ButtonYaoQiZhiXingClick
     end
   end
   object ListBoxLog: TListBox

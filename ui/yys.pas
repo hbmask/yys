@@ -45,6 +45,8 @@ type
     procedure ButtonStopClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure ButtonYaoQiZhiXingClick(Sender: TObject);
+    procedure ButtonBangDingClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,6 +59,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFMain.ButtonBangDingClick(Sender: TObject);
+begin
+//
+end;
 
 procedure TFMain.ButtonGouLiangZhiXingClick(Sender: TObject);
 begin
@@ -71,6 +78,11 @@ end;
 procedure TFMain.ButtonStopClick(Sender: TObject);
 begin
                     //
+end;
+
+procedure TFMain.ButtonYaoQiZhiXingClick(Sender: TObject);
+begin
+//
 end;
 
 procedure TFMain.ButtonYuhunZhixingClick(Sender: TObject);
