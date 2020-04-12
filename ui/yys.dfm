@@ -742,7 +742,7 @@ object FMain: TFMain
   object GroupBoxSeting: TGroupBox
     Left = 8
     Top = 55
-    Width = 164
+    Width = 168
     Height = 58
     Caption = #35774#32622
     TabOrder = 1
@@ -782,7 +782,7 @@ object FMain: TFMain
   object GroupBoxDianguai: TGroupBox
     Left = 8
     Top = 113
-    Width = 164
+    Width = 168
     Height = 40
     Caption = #28857#24618
     TabOrder = 2
@@ -806,15 +806,16 @@ object FMain: TFMain
   object GroupBoxGouliang: TGroupBox
     Left = 8
     Top = 196
-    Width = 164
-    Height = 34
+    Width = 168
+    Height = 37
     Caption = #29399#31918
     TabOrder = 3
     object ComboBoxGouLiang: TComboBox
       Left = 3
       Top = 13
-      Width = 73
+      Width = 95
       Height = 21
+      Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Text = '1'#32423'N'
@@ -826,9 +827,9 @@ object FMain: TFMain
         '20'#32423'N')
     end
     object ButtonGouLiangZhiXing: TButton
-      Left = 82
+      Left = 104
       Top = 13
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
@@ -838,16 +839,21 @@ object FMain: TFMain
   object GroupBoxYuhun: TGroupBox
     Left = 8
     Top = 152
-    Width = 164
+    Width = 168
     Height = 41
     Caption = #24481#39746#35273#37266#32452#38431
     TabOrder = 4
     object ComboBoxYuHun: TComboBox
       Left = 3
       Top = 17
-      Width = 73
+      Width = 95
       Height = 21
+      Cursor = crArrow
+      Style = csDropDownList
+      Color = clBtnFace
+      Ctl3D = True
       ItemIndex = 0
+      ParentCtl3D = False
       TabOrder = 0
       Text = #25171#25163
       Items.Strings = (
@@ -856,9 +862,9 @@ object FMain: TFMain
         #25151#20027#19977#20154#38431)
     end
     object ButtonYuhunZhixing: TButton
-      Left = 82
-      Top = 20
-      Width = 75
+      Left = 104
+      Top = 17
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
@@ -867,25 +873,26 @@ object FMain: TFMain
   end
   object GroupBoxDuokai: TGroupBox
     Left = 8
-    Top = 502
-    Width = 164
-    Height = 67
+    Top = 496
+    Width = 168
+    Height = 89
     Caption = #22810#24320#31383#21475#32465#23450
     TabOrder = 5
     object ComboBoxBangDing: TComboBox
       Left = 3
       Top = 14
-      Width = 73
+      Width = 95
       Height = 21
+      Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Items.Strings = (
         '')
     end
     object ButtonBangDing: TButton
-      Left = 82
+      Left = 104
       Top = 14
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #32465#23450
       TabOrder = 1
@@ -894,7 +901,7 @@ object FMain: TFMain
     object ButtonStop: TButton
       Left = 3
       Top = 34
-      Width = 154
+      Width = 162
       Height = 25
       Caption = #26242#20572'['#24555#25463#38190'->HOME]'
       TabOrder = 2
@@ -904,15 +911,16 @@ object FMain: TFMain
   object GroupBoxQita: TGroupBox
     Left = 8
     Top = 231
-    Width = 164
+    Width = 168
     Height = 42
     Caption = #20854#20182
     TabOrder = 6
     object ComboBoxQiTa: TComboBox
       Left = 3
       Top = 18
-      Width = 73
+      Width = 95
       Height = 21
+      Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Text = #32467#30028#31361#30772
@@ -926,9 +934,9 @@ object FMain: TFMain
         #21484#21796#21397#32440)
     end
     object ButtonQiTaZhiXing: TButton
-      Left = 82
+      Left = 104
       Top = 18
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
@@ -938,15 +946,16 @@ object FMain: TFMain
   object GroupBoxYaoqi: TGroupBox
     Left = 8
     Top = 276
-    Width = 164
+    Width = 168
     Height = 42
     Caption = #26377#22934#27668
     TabOrder = 7
     object ComboBoxYaoQi: TComboBox
       Left = 3
       Top = 18
-      Width = 73
+      Width = 95
       Height = 21
+      Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Text = #26085#21644#22346
@@ -962,9 +971,9 @@ object FMain: TFMain
         #36339#36339#21733#21733)
     end
     object ButtonYaoQiZhiXing: TButton
-      Left = 82
+      Left = 104
       Top = 18
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1

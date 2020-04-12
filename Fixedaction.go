@@ -54,7 +54,7 @@ func (f *TFMain) DianJiDaJiuMa(){
 	if f.CheckBoxDaJiuMa.Checked(){
 		YuHunDaianJiDaJiuMa_click:=r.Recognition(data.YuHunDaianJiDaJiuMa_click,0.9)
 		if YuHunDaianJiDaJiuMa_click!=nil {
-			f.Dj_click_imgpy(YuHunDaianJiDaJiuMa_click,40,100,"标记->大舅妈")
+			f.Dj_click_imgpy(YuHunDaianJiDaJiuMa_click,1,100,"标记->大舅妈")
 			f.ClickDaJiuMaFlag =true//点击成功
 			time.Sleep(time.Second)
 		}
@@ -80,7 +80,7 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 				f.DJ_Click_Range(317,489,600,61,"觉醒开启状态")
 				return
 			}
-			if fp.FlagJueXingBUffGold(){
+			if fp.FlagJueXingBUffRead(){
 				f.DJ_Click_Range(700,139,20,6,"启用开觉醒buff")
 				f.JuXingBuffFlag =true
 				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")
@@ -98,14 +98,16 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 			f.Dj_click(JiaCeng,"打开加层界面")
 			time.Sleep(time.Millisecond*500)
 			if fp.FlagYuHunBuffGold(){
+				//f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
 				f.YuHunBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
+				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")
 				return
 			}
 			if fp.FlagYuHunBuffRed(){
 				f.DJ_Click_Range(701,199,20,6,"打开御魂buff")
 				f.YuHunBuffFlag =true
 				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")
+				return
 			}
 		}
 	}
@@ -145,11 +147,6 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 				f.Stops()
 				return
 			}
-			//if fp.FlagYuHunBuffRed(){
-			//    action.DJ_Click_Range(701,199,20,6)
-			//    f.YuHunBuffFlag =true
-			//    action.DJ_Click_Range(317,489,600,61)
-			//}
 		}
 	}
 }
@@ -193,13 +190,23 @@ func (f *TFMain) XuanShang(){
 	if fp.FlagXuanShangDingWei(){
 		xuanshangdata:= []string{data.XuanShangTiLi,data.XuanShangGouYu}
 		rdata :=r.RecognitionsBuTongTuAn(xuanshangdata,0.9)
-		for i,_:=range rdata{
-			if rdata[i]!=nil{
-				f.DJ_Click_Range(821,368,30,12,"接受悬赏")
-			}else {
-				f.DJ_Click_Range(820,455,30,12,"拒绝悬赏")
-			}
+		if len(rdata)==0{
+			f.DJ_Click_Range(820,455,30,12,"拒绝悬赏")
+			return
+		}else {
+			f.DJ_Click_Range(821,368,30,12,"接受悬赏")
+			return
 		}
+		//for i,_:=range rdata{
+		//	if rdata[i]!=nil{
+		//		f.DJ_Click_Range(821,368,30,12,"接受悬赏")
+		//		break
+		//	}else {
+		//		f.DJ_Click_Range(820,455,30,12,"拒绝悬赏")
+		//		break
+		//	}
+		//}
+
 
 	}
 }

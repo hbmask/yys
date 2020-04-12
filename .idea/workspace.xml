@@ -2,20 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06effa9-5d83-4b69-8548-15d710e97204" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/XuanShangGouYu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libgcc_s_seh-1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_calib3d420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_core420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_dnn420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_features2d420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_flann420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_highgui420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_imgcodecs420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_imgproc420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_objdetect420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_video420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_videoio420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libopencv_videostab420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libstdc++-6.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libvclx64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/libwinpthread-1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/yys.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flagpiex/1586662432842969100.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FMainImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/FMainImpl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fixedaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/Fixedaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/imgtobase64.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/imgtobase64.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/checksums.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libgcc_s_seh-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_calib3d420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_core420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_dnn420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_features2d420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_flann420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_highgui420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_imgcodecs420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_imgproc420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_objdetect420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_video420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_videoio420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libopencv_videostab420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libstdc++-6.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libvclx64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/libwinpthread-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/windows-build_windows_amd64/yys.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libgcc_s_seh-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_calib3d420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_core420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_dnn420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_features2d420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_flann420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_highgui420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_imgcodecs420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_imgproc420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_objdetect420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_video420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_videoio420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libopencv_videostab420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libstdc++-6.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libwinpthread-1.dll" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mouseaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/mouseaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yys.exe" beforeDir="false" afterPath="$PROJECT_DIR$/yys.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/Win32/Debug/Project1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Win32/Debug/Project1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/Win32/Debug/yys.dcu" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Win32/Debug/yys.dcu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/yys.dfm" beforeDir="false" afterPath="$PROJECT_DIR$/ui/yys.dfm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yys.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="yys" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -38,13 +89,6 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="D:\go_work\yys\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
@@ -57,7 +101,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -82,19 +125,19 @@
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\go_work\yys\ocr" />
-      <recent name="D:\go_work\yys\img" />
-      <recent name="D:\go_work\yys\uigen" />
-      <recent name="D:\go_work\yys\walk_demo" />
-      <recent name="D:\go_work\yys\data" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\go_work\yys\ocr" />
       <recent name="D:\go_work\yys\ui" />
       <recent name="D:\go_work\yys\vendor\github.com\therecipe\qt" />
       <recent name="D:\go_work\yys" />
       <recent name="D:\go_work\yys\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\go_work\yys\ocr" />
+      <recent name="D:\go_work\yys\img" />
+      <recent name="D:\go_work\yys\uigen" />
+      <recent name="D:\go_work\yys\walk_demo" />
+      <recent name="D:\go_work\yys\data" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build yys">
@@ -115,6 +158,17 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="yys" />
       <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_JieTuCaptureRect in yys/flagpiex (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="YYS" />
+      <working_directory value="$PROJECT_DIR$/flagpiex" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="yys/flagpiex" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_JieTuCaptureRect$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_JieTuCaptureRect in yys/flagpiex (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -150,17 +204,6 @@
       <pattern value="^Test_find_Pixel$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_find_Pixel in yys/flagpiex" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="YYS" />
-      <working_directory value="$PROJECT_DIR$/flagpiex" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="yys/flagpiex" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^Test_find_Pixel$" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="YYS" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -174,48 +217,35 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build yys" />
-      <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex" />
       <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex" />
       <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex (1)" />
       <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex (2)" />
+      <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build yys" />
+        <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex (1)" />
         <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex (1)" />
         <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex (2)" />
         <item itemvalue="Go Test.Test_JieTuCaptureRect in yys/flagpiex" />
-        <item itemvalue="Go Test.Test_find_Pixel in yys/flagpiex" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -230,6 +260,11 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.cn" />
+      </map>
+    </environment>
     <proxy>https://goproxy.cn</proxy>
   </component>
   <component name="WindowStateProjectService">
@@ -247,6 +282,10 @@
     </state>
     <state x="811" y="364" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1585969789852" />
     <state x="812" y="364" key="#com.intellij.fileTypes.FileTypeChooser/63.0.1857.1080@63.0.1857.1080" timestamp="1585288561256" />
+    <state x="671" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586672690102">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="671" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586672690102" />
     <state x="289" y="201" width="991" height="487" key="#com.intellij.tools.ToolEditorDialog" timestamp="1585289681814">
       <screen x="63" y="0" width="1857" height="1080" />
     </state>
@@ -313,52 +352,52 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="799" y="245" key="Github.UntrackedFilesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586180214111" />
-    <state width="968" height="335" key="GridCell.Tab.0.bottom" timestamp="1586586041038">
+    <state width="902" height="353" key="GridCell.Tab.0.bottom" timestamp="1586675914779">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="968" height="335" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041038" />
+    <state width="902" height="353" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914779" />
     <state width="1329" height="182" key="GridCell.Tab.0.bottom/63.0.1377.900@63.0.1377.900" timestamp="1584191205040" />
     <state width="1814" height="353" key="GridCell.Tab.0.bottom/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
-    <state width="968" height="335" key="GridCell.Tab.0.center" timestamp="1586586041038">
+    <state width="902" height="353" key="GridCell.Tab.0.center" timestamp="1586675914779">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="968" height="335" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041038" />
+    <state width="902" height="353" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914779" />
     <state width="1329" height="182" key="GridCell.Tab.0.center/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
     <state width="1814" height="353" key="GridCell.Tab.0.center/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
-    <state width="968" height="335" key="GridCell.Tab.0.left" timestamp="1586586041038">
+    <state width="902" height="353" key="GridCell.Tab.0.left" timestamp="1586675914778">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="968" height="335" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041038" />
+    <state width="902" height="353" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914778" />
     <state width="1329" height="182" key="GridCell.Tab.0.left/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
     <state width="1814" height="353" key="GridCell.Tab.0.left/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
-    <state width="968" height="335" key="GridCell.Tab.0.right" timestamp="1586586041038">
+    <state width="902" height="353" key="GridCell.Tab.0.right" timestamp="1586675914779">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="968" height="335" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041038" />
+    <state width="902" height="353" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914779" />
     <state width="1329" height="182" key="GridCell.Tab.0.right/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
     <state width="1814" height="353" key="GridCell.Tab.0.right/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
-    <state width="902" height="353" key="GridCell.Tab.1.bottom" timestamp="1586586041033">
+    <state width="902" height="353" key="GridCell.Tab.1.bottom" timestamp="1586675914646">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="902" height="353" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041033" />
+    <state width="902" height="353" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914646" />
     <state width="1329" height="182" key="GridCell.Tab.1.bottom/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.bottom/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
-    <state width="902" height="353" key="GridCell.Tab.1.center" timestamp="1586586041033">
+    <state width="902" height="353" key="GridCell.Tab.1.center" timestamp="1586675914646">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="902" height="353" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041033" />
+    <state width="902" height="353" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914646" />
     <state width="1329" height="182" key="GridCell.Tab.1.center/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.center/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
-    <state width="902" height="353" key="GridCell.Tab.1.left" timestamp="1586586041033">
+    <state width="902" height="353" key="GridCell.Tab.1.left" timestamp="1586675914646">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="902" height="353" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041033" />
+    <state width="902" height="353" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914646" />
     <state width="1329" height="182" key="GridCell.Tab.1.left/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.left/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
-    <state width="902" height="353" key="GridCell.Tab.1.right" timestamp="1586586041033">
+    <state width="902" height="353" key="GridCell.Tab.1.right" timestamp="1586675914646">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="902" height="353" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586586041033" />
+    <state width="902" height="353" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586675914646" />
     <state width="1329" height="182" key="GridCell.Tab.1.right/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.right/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
     <state x="298" y="116" width="998" height="708" key="SettingsEditor" timestamp="1586323985191">
