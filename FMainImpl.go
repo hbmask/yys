@@ -63,8 +63,8 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
     r := yys_find_img.Result{}
     fp :=flagpiex.FLagPiex{}
     //fmt.Println(f.ComboBoxYuhun.Text(), f.ComboBoxYuhun.ItemIndex())
-    switch{
-    case f.ComboBoxYuHun.ItemIndex() ==0:
+    switch f.ComboBoxYuHun.ItemIndex(){
+    case 0:
         f.Zhuangtai_3()
         fmt.Println("打手 0")
         go func() {
@@ -115,7 +115,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     time.Sleep(time.Millisecond*100)
                 }
                 //在庭院,探索,房间
-               if fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian()||f.OffNumGame==0{
+               if f.OffNumGame==0||fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
                   if fp.FlagYuHunZuDuiYaoQingChiLun(){ //被邀请进组选择齿轮
                       f.DJ_Click_Range(198,212,30,30,"从此轮进组")
                       time.Sleep(time.Millisecond*200)
@@ -147,7 +147,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                time.Sleep(time.Millisecond*100)
             }
         }()
-    case f.ComboBoxYuHun.ItemIndex() ==1:
+    case 1:
         f.Zhuangtai_all()
         fmt.Println("房主两人队 1")
         go func() {
@@ -198,6 +198,9 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1
                     fmt.Println(f.OffBuff)
+                    if f.OffNumGame==0{
+                        continue
+                    }
                 }
                 //在不在房间
                 if fp.FlagYuHunJueXingFangJian(){
@@ -217,7 +220,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 time.Sleep(time.Millisecond*100)
             }
         }()
-    case f.ComboBoxYuHun.ItemIndex() ==2:
+    case 2:
         f.Zhuangtai_all()
         fmt.Println("房主三人队 2")
         go func() {
@@ -268,6 +271,9 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1
                     fmt.Println(f.OffBuff)
+                    if f.OffNumGame==0{
+                        continue
+                    }
                 }
                 //在不在房间
                 if fp.FlagYuHunJueXingFangJian(){
@@ -318,8 +324,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                     if GouLiangQuanBu_Click!=nil{
                        f.Dj_click(GouLiangQuanBu_Click,"全部")
                        time.Sleep(time.Millisecond*500)
-                       switch {
-                       case f.ComboBoxGouLiang.ItemIndex() == 0: //1级N
+                       switch f.ComboBoxGouLiang.ItemIndex() {
+                       case 0: //1级N
                            GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
                            if GouLiangNKa_Click!=nil{
                                f.Dj_click(GouLiangNKa_Click,"选择->N")
@@ -342,7 +348,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                                    }
                                }
                            }
-                       case f.ComboBoxGouLiang.ItemIndex() == 1: //1级白
+                       case 1: //1级白
                            GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
                            if GouLiangSuCai_Click!=nil {
                                f.Dj_click(GouLiangSuCai_Click, "选择->素材")
@@ -360,7 +366,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                                    }
 
                            }
-                       case f.ComboBoxGouLiang.ItemIndex() == 2: //1级红
+                       case 2: //1级红
                            GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
                            if GouLiangSuCai_Click !=nil{
                                f.Dj_click(GouLiangSuCai_Click,"选择->素材")
@@ -379,14 +385,14 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
 
 
                            }
-                       case f.ComboBoxGouLiang.ItemIndex() == 3: //20级白
+                       case 3: //20级白
                            GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
                            f.Dj_click(GouLiangSuCai_Click,"选择->素材")
                            time.Sleep(time.Second*1)
                            if GouLiangSuCai_Click!=nil{
 
                            }
-                       case f.ComboBoxGouLiang.ItemIndex() == 4: //20级N
+                       case 4: //20级N
                            GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
                            f.Dj_click(GouLiangNKa_Click,"选择->N")
                            time.Sleep(time.Second*1)
@@ -455,9 +461,9 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
        {690,350,11715794},
        {990,350,11912916},
    }
-    switch{
+    switch f.ComboBoxQiTa.ItemIndex() {
     //结界突破 0
-    case f.ComboBoxQiTa.ItemIndex() ==0:
+    case 0:
         f.Zhuangtai_3()
 
         fmt.Println("结界突破 0")
@@ -541,7 +547,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
             }
         }()
     //业原火痴 1
-    case f.ComboBoxQiTa.ItemIndex() ==1:
+    case 1:
         f.Zhuangtai_3()
         fp:=flagpiex.FLagPiex{}
         fmt.Println("业原火痴 1")
@@ -601,12 +607,12 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
             }
         }()
     //自动斗技 2
-    case f.ComboBoxQiTa.ItemIndex() ==2:
+    case 2:
         f.Zhuangtai_all()
         fmt.Println("自动斗技 2")
         f.XuanShang()
     //自动御灵 3
-    case f.ComboBoxQiTa.ItemIndex() ==3:
+    case 3:
         f.Zhuangtai_3()
         fmt.Println("自动御灵 3")
         go func() {
@@ -646,7 +652,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 }
             }()
     //寮突破 4
-    case f.ComboBoxQiTa.ItemIndex() ==4:
+    case 4:
         f.Zhuangtai_3()
         fmt.Println("寮突破 4")
         go func() {
@@ -702,11 +708,11 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
             }
         }()
     //全自动挂机5
-    case f.ComboBoxQiTa.ItemIndex() ==5:
+    case 5:
         f.Zhuangtai_all()
         fmt.Println("全自动 5")
     //召唤厕纸6
-    case f.ComboBoxQiTa.ItemIndex() ==6:
+    case 6:
         f.Zhuangtai_all()
         fmt.Println("召唤厕纸 6")
         go func() {
@@ -727,6 +733,39 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     //time.Sleep(time.Second*1)
                 }
 
+            }
+        }()
+    //竞速秘闻挑战
+    case 7:
+        f.Zhuangtai_3()
+
+        fmt.Println("竞速秘闻挑战 7")
+        go func() {
+
+            f.StopFlag=true
+            for{
+                if f.StopFlag==false {
+                    break
+                }
+                f.XuanShang()
+                //战斗准备界面
+                if fp.FlagZhanDouJieMianZhunBei(){
+                    //自动上锁
+                    f.ZhanDouZhunBei()
+                    time.Sleep(time.Millisecond*500)
+                }
+                //战斗界面
+                if fp.FlagZhanDouJieMian(){
+                    time.Sleep(time.Millisecond*100)
+                    continue
+                }
+                //竞速秘闻挑战
+                if fp.FlagJingSuMiWenTiaoZhan(){
+                   f.DJ_Click_Range(990,481,60,60,"竞速秘闻->挑战")
+                   time.Sleep(time.Millisecond*100)
+                }
+                //战斗退出
+                f.ZhanDouTuiChu()
             }
         }()
     }
@@ -779,9 +818,9 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         time.Sleep(time.Millisecond*500)
                         continue
                     }
-                    switch{
+                    switch f.ComboBoxYaoQi.ItemIndex() {
                     //日和坊
-                    case f.ComboBoxYaoQi.ItemIndex() ==0:
+                    case 0:
                         YaoQiRiHeFang_Click :=r.Recognition(data.YaoQiRiHeFang_Click,0.9)
                         if YaoQiRiHeFang_Click!=nil{
                             f.Dj_click(YaoQiRiHeFang_Click,"选择日和坊")
@@ -792,7 +831,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             f.mv_mouse_Range(433,267,1,-300,"")
                         }
                     //鬼使黑
-                    case f.ComboBoxYaoQi.ItemIndex() ==1:
+                    case 1:
                         YaoQiGuiShiHei_Click :=r.Recognition(data.YaoQiGuiShiHei_Click,0.9)
                         if YaoQiGuiShiHei_Click!=nil{
                             f.Dj_click(YaoQiGuiShiHei_Click,"选择鬼使黑")
@@ -803,7 +842,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             f.mv_mouse_Range(433,267,1,-300,"")
                         }
                     //淑图
-                    case f.ComboBoxYaoQi.ItemIndex() ==2:
+                    case 2:
                         YaoQiShuTu_Click :=r.Recognition(data.YaoQiShuTu_Click,0.9)
                         if YaoQiShuTu_Click!=nil{
                             f.Dj_click(YaoQiShuTu_Click,"选择淑图")
@@ -815,7 +854,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*200)
                         }
                     //小松丸
-                    case f.ComboBoxYaoQi.ItemIndex() ==3:
+                    case 3:
                         YaoQiXiaoSongWan_Click :=r.Recognition(data.YaoQiXiaoSongWan_Click,0.9)
                         if YaoQiXiaoSongWan_Click!=nil{
                             f.Dj_click(YaoQiXiaoSongWan_Click,"选择小松丸")
@@ -827,7 +866,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*200)
                         }
                     //二口女
-                    case f.ComboBoxYaoQi.ItemIndex() ==4:
+                    case 4:
                         YaoQiErKouNv_Click :=r.Recognition(data.YaoQiErKouNv_Click,0.9)
                         if YaoQiErKouNv_Click!=nil{
                             f.Dj_click(YaoQiErKouNv_Click,"选择二口女")
@@ -839,7 +878,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*200)
                         }
                     //骨女
-                    case f.ComboBoxYaoQi.ItemIndex() ==5:
+                    case 5:
                         YaoQiGuNv_Click :=r.Recognition(data.YaoQiGuNv_Click,0.9)
                         if YaoQiGuNv_Click!=nil{
                             f.Dj_click(YaoQiGuNv_Click,"选择骨女")
@@ -851,7 +890,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*200)
                         }
                     //饿鬼
-                    case f.ComboBoxYaoQi.ItemIndex() ==6:
+                    case 6:
                         YaoQiEGui_Click :=r.Recognition(data.YaoQiEGui_Click,0.9)
                         if YaoQiEGui_Click!=nil{
                             f.Dj_click(YaoQiEGui_Click,"选择饿鬼")
@@ -863,7 +902,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*200)
                         }
                     //海坊主
-                    case f.ComboBoxYaoQi.ItemIndex() ==7:
+                    case 7:
                         YaoQiHaiFangZhu_Click :=r.Recognition(data.YaoQiHaiFangZhu_Click,0.9)
                         if YaoQiHaiFangZhu_Click!=nil{
                             f.Dj_click(YaoQiHaiFangZhu_Click,"选择海坊主")
@@ -875,7 +914,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*200)
                         }
                     //跳跳哥哥
-                    case f.ComboBoxYaoQi.ItemIndex() ==8:
+                    case 8:
                         YaoQiTiaoTiaoGeGe_Click :=r.Recognition(data.YaoQiTiaoTiaoGeGe_Click,0.9)
                         if YaoQiTiaoTiaoGeGe_Click!=nil{
                             f.Dj_click(YaoQiTiaoTiaoGeGe_Click,"选择跳跳哥")
@@ -929,6 +968,7 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     hd :=strconv.Itoa(int(hwnd))
     if hd=="0"{
         fmt.Println("游戏没有启动....")
+        f.YYSLos("游戏没有启动....")
     }
     f.YYSLos("获取更新请加入")
     f.YYSLos("Q群:646105028")
@@ -938,6 +978,7 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     f.CheckBoxCaoRen.SetEnabled(false)
     f.ButtonBangDing.SetEnabled(false)
     f.ButtonBangDing.SetTextBuf("没做")
+    f.SetCaption("随机")
     if time.Now().Year()!=2020&&int(time.Now().Month())<6{
        f.Close()
     }

@@ -483,3 +483,31 @@ func (f FLagPiex)FlagYaoQiFengYinPaiDui()bool{
 	xyp:=[][]int{{354,35,1917532},{361,46,1851223},}
 	return r.Find_Pixels(xyp)
 }
+
+//{990,481,12111066},
+//218 204 184 0
+//{990,541,10408688},
+//240 210 158 0
+//{1054,541,10473454},
+//238 207 159 0
+//{1054,484,12114411},
+//235 217 184 0
+//竞速秘闻挑战
+func (f FLagPiex)FlagJingSuMiWenTiaoZhan()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{990,481,12111066},{990,541,10408688},{1054,541,10473454},{1054,484,12114411},}
+	return r.Find_Pixels(xyp)
+}
+
+//{432,64,1121155},
+//131 27 17 0
+//{406,101,1186973},
+//157 28 18 0
+//{455,104,1121186},
+//162 27 17 0
+//竞速秘闻胜利退出
+func (f FLagPiex)FlagJingSuMiWenShengLiTuiChu()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{432,64,1121155},{406,101,1186973},{455,104,1121186},}
+	return r.Find_Pixels(xyp)
+}

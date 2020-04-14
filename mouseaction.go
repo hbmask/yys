@@ -43,14 +43,14 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
 	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
-	time.Sleep(time.Millisecond*100)
+	time.Sleep(time.Duration(rand.Intn(100)+30))
 	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	//fmt.Println("鼠标最后移动松开的位置",int32(mvx)+pt.X,int32(mvy)+pt.Y)
 
 	//time.Sleep(time.Millisecond*500)
 	f.YYSLos(s)
-	time.Sleep(time.Millisecond*500)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))
 
 }
 //常用图像匹配点击
@@ -70,7 +70,7 @@ func (f *TFMain)Dj_click(r *yys_find_img.Result,s string) {
 	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	//win.SetCursorPos(int32(x),int32(y))
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*200)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(100)+200))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
 
@@ -95,7 +95,7 @@ func (f *TFMain)Dj_click_imgpy(r *yys_find_img.Result,xw ,yh int,s string) {
 	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	//win.SetCursorPos(int32(x),int32(y))
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*200)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(100)+150))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
 }
@@ -124,7 +124,7 @@ func (f *TFMain)Dj_clicks(r []*yys_find_img.Result,s string) {
 		//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 		//win.SetCursorPos(int32(x),int32(y))
 		win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-		time.Sleep(time.Millisecond*200)
+		time.Sleep(time.Millisecond*time.Duration(rand.Intn(100)+150))
 		win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	}
 	f.YYSLos(s)
@@ -142,7 +142,7 @@ func (f *TFMain)DJ_Click_TuiChu() {
 	tmp :=me_win32.MAKELPARAM(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
 	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*200)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(70)+150))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	//f.YYSLos("<退出战斗>")
 }
@@ -159,7 +159,7 @@ func (f *TFMain)DJ_Click_Range(x,y,xr,yr int,s string) {
 	tmp :=me_win32.MAKELPARAM(uint16(cx),uint16(cy))//将两个16位的数联合成一个无符号的32位数
 	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*100)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+100))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
 }
@@ -176,13 +176,13 @@ func (f *TFMain)SJ_Click_Range(x,y,xr,yr int,s string) {
 	tmp :=me_win32.MAKELPARAM(cx,cy)
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,tmp)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*100)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+50))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*100)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+50))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
-	time.Sleep(time.Millisecond*500)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))
 }
 
 
@@ -205,5 +205,5 @@ func (f *TFMain)mv_mouse_Range(x,y,xr,yr int,s string) {
 	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON ,tmp)//按下
 	f.YYSLos(s)
-	time.Sleep(time.Millisecond*500)
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))
 }

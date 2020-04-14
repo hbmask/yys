@@ -228,13 +228,13 @@ func (f *TFMain) ZhanDouZhunBei(){
 func (f *TFMain) ZhanDouTuiChu(){
 	r:=yys_find_img.Result{}
 	fp:=flagpiex.FLagPiex{}
-	if fp.FlagShengLi(){
+	if fp.FlagShengLi()||fp.FlagJingSuMiWenShengLiTuiChu(){
 		f.DJ_Click_TuiChu()
+		f.YYSLos("退出战斗")
 		f.ClickDaJiuMaFlag =false//战斗退出重置
 		f.ClickDaoCaoRenFlag =false//战斗退出重置
 		f.FlagNum=false//计数判定
 		//time.Sleep(time.Millisecond*500)
-		f.YYSLos("退出战斗")
 		return
 	}
 	if fp.FlagShengLiBaoXiang(){
