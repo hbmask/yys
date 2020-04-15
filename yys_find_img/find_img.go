@@ -7,7 +7,7 @@ import (
 	"gocv.io/x/gocv"
 	"image"
 	"image/color"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 	"yys/yys_screenshot"
 )
 //func main() {
@@ -59,7 +59,7 @@ func (r *Result)Imrad(filename string)gocv.Mat{
 //同时匹配多个不同的图案并返回结果集
 func (r *Result)RecognitionsBuTongTuAn(im_searchs []string,threshold float32)[]*Result {
 	hs :=yys_screenshot.Yys_windows_screenshot{}
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	imgMatsearch :=[]gocv.Mat{}
 	for i:=0; i<len(im_searchs);i++{
 		imgdata,_ :=base64.StdEncoding.DecodeString(im_searchs[i])//解码 得到一个image byte切片
@@ -89,7 +89,7 @@ func (r *Result)RecognitionsBuTongTuAn(im_searchs []string,threshold float32)[]*
 //返回多个相同图像集
 func (r *Result)Recognitions(im_searchs string,threshold float32)[]*Result {
 	hs :=yys_screenshot.Yys_windows_screenshot{}
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	//hd :=Hwnd.YYSHWND{}
 	//hwnd :=hd.YYSHWND
 	//rt :=win.RECT{}
@@ -123,7 +123,7 @@ func (r *Result)Recognitions(im_searchs string,threshold float32)[]*Result {
 
 //识别图像
 func (r *Result)Recognition(im_searchs string,threshold float32) *Result {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	hs :=yys_screenshot.Yys_windows_screenshot{}
 	//hwnd :=hd.Get_yys_hwnd()
 	//hd :=Hwnd.YYSHWND{}

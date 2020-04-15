@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"testing"
 	"time"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 	"yys/yys_find_img"
 	"yys/yys_screenshot"
 )
@@ -37,7 +37,7 @@ func Test_JieTuCaptureRect(T *testing.T){
 	colorxy:=[][]int{{432,64},{406,101},{455,104},}
 	//r.Find_Pixel(xyp)
 
-	hwnd :=GetYYShwnd.YYSHWND{}
+	hwnd := getyyshwnd.YYSHWND{}
 	hdc :=win.GetDC(hwnd.Get_yys_hwnd())
 	defer win.DeleteDC(hdc)
 	for i,_ :=range colorxy{

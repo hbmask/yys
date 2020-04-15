@@ -1,4 +1,4 @@
-package GetYYShwnd
+package getyyshwnd
 
 import (
 	"expvar"

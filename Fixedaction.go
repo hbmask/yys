@@ -22,6 +22,7 @@ func (f *TFMain) ShiShiCiShu()int{
 
 //御魂觉醒次数打满退出
 func (f *TFMain) YuHunJueXingShiShiCiShu()int{
+	//副本执行次数
 	zhixing_num,_ :=strconv.Atoi(f.EditCiShu.Text())
 	for i:=0;i<zhixing_num;i++{
 		zhixing_num=zhixing_num-1
@@ -234,30 +235,34 @@ func (f *TFMain) ZhanDouTuiChu(){
 		f.ClickDaJiuMaFlag =false//战斗退出重置
 		f.ClickDaoCaoRenFlag =false//战斗退出重置
 		f.FlagNum=false//计数判定
+		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		//time.Sleep(time.Millisecond*500)
 		return
 	}
-	if fp.FlagShengLiBaoXiang(){
+	if fp.FlagShengLiBaoXiang(){//通用胜利宝箱
 		f.DJ_Click_TuiChu()
 		f.ClickDaJiuMaFlag =false//战斗退出重置
 		f.ClickDaoCaoRenFlag =false//战斗退出重置
 		f.FlagNum=false//计数判定
+		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		//time.Sleep(time.Millisecond*500)
 		return
 	}
-	if fp.FlagTuiChuTanChiGui(){
+	if fp.FlagTuiChuTanChiGui(){//御魂退出贪吃鬼标记
 		f.DJ_Click_TuiChu()
 		f.ClickDaJiuMaFlag =false//战斗退出重置
 		f.ClickDaoCaoRenFlag =false//战斗退出重置
 		f.FlagNum=false//计数判定
+		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		//time.Sleep(time.Millisecond*500)
 		return
 	}
-	if fp.FlagShiBai(){
+	if fp.FlagShiBai(){//通用失败
 		//失败->点击鼓面
 		End_shibai_gu_click:=r.Recognition(data.End_shibai_gu_click,0.89)
 		if End_shibai_gu_click!=nil {
 			f.Dj_click(End_shibai_gu_click,"太丢人了")
+			f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 			time.Sleep(time.Millisecond*500)
 			return
 		}
@@ -265,6 +270,7 @@ func (f *TFMain) ZhanDouTuiChu(){
 		End_shibai_sidian_click:=r.Recognition(data.End_shibai_sidian_click,0.89)
 		if End_shibai_sidian_click!=nil {
 			f.Dj_click(End_shibai_sidian_click,"真的丢人")
+			f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 			time.Sleep(time.Millisecond*500)
 			return
 		}
@@ -272,6 +278,7 @@ func (f *TFMain) ZhanDouTuiChu(){
 		End_shibai_ziji_click:=r.Recognition(data.End_shibai_ziji_click,0.89)
 		if End_shibai_ziji_click!=nil {
 			f.Dj_click(End_shibai_ziji_click,"真丢人")
+			f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 			time.Sleep(time.Millisecond*500)
 			return
 		}
@@ -281,6 +288,7 @@ func (f *TFMain) ZhanDouTuiChu(){
 	if End_dianjituan_click!=nil {
 		f.DJ_Click_TuiChu()
 		time.Sleep(time.Millisecond*500)
+		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		return
 	}
 	//胜利->点击屏幕
@@ -288,6 +296,7 @@ func (f *TFMain) ZhanDouTuiChu(){
 	if End_dianjipingmu_click!=nil {
 		f.DJ_Click_TuiChu()
 		time.Sleep(time.Millisecond*500)
+		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		return
 	}
 }

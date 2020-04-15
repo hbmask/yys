@@ -3,12 +3,12 @@ package yys_find_img
 import (
 	"fmt"
 	"github.com/lxn/win"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 )
 
 func (r *Result)Find_Pixel(colorxy [][]int){
 	//hd :=yys_screenshot.Yys_windows_screenshot{}
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	hdc :=win.GetDC(hwnd)
 	defer win.DeleteDC(hdc)
 	for i,_ :=range colorxy{
@@ -28,7 +28,7 @@ func (r *Result)Find_Pixels(colorxy [][]int)bool{
 	//hd :=yys_screenshot.Yys_windows_screenshot{}
 	//hwnd :=hd.Get_yys_hwnd()
 	//hd :=Hwnd.YYSHWND{}
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	hdc :=win.GetDC(hwnd)
 	defer win.DeleteDC(hdc)
 	for i,_ :=range colorxy{
@@ -47,7 +47,7 @@ func (r *Result)Find_Pixels(colorxy [][]int)bool{
 //减少系统开销,特殊特定场景下 使用 像素取色代替
 func (r *Result)Find_Pixels_jjtp9num(x,y,colorrfe int)bool{
 	//hd :=Hwnd.YYSHWND{}
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	hdc :=win.GetDC(hwnd)
 	defer win.DeleteDC(hdc)
 	colorPixel :=win.GetPixel(hdc,int32(x),int32(y))

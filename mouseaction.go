@@ -5,16 +5,19 @@ import (
 	"github.com/lxn/win"
 	"math/rand"
 	"time"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 	"yys/me_win32"
 	"yys/yys_find_img"
 )
 
+func init(){
+	rand.Seed(time.Now().UnixNano())
+}
 
 //鼠标拖动到指定地点
 func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	xy :=[]int{}
 	cxy :=[]int{}
 	ssd :=[]float32{}
@@ -55,8 +58,8 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 }
 //常用图像匹配点击
 func (f *TFMain)Dj_click(r *yys_find_img.Result,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	//r := yys_find_img.Result{}
 	xy :=r.Result_img_topleft //目标坐标
 	cxy :=r.Clickrangevalue  //随机点击值
@@ -78,8 +81,8 @@ func (f *TFMain)Dj_click(r *yys_find_img.Result,s string) {
 
 //图像点击便宜
 func (f *TFMain)Dj_click_imgpy(r *yys_find_img.Result,xw ,yh int,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	//xw yh指定点击随机值
 	xy :=r.Result_img_topleft //目标坐标
 	cxy :=r.Clickrangevalue  //随机点击值
@@ -102,8 +105,8 @@ func (f *TFMain)Dj_click_imgpy(r *yys_find_img.Result,xw ,yh int,s string) {
 
 //点击厕纸
 func (f *TFMain)Dj_clicks(r []*yys_find_img.Result,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	for i,_ :=range r{
 		xy :=r[i].Result_img_topleft //目标坐标
 		cxy :=r[i].Clickrangevalue   //随机点击值
@@ -132,25 +135,37 @@ func (f *TFMain)Dj_clicks(r []*yys_find_img.Result,s string) {
 
 //退出专用
 func (f *TFMain)DJ_Click_TuiChu() {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
-	x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
-	y :=610+rand.Intn(20)
+	s :=rand.Intn(2)
+	x :=0
+	y :=0
+	if s!=0{
+		x =10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
+		y =610+rand.Intn(20)
+		fmt.Println("s:",s)
+	}else{
+		x =1035+rand.Intn(90)//屏幕坐标+游戏窗口内容坐标
+		y =62+rand.Intn(368)
+		fmt.Println("s:",s)
+	}
+	//x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
+	//y :=610+rand.Intn(20)
 	fmt.Printf("偏移后点击位置:%d,%d  \n",x,y)
 	tmp :=me_win32.MAKELPARAM(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
 	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*time.Duration(rand.Intn(70)+150))
+	time.Sleep(time.Millisecond*(time.Duration(rand.Intn(300)+200)))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	//f.YYSLos("<退出战斗>")
 }
 
 //指定点击范围
 func (f *TFMain)DJ_Click_Range(x,y,xr,yr int,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
 	cx :=x+rand.Intn(xr)//屏幕坐标+游戏窗口内容坐标
@@ -165,8 +180,8 @@ func (f *TFMain)DJ_Click_Range(x,y,xr,yr int,s string) {
 }
 //双击指定点击范围
 func (f *TFMain)SJ_Click_Range(x,y,xr,yr int,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
 	cx :=uint16(x+rand.Intn(xr))//屏幕坐标+游戏窗口内容坐标
@@ -188,8 +203,8 @@ func (f *TFMain)SJ_Click_Range(x,y,xr,yr int,s string) {
 
 //鼠标向下拉动
 func (f *TFMain)mv_mouse_Range(x,y,xr,yr int,s string) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
-	//rand.Seed(time.Now().UnixNano())
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+	//
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
 	cx :=x//+rand.Intn(xr)//屏幕坐标+游戏窗口内容坐标

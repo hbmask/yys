@@ -5,14 +5,14 @@ import (
 	"github.com/lxn/win"
 	"math/rand"
 	"time"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 	"yys/yys_find_img"
 )
 
 
 //常用图像匹配点击
 func Dj_click(r *yys_find_img.Result) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	//r := yys_find_img.Result{}
 	xy :=r.Result_img_topleft //目标坐标
 	cxy :=r.Clickrangevalue  //随机点击值
@@ -32,7 +32,7 @@ func Dj_click(r *yys_find_img.Result) {
 
 //图像点击便宜
 func Dj_click_imgpy(r *yys_find_img.Result,xw ,yh int) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	//xw yh指定点击随机值
 	xy :=r.Result_img_topleft //目标坐标
 	cxy :=r.Clickrangevalue  //随机点击值
@@ -54,7 +54,7 @@ func Dj_click_imgpy(r *yys_find_img.Result,xw ,yh int) {
 
 //点击厕纸
 func Dj_clicks(r []*yys_find_img.Result) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	for i,_ :=range r{
 		xy :=r[i].Result_img_topleft //目标坐标
 		cxy :=r[i].Clickrangevalue   //随机点击值
@@ -81,7 +81,7 @@ func Dj_clicks(r []*yys_find_img.Result) {
 
 //退出专用
 func DJ_Click_TuiChu() {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
 	x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
@@ -97,7 +97,7 @@ func DJ_Click_TuiChu() {
 
 //指定点击范围
 func DJ_Click_Range(x,y,xr,yr int) {
-	hwnd :=GetYYShwnd.Get_expvar_hwnd()
+	hwnd := getyyshwnd.Get_expvar_hwnd()
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
 	cx :=x+rand.Intn(xr)//屏幕坐标+游戏窗口内容坐标

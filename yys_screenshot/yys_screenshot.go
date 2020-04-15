@@ -6,7 +6,7 @@ import (
 	"image"
 	"syscall"
 	"unsafe"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 )
 
 var (
@@ -99,7 +99,7 @@ func (h *Yys_windows_screenshot)YYS_Capture() (*image.RGBA, error) { //YYS_HWND 
 	if err != nil {
 		return nil, err
 	}
-	hd := GetYYShwnd.YYSHWND{}
+	hd := getyyshwnd.YYSHWND{}
 	hwnd := hd.Get_yys_hwnd()
 	//fmt.Println("hwnd:",hwnd)
 	if hwnd ==0{

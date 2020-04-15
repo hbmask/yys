@@ -3,11 +3,11 @@ package main
 import (
 	"expvar"
 	"testing"
-	"yys/GetYYShwnd"
+	"yys/getyyshwnd"
 )
 
 func Test_XuanShang(t *testing.T){
-	YYSHWND := GetYYShwnd.YYSHWND{}
+	YYSHWND := getyyshwnd.YYSHWND{}
 	hwnd:=YYSHWND.Get_yys_hwnd()
 	e:=expvar.NewInt("erhwnd")
 	e.Set(int64(hwnd))

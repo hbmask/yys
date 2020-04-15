@@ -16,7 +16,7 @@ import (
     _ "net/http/pprof"
     "strconv"
     "time"
-    "yys/GetYYShwnd"
+    "yys/getyyshwnd"
     "yys/data"
     "yys/flagpiex"
     "yys/yys_find_img"
@@ -30,9 +30,10 @@ type TFMainFields struct {
     ClickDaoCaoRenFlag  bool //点稻草人
     JuXingBuffFlag bool//觉醒buff状态
     YuHunBuffFlag bool //御魂buff状态
-    OffBuff int//关闭buff计数
-    OffNumGame int//次数刷完关闭buff
+    OffBuff int//倒计时 如果没有动作关闭buff计数
+    OffNumGame int//记录副本次数如果是0 停止辅助
     FlagNum bool//判断计数是否有效
+    TiaoZhanJiShuoff int//当挑战次数满了以后计数,达到计数后自动停止挑战
     HWND win.HWND//窗口句柄
     hotKeyId types.ATOM//热键
     //GLZB bool//狗粮准备
@@ -44,7 +45,7 @@ func NewTFMainFields( stopflag bool,yuhunjuexingonclock bool,clickdajiuma bool,c
 }
 
 func init(){
-   YYSHWND := GetYYShwnd.YYSHWND{}
+   YYSHWND := getyyshwnd.YYSHWND{}
    hwnd:=YYSHWND.Get_yys_hwnd()
    e:=expvar.NewInt("erhwnd")
    e.Set(int64(hwnd))
@@ -91,7 +92,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         f.DianJiDaJiuMa()//标记大舅妈
                         time.Sleep(time.Millisecond*300)
                     }
-                    //在回目一 重置关闭御魂buff 计数器
+                    //在回目一记录执行副本次数
                     if fp.FlagYuhunJueXingYiHuiMu()&&f.FlagNum==false{
                         f.OffNumGame=f.YuHunJueXingShiShiCiShu()
                         f.OffBuff =0
@@ -174,7 +175,8 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         time.Sleep(time.Millisecond*100)
                         continue
                     }
-                    if fp.FlagYuhunJueXingYiHuiMu()&&f.FlagNum==false{//重置关闭御魂buff计数器
+                    //记录副本次数
+                    if fp.FlagYuhunJueXingYiHuiMu()&&f.FlagNum==false{
                         f.OffNumGame=f.YuHunJueXingShiShiCiShu()
                         f.OffBuff =0
                         f.FlagNum =true
@@ -198,7 +200,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1
                     fmt.Println(f.OffBuff)
-                    if f.OffNumGame==0{
+                    if f.OffNumGame==0{//记录副本次
                         continue
                     }
                 }
@@ -247,7 +249,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         time.Sleep(time.Millisecond*100)
                         continue
                     }
-                    //重置关闭御魂buff计数器
+                    //记录副本次数
                     if fp.FlagYuhunJueXingYiHuiMu()&&f.FlagNum==false{
                         f.OffNumGame=f.YuHunJueXingShiShiCiShu()
                         f.OffBuff =0
@@ -271,6 +273,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1
                     fmt.Println(f.OffBuff)
+                    //记录副本次数
                     if f.OffNumGame==0{
                         continue
                     }
@@ -285,9 +288,9 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     }else{
                         f.YuHunJueXingOnClock =false
                     }
-                    if fp.FlagYuhunJueXingFangJianWeiZhi3()==false{ //是不是2人满了
+                    if fp.FlagYuhunJueXingFangJianWeiZhi3()==false{ //是不是3人满了
                         f.DJ_Click_Range(1065,564,50,25,"挑战")} //点击挑战
-                    time.Sleep(time.Millisecond*100)
+                    time.Sleep(time.Millisecond*1000)
                 }
                 f.ZhanDouTuiChu()
                 time.Sleep(time.Millisecond*100)
@@ -433,6 +436,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
 //自动御灵
 //寮突破
 //全自动
+//御灵
+//厕纸
 func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
     f.ButtonQiTaZhiXing.SetCaption("执行中.")
     f.Off_All_Buttone()
@@ -564,9 +569,9 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 }
                 f.ZhanDouTuiChu()//退出战斗
                 //业原火界面
-                if fp.FlagYeYuanHuoJiemian(){
+                if fp.FlagYeYuanHuoJiemian(){//业原火界面
                     //御魂->业原火>选择三层
-                    if fp.FlagYeYuanHuoXuanZeSanCeng()==false {
+                    if fp.FlagYeYuanHuoXuanZeSanCeng()==false {//御魂->业原火>选择三层
                         Yuhun_2_1_chijuan_click := r.Recognition(data.Yuhun_2_1_chijuan_click, 0.9)
                         if Yuhun_2_1_chijuan_click != nil {
                             f.Dj_click(Yuhun_2_1_chijuan_click,"选择三层")
@@ -574,19 +579,21 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         }
                     }
                     //御魂->业原火->上锁->挑战
-                    if fp.FlagYeYuanHuoOnClock(){
+                    if fp.FlagYeYuanHuoOnClock(){//御魂->业原火->上锁->挑战
                         Yuhun_4_suo_tiaozhan_click:=r.Recognition(data.Yuhun_4_suo_tiaozhan_click,0.9)
                         if Yuhun_4_suo_tiaozhan_click!=nil {
-                            f.Dj_click(Yuhun_4_suo_tiaozhan_click,"上锁->挑战")
-                            if f.ShiShiCiShu() ==0{//次数达到上限退出
+                            if f.ShiShiCiShu() ==0||f.TiaoZhanJiShuoff>=3{ //次数达到上限退出
+                                f.YYSLos("次数达到上限退出")
                                 f.Stops()
                             }
+                            f.Dj_click(Yuhun_4_suo_tiaozhan_click,"上锁->挑战")
+                            f.TiaoZhanJiShuoff +=1
                             time.Sleep(time.Second*1)
                         }
                     }
                     //御魂->业原火->上锁
                     Yuhun_3_meisuo_click:=r.Recognition(data.Yuhun_3_meisuo_click,0.9)
-                    if Yuhun_3_meisuo_click!=nil {
+                    if Yuhun_3_meisuo_click!=nil {//御魂->业原火->上锁
                         f.Dj_click(Yuhun_3_meisuo_click,"上锁")
                         time.Sleep(time.Second*1)
                     }
@@ -594,13 +601,13 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 }
                 //御魂->业原火
                 Yuhun_1_yeyuanhuo_clik:=r.Recognition(data.Yuhun_1_yeyuanhuo_clik,0.9)
-                if Yuhun_1_yeyuanhuo_clik!=nil {
+                if Yuhun_1_yeyuanhuo_clik!=nil {//御魂->业原火
                     f.Dj_click(Yuhun_1_yeyuanhuo_clik,"御魂->业原火")
                     time.Sleep(time.Second*1)
                 }
                 //探索->御魂
                 Yuhun_0_click :=r.Recognition(data.Yuhun_0_click,0.9)
-                if Yuhun_0_click!=nil {
+                if Yuhun_0_click!=nil { //探索->御魂
                     f.Dj_click(Yuhun_0_click,"探索->御魂")
                     time.Sleep(time.Second*1)
                 }
@@ -623,11 +630,11 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 }
                 f.XuanShang()
                 //战斗界面
-                if fp.FlagZhanDouJieMian() {
+                if fp.FlagZhanDouJieMian() {//战斗界面
                     time.Sleep(time.Millisecond * 100)
                     continue
                 }
-                if fp.FlagYuLingTiaoZhanJieMian(){
+                if fp.FlagYuLingTiaoZhanJieMian(){//战斗界面战斗准备
                     if fp.FlagYuLingTiaoZhanJieMianSanCeng()!=true {
                         f.DJ_Click_Range(240,472,100,50,"选择三层")
                         time.Sleep(time.Millisecond*100)
@@ -643,7 +650,14 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                             time.Sleep(time.Millisecond*100)
                         }
                     }else {
+
+                        //在挑战记录执行副本次数
+                        if f.ShiShiCiShu() ==0 ||f.TiaoZhanJiShuoff >=3{//次数达到上限退出
+                            f.YYSLos("次数达到上限退出")
+                            f.Stops()
+                        }
                         f.DJ_Click_Range(995,541,55,47,"挑战")
+                        f.TiaoZhanJiShuoff +=1
                         time.Sleep(time.Millisecond*300)
                     }
                 }
@@ -686,7 +700,12 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         //探索->结界突破->寮突破->选择->进攻
                         Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.85)
                         if Jiejietupo_2_jingong_click!=nil {
+                            if  f.TiaoZhanJiShuoff >=3{//次数达到上限退出
+                                f.YYSLos("次数达到上限退出")
+                                f.Stops()
+                            }
                             f.Dj_click(Jiejietupo_2_jingong_click,"寮突破->进攻")
+                            f.TiaoZhanJiShuoff +=1
                             time.Sleep(time.Second*2)
                         }
                     }
@@ -762,7 +781,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 //竞速秘闻挑战
                 if fp.FlagJingSuMiWenTiaoZhan(){
                    f.DJ_Click_Range(990,481,60,60,"竞速秘闻->挑战")
-                   time.Sleep(time.Millisecond*100)
+                   time.Sleep(time.Millisecond*500)
                 }
                 //战斗退出
                 f.ZhanDouTuiChu()
@@ -964,12 +983,13 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
         vcl.ShowMessage("注册热键失败。")
     }
 
-    hwnd :=GetYYShwnd.Get_expvar_hwnd()
+    hwnd := getyyshwnd.Get_expvar_hwnd()
     hd :=strconv.Itoa(int(hwnd))
     if hd=="0"{
         fmt.Println("游戏没有启动....")
         f.YYSLos("游戏没有启动....")
     }
+    f.YYSLos("本辅助永久免费")
     f.YYSLos("获取更新请加入")
     f.YYSLos("Q群:646105028")
     f.ComboBoxBangDing.SetText(hd)
@@ -978,7 +998,7 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     f.CheckBoxCaoRen.SetEnabled(false)
     f.ButtonBangDing.SetEnabled(false)
     f.ButtonBangDing.SetTextBuf("没做")
-    f.SetCaption("随机")
+    f.SetCaption(strconv.Itoa(int(time.Now().UnixNano())))
     if time.Now().Year()!=2020&&int(time.Now().Month())<6{
        f.Close()
     }
@@ -1017,7 +1037,7 @@ func (f *TFMain) Stops() {
     f.ClickDaJiuMaFlag =false//重置点大舅妈
     f.ClickDaoCaoRenFlag =false//重置点草人
     f.FlagNum=false//重置玉环关闭计数判定
-    f.OffNumGame=0
+    f.OffNumGame=0//记录副本次数
     f.OffBuff=0
     f.On_All_Buttone()
     fmt.Println("暂停")
