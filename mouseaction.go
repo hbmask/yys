@@ -17,7 +17,6 @@ func init(){
 //鼠标拖动到指定地点
 func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,s string) {
 	hwnd := getyyshwnd.Get_expvar_hwnd()
-
 	xy :=[]int{}
 	cxy :=[]int{}
 	ssd :=[]float32{}
@@ -53,7 +52,7 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 
 	//time.Sleep(time.Millisecond*500)
 	f.YYSLos(s)
-	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+400))
 
 }
 //常用图像匹配点击
@@ -142,14 +141,13 @@ func (f *TFMain)DJ_Click_TuiChu() {
 	s :=rand.Intn(2)
 	x :=0
 	y :=0
-	if s!=0{
+	switch s {
+	case 0:
 		x =10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
 		y =610+rand.Intn(20)
-		fmt.Println("s:",s)
-	}else{
+	case 1:
 		x =1035+rand.Intn(90)//屏幕坐标+游戏窗口内容坐标
 		y =62+rand.Intn(368)
-		fmt.Println("s:",s)
 	}
 	//x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
 	//y :=610+rand.Intn(20)

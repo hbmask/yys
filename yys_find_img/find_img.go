@@ -121,6 +121,36 @@ func (r *Result)Recognitions(im_searchs string,threshold float32)[]*Result {
 	return rs
 }
 
+//狗粮->返回多个相同图像集
+func (r *Result)RecognitionsGouLiang_2Man(im_searchs string,x int,y int,threshold float32)[]*Result {
+	hs :=yys_screenshot.Yys_windows_screenshot{}
+	hwnd := getyyshwnd.Get_expvar_hwnd()
+
+	imgdata,_ :=base64.StdEncoding.DecodeString(im_searchs)//解码 得到一个image byte切片
+	imgh,err := hs.YYS_Capture_HWND(hwnd)//得到一个go类型的窗口句柄图像
+	if err!=nil{
+		fmt.Println("Recognitions:",err)
+		//panic(err)
+		return nil
+	}
+	im,_ :=gocv.ImageToMatRGBA(imgh)//得到一个Mat类型的图像
+	im_search,_ := gocv.IMDecode(imgdata,gocv.IMReadAnyColor)//从内存中读取 读取 image byte切片
+	defer im_search.Close()
+	defer im.Close()
+	rs :=r.Find_all_template(im,im_search,threshold)
+	rsman :=rs
+	for i,_ :=range rs{
+		if rs[i].Result_img_centen[0]>x{//过滤第三个满级
+			if rs[i].Result_img_centen[1]<y{
+				rsman =append(rs[:i],rs[i+1:]...)
+			}
+		}
+	}
+
+	return rsman
+}
+
+
 //识别图像
 func (r *Result)Recognition(im_searchs string,threshold float32) *Result {
 	hwnd := getyyshwnd.Get_expvar_hwnd()
@@ -291,7 +321,7 @@ func (r *Result)Find_all_template(im_source gocv.Mat,im_search gocv.Mat,threshol
 		//win :=gocv.NewWindow("123")
 		//win.ResizeWindow(1138, 640)
 		//win.IMShow(i_gray_img)
-		//gocv.WaitKey(1)
+		//gocv.WaitKey(0)
 		//defer win.Close()
 	}
 

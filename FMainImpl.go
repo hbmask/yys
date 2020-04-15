@@ -314,102 +314,94 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                     break
                 }
             f.XuanShang()
-            if fp.FlagTanSuo_GouLiang()||fp.FlagTanSuo_GouLiangZuDuiJieMian()&&fp.FlagTanSuo_KunNan28(){//探索界面与狗粮组队界面
-                //KunNan28_Flag:=r.Recognition(data.KunNan28_Flag,0.9)//狗粮全部
+            if fp.FlagTanSuo_GouLiang()||fp.FlagTanSuo_GouLiangZuDuiJieMian(){//&&fp.FlagTanSuo_KunNan28(){//探索界面与狗粮组队界面
                 if fp.FlagYuHunZuDuiYaoQing(){//有困难28标志和邀请勾选
-                    f.DJ_Click_Range(125,233,5,5,"接受狗粮28邀请")
+                    KunNan28_Flag:=r.Recognition(data.GouLiangKunNan28_Flag,0.85)//少女与面具
+                    if KunNan28_Flag!=nil{
+                        f.DJ_Click_Range(125,233,5,5,"接受狗粮28邀请")
+                    }
                 }
                 time.Sleep(time.Millisecond*100)
             }
             if fp.FlagZhanDouJieMian(){//战斗界面
                 if fp.FlagZhanDouJieMianZhunBei(){//战斗准备界面
-                    GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮全部
-                    if GouLiangQuanBu_Click!=nil{
-                       f.Dj_click(GouLiangQuanBu_Click,"全部")
-                       time.Sleep(time.Millisecond*500)
-                       switch f.ComboBoxGouLiang.ItemIndex() {
-                       case 0: //1级N
+                   switch f.ComboBoxGouLiang.ItemIndex() {
+                   case 0: //1级N
+                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       if GouLiangQuanBu_Click!=nil{
+                           f.Dj_click(GouLiangQuanBu_Click,"全部")
+                           time.Sleep(time.Millisecond*500)
                            GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
                            if GouLiangNKa_Click!=nil{
                                f.Dj_click(GouLiangNKa_Click,"选择->N")
-                               time.Sleep(time.Millisecond*600)
-                               mb:=r.Recognitions(data.GouliangManJi_Flag,0.85)//更换目标
-                               for i,_ :=range mb{
-                                   GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //狗粮1级N
-                                   rt :=0
-                                   for i,_:=range GouLiang1JiN_Click  {
-                                       if GouLiang1JiN_Click[i].Result_img_centen[0]<475&&GouLiang1JiN_Click[i].Result_img_centen[1]<584{
-                                           rt +=i
-                                       }
-                                   }
-                                   if GouLiang1JiN_Click == nil||rt ==0 {
-                                       f.YYSLos("没有1级N了")
-                                       break}
-                                   if mb[i].Result_img_topleft[0]<790&&mb[i].Result_img_topleft[1]<320{//接受有效换狗粮位置
-                                       fmt.Println("过滤:",mb[i].Result_img_centen)
-                                       f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
-                                   }
-                               }
-                           }
-                       case 1: //1级白
-                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
-                           if GouLiangSuCai_Click!=nil {
-                               f.Dj_click(GouLiangSuCai_Click, "选择->素材")
-                               time.Sleep(time.Millisecond*600)
-                                   mb:=r.Recognitions(data.GouliangManJi_Flag,0.85)//更换目标
-                                   for i,_ :=range mb{
-                                       GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //狗粮1级白
-                                       if GouLiang1JiBai_Click == nil {
-                                           f.YYSLos("没有1级白了")
-                                           break}
-                                       if mb[i].Result_img_topleft[0]<790&&mb[i].Result_img_topleft[1]<320{//接受有效换狗粮位置
-                                           fmt.Println("过滤:",mb[i].Result_img_centen)
-                                           f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 90, "更换1级白")
-                                       }
-                                   }
-
-                           }
-                       case 2: //1级红
-                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
-                           if GouLiangSuCai_Click !=nil{
-                               f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*600)
-                                   mb:=r.Recognitions(data.GouliangManJi_Flag,0.85)//更换目标
-                                   for i,_ :=range mb{
-                                       GouLiang1JiHong_Click:=r.Recognitions(data.GouLiang1JiHong_Click,0.9)//狗粮1级红
-                                       if GouLiang1JiHong_Click==nil{
-                                           f.YYSLos("没有1级红了")
-                                           break}
-                                       if mb[i].Result_img_topleft[0]<790&&mb[i].Result_img_topleft[1]<320{//接受有效换狗粮位置
-                                           fmt.Println("过滤:",mb[i].Result_img_centen)
-                                           f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换1级白")
-                                       }
-                                   }
-
-
-                           }
-                       case 3: //20级白
-                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
-                           f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                           time.Sleep(time.Second*1)
-                           if GouLiangSuCai_Click!=nil{
-
-                           }
-                       case 4: //20级N
-                           GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
-                           f.Dj_click(GouLiangNKa_Click,"选择->N")
-                           time.Sleep(time.Second*1)
-                           if GouLiangNKa_Click!=nil{
-
+                               time.Sleep(time.Millisecond*600)}
+                       }
+                       GouLiangNKaFlag:=r.Recognition(data.GouLiangNKaFlag,0.9)//狗粮N
+                       if GouLiangNKaFlag!=nil{
+                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                           GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //从N卡中找到1级N卡
+                           for i,_ :=range mb{
+                               f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
                            }
                        }
-                    }
-                    GouliangManJi_Flag:=r.Recognitions(data.GouliangManJi_Flag,0.9)//获取满级图像
+                   case 1: //1级白
+                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       if GouLiangQuanBu_Click!=nil{
+                           f.Dj_click(GouLiangQuanBu_Click,"全部")
+                           time.Sleep(time.Millisecond*500)
+                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//素材
+                           if GouLiangSuCai_Click!=nil{
+                               f.Dj_click(GouLiangSuCai_Click,"选择->素材")
+                               time.Sleep(time.Millisecond*600)}
+                       }
+                       GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮N
+                       if GouLiangSuCaiFlag!=nil{
+                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                           GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //从素材中找到1级白
+                           for i,_ :=range mb{
+                               f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 90, "更换1级白")
+                           }
+                       }
+                   case 2: //1级红
+                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       if GouLiangQuanBu_Click!=nil{
+                           f.Dj_click(GouLiangQuanBu_Click,"全部")
+                           time.Sleep(time.Millisecond*500)
+                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
+                           if GouLiangSuCai_Click!=nil{
+                               f.Dj_click(GouLiangSuCai_Click,"选择->素材")
+                               time.Sleep(time.Millisecond*600)}
+                       }
+                       GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
+                       if GouLiangSuCaiFlag!=nil{
+                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                           GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级白
+                           for i,_ :=range mb{
+                               f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换1级红")
+                           }
+                       }
+                   case 3: //20级白
+                       GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
+                       f.Dj_click(GouLiangSuCai_Click,"选择->素材")
+                       time.Sleep(time.Second*1)
+                       if GouLiangSuCai_Click!=nil{
+
+                       }
+                   case 4: //20级N
+                       GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
+                       f.Dj_click(GouLiangNKa_Click,"选择->N")
+                       time.Sleep(time.Second*1)
+                       if GouLiangNKa_Click!=nil{
+
+                       }
+                   }
+                    GouliangManJi_Flag:=r.Recognitions(data.GouliangManJi_Flag,0.85)//获取满级图像
                     if len(GouliangManJi_Flag)==3&&fp.FlagGouLiangDiBan()==false{
                             f.SJ_Click_Range(530,490,10,10,"狗粮满级更换..")
                             time.Sleep(time.Second*2)
                     }
-                    if len(GouliangManJi_Flag)!=3{
+                    zbGouliangManJi_Flag:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,1100,420,0.85)//获取更换满级的目标
+                    if len(zbGouliangManJi_Flag)==1{
                       f.ZhanDouZhunBei()
                       time.Sleep(time.Second*2)
                     }
@@ -418,13 +410,13 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                 time.Sleep(time.Millisecond *100)
             }
             if fp.FlagGouliangFuBenJieMian(){//狗粮副本界面
-                GouLiangDuiZhang_Flag:=r.Recognition(data.GouLiangDuiZhang_Flag,0.9)
-                if GouLiangDuiZhang_Flag == nil {
+                GouLiangDuiZhang_Flag:=r.Recognition(data.GouLiangDuiZhang_Flag,0.85)
+                if GouLiangDuiZhang_Flag == nil {//标记副本里面的队长是否还在
                     f.DJ_Click_Range(32,51,12,14,"队长已经退出")
-                    time.Sleep(time.Millisecond*200)
+                    time.Sleep(time.Millisecond*500)
                     f.DJ_Click_Range(650,350,100,25,"立刻退出")
                 }
-                time.Sleep(time.Millisecond*100)
+                time.Sleep(time.Millisecond*500)
             }
             f.ZhanDouTuiChu()
         }
@@ -792,9 +784,10 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
         go func() {
             for{
                 if fp.FlagHuoDongWanShiWu(){
-                    HuoDongWanShiWu2 :=r.Recognitions(data.HuoDongWanShiWu2,0.85)
-                    if len(HuoDongWanShiWu2)>=2{
-                        f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                    HuoDongWanShiWu2 :=r.Recognition(data.HuoDongWanShiWu2,0.85)
+                    if HuoDongWanShiWu2!=nil{
+                        f.Dj_click(HuoDongWanShiWu2,"领取")
+                        //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                         time.Sleep(time.Second*10)
                         f.DJ_Click_TuiChu()
                     }
