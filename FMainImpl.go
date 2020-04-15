@@ -786,6 +786,21 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 //战斗退出
                 f.ZhanDouTuiChu()
             }
+
+        }()
+    case 8:
+        go func() {
+            for{
+                if fp.FlagHuoDongWanShiWu(){
+                    HuoDongWanShiWu2 :=r.Recognitions(data.HuoDongWanShiWu2,0.85)
+                    if len(HuoDongWanShiWu2)>=2{
+                        f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                        time.Sleep(time.Second*10)
+                        f.DJ_Click_TuiChu()
+                    }
+                    time.Sleep(time.Second*10)
+                }
+            }
         }()
     }
 

@@ -511,3 +511,16 @@ func (f FLagPiex)FlagJingSuMiWenShengLiTuiChu()bool{
 	xyp:=[][]int{{432,64,1121155},{406,101,1186973},{455,104,1121186},}
 	return r.Find_Pixels(xyp)
 }
+
+//{110,613,1712692},
+//52 34 26 0
+//{508,613,2375002},
+//90 61 36 0
+//{1018,615,1318188},
+//44 29 20 0
+//活动万事屋
+func (f FLagPiex)FlagHuoDongWanShiWu()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{110,613,1712692},{508,613,2375002},{1018,615,1318188},}
+	return r.Find_Pixels(xyp)
+}
