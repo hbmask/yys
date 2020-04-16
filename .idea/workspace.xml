@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06effa9-5d83-4b69-8548-15d710e97204" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/GouLiangSuCai_Flag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/HuoDongTijiao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/LingQIJiFa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/QianWang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/TiaoZhan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/TuFaZhuangKuang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/YuHunChiLUnClick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/Chufa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/XunShishen.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FMainImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/FMainImpl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/imgtobase64.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/imgtobase64.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mouseaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/mouseaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yys.exe" beforeDir="false" afterPath="$PROJECT_DIR$/yys.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他.rar" beforeDir="false" afterPath="$PROJECT_DIR$/忘记那也的他.rar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/yys.exe" beforeDir="false" afterPath="$PROJECT_DIR$/忘记那也的他/yys.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
