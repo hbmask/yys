@@ -784,6 +784,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
         go func() {
             for{
                 if fp.FlagHuoDongWanShiWu(){
+                    f.XuanShang()
                     HuoDongWanShiWu2 :=r.Recognition(data.HuoDongWanShiWu2,0.85)
                     if HuoDongWanShiWu2!=nil{
                         f.Dj_click(HuoDongWanShiWu2,"领取")
