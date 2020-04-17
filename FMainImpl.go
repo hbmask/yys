@@ -759,10 +759,6 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     f.Dj_click(TiaoZhan,"挑战")
                     time.Sleep(time.Second*1)
                 }
-                if fp.FlagJinWanShiWu() {
-                    f.DJ_Click_Range(456,351,1,1,"进入万事屋")
-                    time.Sleep(time.Second*2)
-                }
 
                 //}
                 if fp.FlagHuoDongWanShiWu(){
