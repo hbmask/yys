@@ -34,20 +34,20 @@ func (f *TFMain) YuHunJueXingShiShiCiShu()int{
 }
 
 //关闭buff 定时器
-func (f *TFMain) OffYuHunTimer( ) {
-	fp :=flagpiex.FLagPiex{}
-	//新建计时器，120秒以后触发，go触发计时器的方法比较特别，就是在计时器的channel中发送值
-	tick :=time.NewTicker( 60 * time.Second)
-	for {
-		select {
-		//此处在等待channel中的信号，因此执行此段代码时会阻塞120秒
-		case <-tick.C:
-			if fp.FlagTingYuan(){
-				f.YuHunOffBuffJianCha() //执行我们想要的操作
-			}
-		}
-	}
-}
+//func (f *TFMain) OffYuHunTimer( ) {
+//	fp :=flagpiex.FLagPiex{}
+//	//新建计时器，120秒以后触发，go触发计时器的方法比较特别，就是在计时器的channel中发送值
+//	tick :=time.NewTicker( 60 * time.Second)
+//	for {
+//		select {
+//		//此处在等待channel中的信号，因此执行此段代码时会阻塞120秒
+//		case <-tick.C:
+//			if fp.FlagTingYuan(){
+//				f.YuHunOffBuffJianCha() //执行我们想要的操作
+//			}
+//		}
+//	}
+//}
 
 //点击大舅妈
 func (f *TFMain) DianJiDaJiuMa(){
@@ -125,6 +125,12 @@ func (f *TFMain) YuHunOffBuffJianCha(){
 			time.Sleep(time.Millisecond*700)
 			if fp.FlagYuHunBuffGold(){//金色状态
 				f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
+				f.YuHunBuffFlag =false
+				f.DJ_Click_Range(317,489,600,61,"")
+				f.Stops()
+			}
+			if fp.FlagYuHunBuffRed(){//金色状态
+				//f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
 				f.DJ_Click_Range(317,489,600,61,"")
 				f.Stops()

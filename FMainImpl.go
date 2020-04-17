@@ -173,7 +173,14 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
         f.Zhuangtai_all()
         fmt.Println("房主两人队 1")
         go func() {
-            f.YuHunOrJueXingFangZHu(2)
+            f.StopFlag=true
+            fmt.Println("f.StopFlag:",f.StopFlag)
+            for {
+                if f.StopFlag == false {
+                    break
+                }
+                f.YuHunOrJueXingFangZHu(2,fp)
+            }
             //f.StopFlag=true
             //for {
             //    if f.StopFlag == false {
@@ -243,7 +250,14 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
         f.Zhuangtai_all()
         fmt.Println("房主三人队 2")
         go func() {
-            f.YuHunOrJueXingFangZHu(3)
+            f.StopFlag=true
+            fmt.Println("f.StopFlag:",f.StopFlag)
+            for {
+                if f.StopFlag == false {
+                    break
+                }
+                f.YuHunOrJueXingFangZHu(3,fp)
+            }
         }()
     }
 }
@@ -1054,7 +1068,7 @@ func (f *TFMain) Stops() {
     f.ClickDaJiuMaFlag =false//重置点大舅妈
     f.ClickDaoCaoRenFlag =false//重置点草人
     f.FlagNum=false//重置玉环关闭计数判定
-    f.OffNumGame=0//记录副本次数
+    //f.OffNumGame=0//记录副本次数
     f.YuHunBuffFlag =false//停止后重置 buff检查
     f.OffBuff=0
     f.On_All_Buttone()

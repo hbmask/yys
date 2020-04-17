@@ -6,13 +6,7 @@ import (
 	"yys/flagpiex"
 )
 
-func (f TFMain)YuHunOrJueXingFangZHu(i int){
-	fp :=flagpiex.FLagPiex{}
-	f.StopFlag=true
-	for {
-		if f.StopFlag == false {
-			break
-		}
+func (f *TFMain)YuHunOrJueXingFangZHu(i int,fp flagpiex.FLagPiex){
 		f.XuanShang()
 		f.ZhanDouTuiChu()
 		//如果没有上锁 手动点击准备
@@ -39,7 +33,6 @@ func (f TFMain)YuHunOrJueXingFangZHu(i int){
 				f.FlagNum =true
 			}
 			time.Sleep(time.Millisecond*100)
-			continue
 		}
 		//第一次战斗结束邀请队友继续
 		if fp.FlagTuiChuYaoQingJiXu(){
@@ -52,7 +45,7 @@ func (f TFMain)YuHunOrJueXingFangZHu(i int){
 			if  f.OffBuff>=90||f.OffNumGame==0{//记录副本次
 				f.YuHunTingYuanOffBuffJianCha()
 				f.YuHunOffBuffJianCha()
-				break
+				return
 			}
 			time.Sleep(time.Millisecond *100)
 			f.OffBuff =f.OffBuff+1
@@ -78,5 +71,5 @@ func (f TFMain)YuHunOrJueXingFangZHu(i int){
 
 		}
 		//time.Sleep(time.Millisecond*100)
-	}
+
 }
