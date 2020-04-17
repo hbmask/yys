@@ -20,7 +20,7 @@ func (f *TFMain)YuHunOrJueXingFangZHu(i int,fp flagpiex.FLagPiex){
 		}
 		//战斗界面
 		if fp.FlagZhanDouJieMian(){
-			//显示一回木
+			//显示一回木 点大舅妈
 			if fp.FlagYuhunJueXingYiHuiMu()&&f.ClickDaJiuMaFlag ==false{
 				f.DianJiDaJiuMa()//标记大舅妈
 				time.Sleep(time.Millisecond*100)
@@ -42,6 +42,9 @@ func (f *TFMain)YuHunOrJueXingFangZHu(i int,fp flagpiex.FLagPiex){
 		}
 		//在 庭院 探索 房间 //60秒没动作关闭御魂buff
 		if fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
+			if  f.YuHunBuffFlag ==false{//御魂buff状态
+				f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
+			}
 			if  f.OffBuff>=90||f.OffNumGame==0{//记录副本次
 				f.YuHunTingYuanOffBuffJianCha()
 				f.YuHunOffBuffJianCha()
@@ -55,9 +58,6 @@ func (f *TFMain)YuHunOrJueXingFangZHu(i int,fp flagpiex.FLagPiex){
 				f.YuHunJueXingOnClock =true
 			}else{
 				f.YuHunJueXingOnClock =false
-			}
-			if  f.YuHunBuffFlag ==false{//御魂buff状态
-				f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
 			}
 			if i==2{
 				if fp.FlagYuhunJueXingFangJianWeiZhi2()==false&&fp.FlagYuHunJueXingFangJian(){ //是不是2人满了
