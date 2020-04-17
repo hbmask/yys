@@ -75,7 +75,7 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"打开加成界面")
-			time.Sleep(time.Millisecond*500)
+			time.Sleep(time.Millisecond*700)
 			if fp.FlagJueXingBUffGold(){//金色状态 退出
 				f.JuXingBuffFlag =true
 				f.DJ_Click_Range(317,489,600,61,"觉醒开启状态")
@@ -84,7 +84,7 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 			if fp.FlagJueXingBUffRead(){//红色状态打开
 				f.DJ_Click_Range(700,139,20,6,"启用开觉醒buff")
 				f.JuXingBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")
+				f.DJ_Click_Range(317,489,600,61,"")
 			}
 		}
 	}
@@ -97,18 +97,16 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"打开加层界面")
-			time.Sleep(time.Millisecond*500)
+			time.Sleep(time.Millisecond*700)
 			if fp.FlagYuHunBuffGold(){
 				//f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
 				f.YuHunBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")
-				return
+				f.DJ_Click_Range(317,489,600,61,"buff已经开启")
 			}
 			if fp.FlagYuHunBuffRed(){
-				f.DJ_Click_Range(701,199,20,6,"打开御魂buff")
+				f.DJ_Click_Range(701,199,20,6,"开启御魂buff")
 				f.YuHunBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")
-				return
+				f.DJ_Click_Range(317,489,600,61,"")
 			}
 		}
 	}
@@ -121,11 +119,11 @@ func (f *TFMain) YuHunOffBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"打开加成界面")
-			time.Sleep(time.Millisecond*500)
+			time.Sleep(time.Millisecond*700)
 			if fp.FlagYuHunBuffGold(){
 				f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
-				f.DJ_Click_Range(317,489,600,61,"退出加成界面")
+				f.DJ_Click_Range(317,489,600,61,"")
 				f.Stops()
 				return
 			}
@@ -140,11 +138,11 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 		TingYuanJiaCeng:=r.Recognition(data.TingYuanJiaCeng,0.9)
 		if TingYuanJiaCeng!=nil {
 			f.Dj_click(TingYuanJiaCeng,"打开加成")
-			time.Sleep(time.Millisecond*500)
+			time.Sleep(time.Millisecond*700)
 			if fp.FlagYuHunBuffGold(){
 				f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
-				f.DJ_Click_Range(317,489,600,61,"退出加成界面")
+				f.DJ_Click_Range(317,489,600,61,"")
 				f.Stops()
 				return
 			}

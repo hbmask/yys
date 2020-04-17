@@ -2,14 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06effa9-5d83-4b69-8548-15d710e97204" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/DaYaoKaoYan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Zhan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libgcc_s_seh-1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_calib3d420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_core420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_dnn420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_features2d420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_flann420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_highgui420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_imgcodecs420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_imgproc420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_objdetect420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_video420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_videoio420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libopencv_videostab420.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libstdc++-6.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libvclx64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/libwinpthread-1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/yys.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20200417/辅助使用说明.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FMainImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/FMainImpl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fixedaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/Fixedaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/imgtobase64.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/imgtobase64.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flagpiex/FlagPiex.go" beforeDir="false" afterPath="$PROJECT_DIR$/flagpiex/FlagPiex.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flagpiex/FlagPiex_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/flagpiex/FlagPiex_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yys.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libgcc_s_seh-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_calib3d420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_core420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_dnn420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_features2d420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_flann420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_highgui420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_imgcodecs420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_imgproc420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_objdetect420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_video420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_videoio420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_videostab420.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libstdc++-6.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libvclx64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/libwinpthread-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/yys.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/忘记那也的他/辅助使用说明.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,9 +311,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="591" y="121" width="1024" height="838" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1586344288486" />
-    <state width="727" height="466" key="DebuggerActiveHint" timestamp="1584175178039">
-      <screen x="63" y="0" width="1857" height="1080" />
+    <state width="752" height="466" key="DebuggerActiveHint" timestamp="1587086467174">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state width="752" height="466" key="DebuggerActiveHint/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086467174" />
     <state width="727" height="466" key="DebuggerActiveHint/63.0.1857.1080@63.0.1857.1080" timestamp="1584175178039" />
     <state x="691" y="326" key="FileChooserDialogImpl" timestamp="1586179470878">
       <screen x="62" y="0" width="1858" height="1080" />
@@ -300,82 +337,82 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="799" y="245" key="Github.UntrackedFilesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1586180214111" />
-    <state width="1131" height="89" key="GridCell.Tab.0.bottom" timestamp="1587085197410">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.0.bottom" timestamp="1587094362174">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="964" height="352" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781784" />
-    <state width="1131" height="89" key="GridCell.Tab.0.bottom/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085197410" />
-    <state width="1097" height="263" key="GridCell.Tab.0.bottom/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.0.bottom/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086497665" />
+    <state width="1093" height="426" key="GridCell.Tab.0.bottom/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362174" />
     <state width="1329" height="182" key="GridCell.Tab.0.bottom/63.0.1377.900@63.0.1377.900" timestamp="1584191205040" />
     <state width="1814" height="353" key="GridCell.Tab.0.bottom/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
     <state width="1329" height="165" key="GridCell.Tab.0.bottom/68.0.1372.900@68.0.1372.900" timestamp="1587007754486" />
     <state width="1809" height="497" key="GridCell.Tab.0.bottom/68.0.1852.1080@68.0.1852.1080" timestamp="1586950276949" />
-    <state width="1131" height="89" key="GridCell.Tab.0.center" timestamp="1587085197409">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.0.center" timestamp="1587094362173">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="964" height="352" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781784" />
-    <state width="1131" height="89" key="GridCell.Tab.0.center/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085197409" />
-    <state width="1097" height="263" key="GridCell.Tab.0.center/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.0.center/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086497665" />
+    <state width="1093" height="426" key="GridCell.Tab.0.center/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362173" />
     <state width="1329" height="182" key="GridCell.Tab.0.center/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
     <state width="1814" height="353" key="GridCell.Tab.0.center/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
     <state width="1329" height="165" key="GridCell.Tab.0.center/68.0.1372.900@68.0.1372.900" timestamp="1587007754486" />
     <state width="1809" height="497" key="GridCell.Tab.0.center/68.0.1852.1080@68.0.1852.1080" timestamp="1586950276949" />
-    <state width="1131" height="89" key="GridCell.Tab.0.left" timestamp="1587085197409">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.0.left" timestamp="1587094362173">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="964" height="352" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781784" />
-    <state width="1131" height="89" key="GridCell.Tab.0.left/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085197409" />
-    <state width="1097" height="263" key="GridCell.Tab.0.left/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.0.left/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086497665" />
+    <state width="1093" height="426" key="GridCell.Tab.0.left/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362173" />
     <state width="1329" height="182" key="GridCell.Tab.0.left/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
     <state width="1814" height="353" key="GridCell.Tab.0.left/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
     <state width="1329" height="165" key="GridCell.Tab.0.left/68.0.1372.900@68.0.1372.900" timestamp="1587007754486" />
     <state width="1809" height="497" key="GridCell.Tab.0.left/68.0.1852.1080@68.0.1852.1080" timestamp="1586950276949" />
-    <state width="1131" height="89" key="GridCell.Tab.0.right" timestamp="1587085197409">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.0.right" timestamp="1587094362174">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="964" height="352" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781784" />
-    <state width="1131" height="89" key="GridCell.Tab.0.right/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085197409" />
-    <state width="1097" height="263" key="GridCell.Tab.0.right/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.0.right/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086497665" />
+    <state width="1093" height="426" key="GridCell.Tab.0.right/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362174" />
     <state width="1329" height="182" key="GridCell.Tab.0.right/63.0.1377.900@63.0.1377.900" timestamp="1584191205039" />
     <state width="1814" height="353" key="GridCell.Tab.0.right/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686168" />
     <state width="1329" height="165" key="GridCell.Tab.0.right/68.0.1372.900@68.0.1372.900" timestamp="1587007754486" />
     <state width="1809" height="497" key="GridCell.Tab.0.right/68.0.1852.1080@68.0.1852.1080" timestamp="1586950276949" />
-    <state width="1084" height="220" key="GridCell.Tab.1.bottom" timestamp="1587085483133">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.1.bottom" timestamp="1587094362105">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="1815" height="205" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781766" />
-    <state width="1084" height="220" key="GridCell.Tab.1.bottom/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085483133" />
-    <state width="1097" height="263" key="GridCell.Tab.1.bottom/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.1.bottom/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086509784" />
+    <state width="1093" height="426" key="GridCell.Tab.1.bottom/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362105" />
     <state width="1329" height="182" key="GridCell.Tab.1.bottom/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.bottom/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
     <state width="1329" height="165" key="GridCell.Tab.1.bottom/68.0.1372.900@68.0.1372.900" timestamp="1587007754418" />
     <state width="1809" height="334" key="GridCell.Tab.1.bottom/68.0.1852.1080@68.0.1852.1080" timestamp="1586944612383" />
-    <state width="1084" height="220" key="GridCell.Tab.1.center" timestamp="1587085483132">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.1.center" timestamp="1587094362105">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="1815" height="205" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781766" />
-    <state width="1084" height="220" key="GridCell.Tab.1.center/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085483132" />
-    <state width="1097" height="263" key="GridCell.Tab.1.center/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.1.center/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086509784" />
+    <state width="1093" height="426" key="GridCell.Tab.1.center/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362105" />
     <state width="1329" height="182" key="GridCell.Tab.1.center/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.center/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
     <state width="1329" height="165" key="GridCell.Tab.1.center/68.0.1372.900@68.0.1372.900" timestamp="1587007754418" />
     <state width="1809" height="334" key="GridCell.Tab.1.center/68.0.1852.1080@68.0.1852.1080" timestamp="1586944612383" />
-    <state width="1084" height="220" key="GridCell.Tab.1.left" timestamp="1587085483132">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.1.left" timestamp="1587094362105">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="1815" height="205" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781766" />
-    <state width="1084" height="220" key="GridCell.Tab.1.left/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085483132" />
-    <state width="1097" height="263" key="GridCell.Tab.1.left/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.1.left/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086509783" />
+    <state width="1093" height="426" key="GridCell.Tab.1.left/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362105" />
     <state width="1329" height="182" key="GridCell.Tab.1.left/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.left/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
     <state width="1329" height="165" key="GridCell.Tab.1.left/68.0.1372.900@68.0.1372.900" timestamp="1587007754418" />
     <state width="1809" height="334" key="GridCell.Tab.1.left/68.0.1852.1080@68.0.1852.1080" timestamp="1586944612383" />
-    <state width="1084" height="220" key="GridCell.Tab.1.right" timestamp="1587085483132">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state width="1093" height="426" key="GridCell.Tab.1.right" timestamp="1587094362105">
+      <screen x="62" y="0" width="1858" height="1200" />
     </state>
     <state width="1815" height="205" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1586855781766" />
-    <state width="1084" height="220" key="GridCell.Tab.1.right/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587085483132" />
-    <state width="1097" height="263" key="GridCell.Tab.1.right/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587028727279" />
+    <state width="1084" height="427" key="GridCell.Tab.1.right/62.0.1858.1200/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587086509784" />
+    <state width="1093" height="426" key="GridCell.Tab.1.right/62.0.1858.1200/1920.0.1920.1080@62.0.1858.1200" timestamp="1587094362105" />
     <state width="1329" height="182" key="GridCell.Tab.1.right/63.0.1377.900@63.0.1377.900" timestamp="1584191203575" />
     <state width="1814" height="353" key="GridCell.Tab.1.right/63.0.1857.1080@63.0.1857.1080" timestamp="1585899686112" />
     <state width="1329" height="165" key="GridCell.Tab.1.right/68.0.1372.900@68.0.1372.900" timestamp="1587007754418" />

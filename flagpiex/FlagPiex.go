@@ -58,7 +58,7 @@ func (f FLagPiex)FlagShengLiBaoXiang()bool{
 //通用庭院标记
 func (f FLagPiex)FlagTingYuan()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{960,37,8892630},{1025,37,8761302},{1094,37,8761300},}
+	xyp:=[][]int{{960,37,8892630},{1025,37,8761302},{1086,45,7643852},}
 	return r.Find_Pixels(xyp)
 }
 

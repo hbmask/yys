@@ -848,6 +848,14 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 f.XuanShang()
                 f.ZhanDouZhunBei()
                 f.ZhanDouTuiChu()
+                //if fp.FlagWanShiWuTiaoZhan(){//挑战
+                TiaoZhan :=r.Recognition(data.TiaoZhan,0.85)
+                if TiaoZhan!=nil{
+                    f.Dj_click(TiaoZhan,"挑战")
+                    time.Sleep(time.Second*1)
+                }
+
+                //}
                 if fp.FlagHuoDongWanShiWu(){
                     //领取
                     HuoDongWanShiWu2 :=r.Recognition(data.HuoDongWanShiWu2,0.85)
@@ -855,7 +863,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         f.Dj_click(HuoDongWanShiWu2,"领取")
                         //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                         time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(46,200,50,50,"")
+                        f.DJ_Click_Range(46,550,50,50,"")
                         time.Sleep(time.Second*1)
                         continue
                     }
@@ -864,14 +872,14 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     if HuoDongTijiao!=nil{
                         f.Dj_click(HuoDongTijiao,"提交")
                         time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(46,200,50,50,"")
+                        f.DJ_Click_Range(46,550,50,50,"")
                         time.Sleep(time.Second*1)
                         continue
                     }
                     //突发情况
                     TuFaZhuangKuang :=r.Recognition(data.TuFaZhuangKuang,0.85)
                     if TuFaZhuangKuang!=nil{
-                        f.DJ_Click_Range(46,200,50,50,"")
+                        f.DJ_Click_Range(46,550,50,50,"")
                         //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                         time.Sleep(time.Second*1)
                         continue
@@ -885,12 +893,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         f.Dj_click(QianWang,"前往")
                         time.Sleep(time.Second*3)
                     }
-                    if fp.FlagWanShiWuTiaoZhan(){//挑战
-                        TiaoZhan :=r.Recognition(data.TiaoZhan,0.85)
-                        if QianWang!=nil{
-                            f.Dj_click(TiaoZhan,"挑战")
-                        }
-                    }
+
                     if fp.FlagWanShiWuChuFa(){//式神寻访 出发
                         f.DJ_Click_Range(192,514,1,1,"1")
                         time.Sleep(time.Second)
@@ -902,7 +905,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         time.Sleep(time.Second*1)
                         f.DJ_Click_Range(1038,500,1,1,"出发")
                         time.Sleep(time.Second*3)
-                        f.DJ_Click_Range(46,200,50,50,"")
+                        f.DJ_Click_Range(46,550,50,50,"")
                          }
                     //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                     time.Sleep(time.Second*2)
@@ -1114,7 +1117,7 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     f.YYSLos("本辅助永久免费")
     f.YYSLos("获取更新请加入")
     f.YYSLos("Q群:646105028")
-    f.OffNumGame=f.YuHunJueXingShiShiCiShu()//初始化御魂次数
+    f.OffNumGame,_ = strconv.Atoi(f.EditCiShu.Text())//初始化御魂次数
     f.ComboBoxBangDing.SetText(hd)
     f.ComboBoxBangDing.SetItemIndex(0)
     f.CheckBoxGuanJueXing.SetEnabled(false)
