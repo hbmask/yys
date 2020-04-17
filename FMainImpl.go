@@ -235,8 +235,8 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 //在庭院 探索 房间 60秒没动作关闭御魂buff
                 if fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
                     if  f.OffBuff>=180||f.OffNumGame==0{
-                        f.YuHunTingYuanOffBuffJianCha()
-                        f.YuHunOffBuffJianCha()
+                        f.YuHunTingYuanOffBuffJianCha()//庭院加成界面
+                        f.YuHunOffBuffJianCha()//房间加成界面
                     }
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1

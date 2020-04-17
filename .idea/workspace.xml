@@ -2,50 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06effa9-5d83-4b69-8548-15d710e97204" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/20200417.rar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libgcc_s_seh-1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_calib3d420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_core420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_dnn420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_features2d420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_flann420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_highgui420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_imgcodecs420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_imgproc420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_objdetect420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_video420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_videoio420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libopencv_videostab420.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libstdc++-6.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libvclx64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/libwinpthread-1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/yys.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/20200417/辅助使用说明.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FMainImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/FMainImpl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fixedaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/Fixedaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flagpiex/FlagPiex.go" beforeDir="false" afterPath="$PROJECT_DIR$/flagpiex/FlagPiex.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flagpiex/FlagPiex_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/flagpiex/FlagPiex_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yys.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libgcc_s_seh-1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_calib3d420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_core420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_dnn420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_features2d420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_flann420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_highgui420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_imgcodecs420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_imgproc420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_objdetect420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_video420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_videoio420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libopencv_videostab420.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libstdc++-6.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libvclx64.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/libwinpthread-1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/yys.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/忘记那也的他/辅助使用说明.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
