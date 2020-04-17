@@ -49,7 +49,7 @@ func (f TFMain)YuHunOrJueXingFangZHu(i int){
 		}
 		//在 庭院 探索 房间 //60秒没动作关闭御魂buff
 		if fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
-			if  f.OffBuff>=180||f.OffNumGame==0{//记录副本次
+			if  f.OffBuff>=90||f.OffNumGame==0{//记录副本次
 				f.YuHunTingYuanOffBuffJianCha()
 				f.YuHunOffBuffJianCha()
 				break
@@ -67,16 +67,16 @@ func (f TFMain)YuHunOrJueXingFangZHu(i int){
 				f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
 			}
 			if i==2{
-				if fp.FlagYuhunJueXingFangJianWeiZhi2()==false{ //是不是2人满了
+				if fp.FlagYuhunJueXingFangJianWeiZhi2()==false&&fp.FlagYuHunJueXingFangJian(){ //是不是2人满了
 					f.DJ_Click_Range(1065,564,50,25,"挑战")}
-				time.Sleep(time.Millisecond*1000)
-			}else {
-				if fp.FlagYuhunJueXingFangJianWeiZhi3()==false{ //是不是3人满了
+					time.Sleep(time.Millisecond*1000)
+			}else if i==3{
+				if fp.FlagYuhunJueXingFangJianWeiZhi3()==false&&fp.FlagYuHunJueXingFangJian(){ //是不是3人满了
 					f.DJ_Click_Range(1065,564,50,25,"挑战")}
-				time.Sleep(time.Millisecond*1000)
+					time.Sleep(time.Millisecond*1000)
 			}
 
 		}
-		time.Sleep(time.Millisecond*100)
+		//time.Sleep(time.Millisecond*100)
 	}
 }
