@@ -741,7 +741,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
             }
 
         }()
-    case 8:
+    case 8://万事屋
         go func() {
             f.StopFlag=true
             for{
@@ -760,6 +760,14 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 if fp.FlagJinWanShiWu() {
                     f.DJ_Click_Range(456,351,1,1,"进入万事屋")
                     time.Sleep(time.Second*2)
+                }
+                //突发情况
+                TuFaZhuangKuang :=r.Recognition(data.TuFaZhuangKuang,0.85)
+                if TuFaZhuangKuang!=nil{
+                    f.DJ_Click_Range(46,550,50,50,"")
+                    //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                    time.Sleep(time.Second*1)
+                    continue
                 }
 
                 //}
@@ -783,14 +791,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         time.Sleep(time.Second*1)
                         continue
                     }
-                    //突发情况
-                    TuFaZhuangKuang :=r.Recognition(data.TuFaZhuangKuang,0.85)
-                    if TuFaZhuangKuang!=nil{
-                        f.DJ_Click_Range(46,550,50,50,"")
-                        //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
-                        time.Sleep(time.Second*1)
-                        continue
-                    }
+
                     //灵气激发 大妖考研
                     //LingQIJiFa :=r.Recognition(data.LingQIJiFa,0.85)
                     //DaYaoKaoYan :=r.Recognition(data.DaYaoKaoYan,0.85)
