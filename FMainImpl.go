@@ -174,7 +174,6 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
         fmt.Println("房主两人队 1")
         go func() {
             f.StopFlag=true
-            fmt.Println("f.StopFlag:",f.StopFlag)
             for {
                 if f.StopFlag == false {
                     break
@@ -251,7 +250,6 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
         fmt.Println("房主三人队 2")
         go func() {
             f.StopFlag=true
-            fmt.Println("f.StopFlag:",f.StopFlag)
             for {
                 if f.StopFlag == false {
                     break

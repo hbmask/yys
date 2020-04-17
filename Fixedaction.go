@@ -75,16 +75,16 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"房间觉醒加成")
-			time.Sleep(time.Millisecond*1000)
+			time.Sleep(time.Millisecond*1200)
 			if fp.FlagJueXingBUffGold(){//金色状态 退出
 				f.JuXingBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"觉醒开启状态")
+				f.DJ_Click_Range(0,489,600,30,"觉醒开启状态")
 				time.Sleep(time.Millisecond*500)
 			}
 			if fp.FlagJueXingBUffRead(){//红色状态打开
 				f.DJ_Click_Range(700,139,20,6,"启用开觉醒buff")
 				f.JuXingBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"")
+				f.DJ_Click_Range(0,489,600,30,"")
 				time.Sleep(time.Millisecond*500)
 			}
 		}
@@ -97,20 +97,22 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 	if f.CheckBoxGuanYuHun.Checked(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
-			f.Dj_click(JiaCeng,"房间御魂加层")
-			time.Sleep(time.Millisecond*1000)
-			if fp.FlagYuHunBuffGold(){//金色状态
-				//f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
-				f.YuHunBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"buff已经开启")
-				time.Sleep(time.Millisecond*500)
-			}
+			f.Dj_click(JiaCeng,"检查御魂状态")
+			time.Sleep(time.Millisecond*2000)
 			if fp.FlagYuHunBuffRed(){//红色状态
 				f.DJ_Click_Range(701,199,20,6,"开启御魂buff")
 				f.YuHunBuffFlag =true
-				f.DJ_Click_Range(317,489,600,61,"")
+				f.DJ_Click_Range(0,489,600,30,"")
 				time.Sleep(time.Millisecond*500)
 			}
+			if fp.FlagYuHunBuffGold(){//金色状态
+				//f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
+				f.YuHunBuffFlag =true
+				f.DJ_Click_Range(0,489,600,30,"buff已经开启")
+				time.Sleep(time.Millisecond*500)
+				//f.DJ_Click_Range(0,489,600,30,"")
+			}
+
 		}
 	}
 }
@@ -122,17 +124,17 @@ func (f *TFMain) YuHunOffBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"房间御魂界面")
-			time.Sleep(time.Millisecond*700)
+			time.Sleep(time.Millisecond*1200)
 			if fp.FlagYuHunBuffGold(){//金色状态
 				f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
-				f.DJ_Click_Range(317,489,600,61,"")
+				f.DJ_Click_Range(0,489,600,30,"")
 				f.Stops()
 			}
 			if fp.FlagYuHunBuffRed(){//金色状态
 				//f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
-				f.DJ_Click_Range(317,489,600,61,"")
+				f.DJ_Click_Range(0,489,600,30,"")
 				f.Stops()
 			}
 		}
@@ -146,11 +148,11 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 		TingYuanJiaCeng:=r.Recognition(data.TingYuanJiaCeng,0.9)
 		if TingYuanJiaCeng!=nil {
 			f.Dj_click(TingYuanJiaCeng,"庭院御魂加成")
-			time.Sleep(time.Millisecond*1000)
+			time.Sleep(time.Millisecond*1200)
 			if fp.FlagYuHunBuffGold(){
 				f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
-				f.DJ_Click_Range(317,489,600,61,"")
+				f.DJ_Click_Range(0,489,600,30,"")
 				f.Stops()
 			}
 		}
