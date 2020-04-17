@@ -76,12 +76,12 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"打开加成界面")
 			time.Sleep(time.Millisecond*500)
-			if fp.FlagJueXingBUffGold(){
+			if fp.FlagJueXingBUffGold(){//金色状态 退出
 				f.JuXingBuffFlag =true
 				f.DJ_Click_Range(317,489,600,61,"觉醒开启状态")
 				return
 			}
-			if fp.FlagJueXingBUffRead(){
+			if fp.FlagJueXingBUffRead(){//红色状态打开
 				f.DJ_Click_Range(700,139,20,6,"启用开觉醒buff")
 				f.JuXingBuffFlag =true
 				f.DJ_Click_Range(317,489,600,61,"退出buff加成界面")

@@ -213,34 +213,50 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 }
 
                 //在房间
-                if fp.FlagYuHunJueXingFangJian(){
-                    if  f.YuHunBuffFlag ==false{//御魂buff状态
-                        f.YuHunOnBuffJianCha() //选择御魂打开御魂buff
-                    }
-                    if fp.FlagYuhunJueXingFangJianOnLock(){
-                        f.YuHunJueXingOnClock =true
-                    }else{
-                        f.YuHunJueXingOnClock =false
-                    }
-                    if f.OffNumGame==0{//记录副本次
-                        f.YuHunTingYuanOffBuffJianCha()
-                        f.YuHunOffBuffJianCha()
-                        continue
-                    }
-                    if fp.FlagYuhunJueXingFangJianWeiZhi2()==false{ //是不是2人满了
-                        f.DJ_Click_Range(1065,564,50,25,"挑战开始")} //点击挑战
-                    time.Sleep(time.Second)
-                }
+                //if fp.FlagYuHunJueXingFangJian(){
+                //
+                //    if fp.FlagYuhunJueXingFangJianOnLock(){//房间锁
+                //        f.YuHunJueXingOnClock =true
+                //    }else{
+                //        f.YuHunJueXingOnClock =false
+                //    }
+                //    if f.OffNumGame==0{//记录副本次
+                //        f.YuHunTingYuanOffBuffJianCha()
+                //        f.YuHunOffBuffJianCha()
+                //        continue
+                //    }
+                //    if  f.YuHunBuffFlag ==false{//御魂buff状态 未开启
+                //        f.YuHunOnBuffJianCha() //选择御魂打开御魂buff
+                //    }
+                //    if fp.FlagYuhunJueXingFangJianWeiZhi2()==false{ //是不是2人满了
+                //        f.DJ_Click_Range(1065,564,50,25,"挑战开始")} //点击挑战
+                //    time.Sleep(time.Second)
+                //}
                 //在庭院 探索 房间 60秒没动作关闭御魂buff
                 if fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
-                    if  f.OffBuff>=180{
+                    if  f.OffBuff>=180||f.OffNumGame==0{
                         f.YuHunTingYuanOffBuffJianCha()
                         f.YuHunOffBuffJianCha()
                     }
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1
                     fmt.Println(f.OffBuff)
-
+                    if fp.FlagYuhunJueXingFangJianOnLock(){//房间锁
+                        f.YuHunJueXingOnClock =true
+                    }else{
+                        f.YuHunJueXingOnClock =false
+                    }
+                    //if f.OffNumGame==0{//记录副本次
+                    //    f.YuHunTingYuanOffBuffJianCha()
+                    //    f.YuHunOffBuffJianCha()
+                    //    continue
+                    //}
+                    if  f.YuHunBuffFlag ==false{//御魂buff状态 未开启
+                        f.YuHunOnBuffJianCha() //选择御魂打开御魂buff
+                    }
+                    if fp.FlagYuhunJueXingFangJianWeiZhi2()==false{ //是不是2人满了
+                        f.DJ_Click_Range(1065,564,50,25,"挑战开始")} //点击挑战
+                    time.Sleep(time.Second)
                 }
                 time.Sleep(time.Millisecond*100)
             }
@@ -290,33 +306,50 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 }
 
                 //在不在房间
-                if fp.FlagYuHunJueXingFangJian(){
-                    if  f.YuHunBuffFlag ==false{//御魂buff状态
-                        f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
-                    }
-                    if fp.FlagYuhunJueXingFangJianOnLock(){
-                        f.YuHunJueXingOnClock =true
-                    }else{
-                        f.YuHunJueXingOnClock =false
-                    }
-                    if f.OffNumGame==0{//记录副本次
-                        f.YuHunTingYuanOffBuffJianCha()
-                        f.YuHunOffBuffJianCha()
-                        continue
-                    }
-                    if fp.FlagYuhunJueXingFangJianWeiZhi3()==false{ //是不是3人满了
-                        f.DJ_Click_Range(1065,564,50,25,"挑战")} //点击挑战
-                    time.Sleep(time.Millisecond*1000)
-                }
+                //if fp.FlagYuHunJueXingFangJian(){
+                //    if  f.YuHunBuffFlag ==false{//御魂buff状态
+                //        f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
+                //    }
+                //    if fp.FlagYuhunJueXingFangJianOnLock(){
+                //        f.YuHunJueXingOnClock =true
+                //    }else{
+                //        f.YuHunJueXingOnClock =false
+                //    }
+                //    if f.OffNumGame==0{//记录副本次
+                //        f.YuHunTingYuanOffBuffJianCha()
+                //        f.YuHunOffBuffJianCha()
+                //        continue
+                //    }
+                //    if fp.FlagYuhunJueXingFangJianWeiZhi3()==false{ //是不是3人满了
+                //        f.DJ_Click_Range(1065,564,50,25,"挑战")} //点击挑战
+                //    time.Sleep(time.Millisecond*1000)
+                //}
                 //在 庭院 探索 房间 //60秒没动作关闭御魂buff
-                if f.OffNumGame==0||fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
-                    if  f.OffBuff>=180{
+                if fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian(){
+                    if  f.OffBuff>=180||f.OffNumGame==0{//记录副本次
                         f.YuHunTingYuanOffBuffJianCha()
                         f.YuHunOffBuffJianCha()
                     }
                     time.Sleep(time.Millisecond *100)
                     f.OffBuff =f.OffBuff+1
                     fmt.Println(f.OffBuff)
+
+                    if fp.FlagYuhunJueXingFangJianOnLock(){
+                        f.YuHunJueXingOnClock =true
+                    }else{
+                        f.YuHunJueXingOnClock =false
+                    }
+                    //if f.OffNumGame==0{//记录副本次
+                    //    f.YuHunTingYuanOffBuffJianCha()
+                    //    f.YuHunOffBuffJianCha()
+                    //    continue
+                    //}
+                    if  f.YuHunBuffFlag ==false{//御魂buff状态
+                        f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
+                    }
+                    if fp.FlagYuhunJueXingFangJianWeiZhi3()==false{ //是不是3人满了
+                        f.DJ_Click_Range(1065,564,50,25,"挑战")} //点击挑战
+                    time.Sleep(time.Millisecond*1000)
                 }
                 time.Sleep(time.Millisecond*100)
             }
@@ -807,18 +840,23 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
         }()
     case 8:
         go func() {
+            f.StopFlag=true
             for{
+                if f.StopFlag==false {
+                    break
+                }
+                f.XuanShang()
+                f.ZhanDouZhunBei()
+                f.ZhanDouTuiChu()
                 if fp.FlagHuoDongWanShiWu(){
-                    f.XuanShang()
-                    f.ZhanDouZhunBei()
-                    f.ZhanDouTuiChu()
                     //领取
                     HuoDongWanShiWu2 :=r.Recognition(data.HuoDongWanShiWu2,0.85)
                     if HuoDongWanShiWu2!=nil{
                         f.Dj_click(HuoDongWanShiWu2,"领取")
                         //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                         time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(46,103,50,50,"")
+                        f.DJ_Click_Range(46,200,50,50,"")
+                        time.Sleep(time.Second*1)
                         continue
                     }
                     //提交
@@ -826,32 +864,48 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     if HuoDongTijiao!=nil{
                         f.Dj_click(HuoDongTijiao,"提交")
                         time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(46,103,50,50,"")
+                        f.DJ_Click_Range(46,200,50,50,"")
+                        time.Sleep(time.Second*1)
                         continue
                     }
                     //突发情况
                     TuFaZhuangKuang :=r.Recognition(data.TuFaZhuangKuang,0.85)
                     if TuFaZhuangKuang!=nil{
-                        f.DJ_Click_Range(46,103,50,50,"")
+                        f.DJ_Click_Range(46,200,50,50,"")
                         //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                         time.Sleep(time.Second*1)
                         continue
                     }
-                    LingQIJiFa :=r.Recognition(data.LingQIJiFa,0.85)
-                    if LingQIJiFa!=nil{
-                        QianWang :=r.Recognition(data.QianWang,0.85)
-                        if QianWang!=nil{
-                            f.Dj_click(QianWang,"前往")
-                        }
-                        //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
-                        time.Sleep(time.Second*2)
+                    //灵气激发 大妖考研
+                    //LingQIJiFa :=r.Recognition(data.LingQIJiFa,0.85)
+                    //DaYaoKaoYan :=r.Recognition(data.DaYaoKaoYan,0.85)
+                    //if LingQIJiFa!=nil||DaYaoKaoYan!=nil{
+                    QianWang :=r.Recognition(data.QianWang,0.85)
+                    if QianWang!=nil{
+                        f.Dj_click(QianWang,"前往")
+                        time.Sleep(time.Second*3)
+                    }
+                    if fp.FlagWanShiWuTiaoZhan(){//挑战
                         TiaoZhan :=r.Recognition(data.TiaoZhan,0.85)
                         if QianWang!=nil{
                             f.Dj_click(TiaoZhan,"挑战")
                         }
-                        continue
                     }
-                    time.Sleep(time.Second*10)
+                    if fp.FlagWanShiWuChuFa(){//式神寻访 出发
+                        f.DJ_Click_Range(192,514,1,1,"1")
+                        time.Sleep(time.Second)
+                        f.DJ_Click_Range(313,505,1,1,"2")
+                        time.Sleep(time.Second)
+                        f.DJ_Click_Range(439,520,1,1,"3")
+                        time.Sleep(time.Second)
+                        f.DJ_Click_Range(550,504,1,1,"4")
+                        time.Sleep(time.Second*1)
+                        f.DJ_Click_Range(1038,500,1,1,"出发")
+                        time.Sleep(time.Second*3)
+                        f.DJ_Click_Range(46,200,50,50,"")
+                         }
+                    //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                    time.Sleep(time.Second*2)
                 }
             }
         }()
@@ -1060,6 +1114,7 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     f.YYSLos("本辅助永久免费")
     f.YYSLos("获取更新请加入")
     f.YYSLos("Q群:646105028")
+    f.OffNumGame=f.YuHunJueXingShiShiCiShu()//初始化御魂次数
     f.ComboBoxBangDing.SetText(hd)
     f.ComboBoxBangDing.SetItemIndex(0)
     f.CheckBoxGuanJueXing.SetEnabled(false)
