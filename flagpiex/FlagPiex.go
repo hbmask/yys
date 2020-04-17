@@ -554,3 +554,17 @@ func (f FLagPiex)FlagWanShiWuChuFa()bool{
 	xyp:=[][]int{{1038,500,10933230},{1038,565,10604519},}
 	return r.Find_Pixels(xyp)
 }
+
+//{1,1,2500671},
+//63 40 38 0
+//{1,200,2693673},
+//41 26 41 0
+//{1,400,3751787},
+//107 63 57 0
+//{1,800,4294967295},
+//进入万事屋
+func (f FLagPiex)FlagJinWanShiWu()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{1,1,2500671},{1,200,2693673},{1,400,3751787},{1,800,4294967295},}
+	return r.Find_Pixels(xyp)
+}
