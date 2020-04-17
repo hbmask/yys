@@ -52,6 +52,7 @@ func (f TFMain)YuHunOrJueXingFangZHu(i int){
 			if  f.OffBuff>=180||f.OffNumGame==0{//记录副本次
 				f.YuHunTingYuanOffBuffJianCha()
 				f.YuHunOffBuffJianCha()
+				break
 			}
 			time.Sleep(time.Millisecond *100)
 			f.OffBuff =f.OffBuff+1
