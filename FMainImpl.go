@@ -818,6 +818,10 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
                     time.Sleep(time.Second*2)
                 }
+                //获得奖励
+                if fp.FlagWanShiWuHuoDeJiangLi(){
+                    f.DJ_Click_Range(46,550,50,50,"")
+                }
             }
         }()
     }
