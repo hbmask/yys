@@ -98,7 +98,7 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"检查御魂状态")
-			time.Sleep(time.Millisecond*2000)
+			time.Sleep(time.Millisecond*3000)
 			if fp.FlagYuHunBuffRed(){//红色状态
 				f.DJ_Click_Range(701,199,20,6,"开启御魂buff")
 				f.YuHunBuffFlag =true
@@ -205,19 +205,9 @@ func (f *TFMain) XuanShang(){
 			f.DJ_Click_Range(821,368,30,12,"接受悬赏")
 			return
 		}
-		//for i,_:=range rdata{
-		//	if rdata[i]!=nil{
-		//		f.DJ_Click_Range(821,368,30,12,"接受悬赏")
-		//		break
-		//	}else {
-		//		f.DJ_Click_Range(820,455,30,12,"拒绝悬赏")
-		//		break
-		//	}
-		//}
-
-
 	}
 }
+
 //准备
 func (f *TFMain) ZhanDouZhunBei(){
 	r:=yys_find_img.Result{}
