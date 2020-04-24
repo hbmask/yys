@@ -131,7 +131,7 @@ func (f *TFMain) YuHunOffBuffJianCha(){
 				f.DJ_Click_Range(0,489,600,30,"")
 				f.Stops()
 			}
-			if fp.FlagYuHunBuffRed(){//金色状态
+			if fp.FlagYuHunBuffRed(){//红色状态
 				//f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
 				f.DJ_Click_Range(0,489,600,30,"")
@@ -151,6 +151,12 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 			time.Sleep(time.Millisecond*1200)
 			if fp.FlagYuHunBuffGold(){
 				f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
+				f.YuHunBuffFlag =false
+				f.DJ_Click_Range(0,489,600,30,"")
+				f.Stops()
+			}
+			if fp.FlagYuHunBuffRed(){//红色状态
+				//f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 				f.YuHunBuffFlag =false
 				f.DJ_Click_Range(0,489,600,30,"")
 				f.Stops()

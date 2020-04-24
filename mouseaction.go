@@ -147,7 +147,7 @@ func (f *TFMain)DJ_Click_TuiChu() {
 		y =610+rand.Intn(20)
 	case 1:
 		x =1035+rand.Intn(90)//屏幕坐标+游戏窗口内容坐标
-		y =80+rand.Intn(368)
+		y =80+rand.Intn(170)
 	}
 	//x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
 	//y :=610+rand.Intn(20)
