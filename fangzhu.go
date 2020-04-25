@@ -6,7 +6,7 @@ import (
 	"yys/flagpiex"
 )
 
-func (f *TFMain)YuHunOrJueXingFangZHu(i int,fp flagpiex.FLagPiex){
+func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex){
 		f.XuanShang()
 		f.ZhanDouTuiChu()
 		//如果没有上锁 手动点击准备
@@ -24,7 +24,6 @@ func (f *TFMain)YuHunOrJueXingFangZHu(i int,fp flagpiex.FLagPiex){
 			if fp.FlagYuhunJueXingYiHuiMu()&&f.ClickDaJiuMaFlag ==false{
 				f.DianJiDaJiuMa()//标记大舅妈
 				time.Sleep(time.Millisecond*100)
-
 			}
 			//记录副本次数
 			if fp.FlagYuhunJueXingYiHuiMu()&&f.FlagNum==false{

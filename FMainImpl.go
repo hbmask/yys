@@ -33,6 +33,7 @@ type TFMainFields struct {
     OffBuff int//倒计时 如果没有动作关闭buff计数
     OffNumGame int//记录副本次数如果是0 停止辅助
     FlagNum bool//判断计数是否有效
+    StopYuHunNum int //关闭御魂计数器
     TiaoZhanJiShuoff int//当挑战次数满了以后计数,达到计数后自动停止挑战
     HWND win.HWND//窗口句柄
     hotKeyId types.ATOM//热键
@@ -75,6 +76,37 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     break
                 }
                 f.XuanShang()
+                if fp.FlagZhanDouJieMianJiaCeng(){//战斗界面->点击加层
+                    if  f.YuHunBuffFlag ==false{//御魂buff状态
+                        f.DJ_Click_Range(106,595,26,25,"加层检查")
+                        for  {
+                            if fp.FlagYuHunBuffRed(){//红色状态
+                                f.DJ_Click_Range(701,199,20,6,"开启御魂buff")
+                                f.YuHunBuffFlag =true
+                                f.DJ_Click_Range(0,489,600,30,"")
+                                //time.Sleep(time.Millisecond*500)
+                                f.StopYuHunNum=0
+                                break
+                            }
+                            if fp.FlagYuHunBuffGold(){//金色状态
+                                //f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
+                                f.YuHunBuffFlag =true
+                                f.DJ_Click_Range(0,489,600,30,"buff已经开启")
+                                //time.Sleep(time.Millisecond*500)
+                                //f.DJ_Click_Range(0,489,600,30,"")
+                                f.StopYuHunNum=0
+                                break
+                            }
+                            f.StopYuHunNum++
+                            if f.StopYuHunNum>=20{
+                                f.StopYuHunNum=0
+                                break
+                            }
+                            f.StopYuHunNum++
+                            time.Sleep(time.Millisecond*50)
+                        }
+                    }
+                }
                 //战斗界面
                 if fp.FlagZhanDouJieMian(){
                     //fmt.Println("战斗界面")
@@ -132,9 +164,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                             continue
                         }
                     }
-                    if  f.YuHunBuffFlag ==false{//御魂buff状态
-                        f.YuHunOnBuffJianCha() //选择御魂是否打开御魂buff
-                    }
+
                     if fp.FlagYuhunJueXingFangJianOnLock(){//房间上锁
                         f.YuHunJueXingOnClock =true //房间上锁=自动准备
                         f.ClickDaJiuMaFlag=false//组队房间重置
@@ -147,7 +177,8 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         f.YuHunOffBuffJianCha()
                     }
                     time.Sleep(time.Millisecond *500)
-                    f.OffBuff =f.OffBuff+1
+                    f.OffBuff++
+                    fmt.Println(f.OffBuff)
                 }
 
                 //判断是否在房间
@@ -178,7 +209,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 if f.StopFlag == false {
                     break
                 }
-                f.YuHunOrJueXingFangZHu(2,fp)
+                f.YuHunOrJueXingFangZhu(2,fp)
             }
             //f.StopFlag=true
             //for {
@@ -254,7 +285,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 if f.StopFlag == false {
                     break
                 }
-                f.YuHunOrJueXingFangZHu(3,fp)
+                f.YuHunOrJueXingFangZhu(3,fp)
             }
         }()
     }

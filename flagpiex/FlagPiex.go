@@ -18,6 +18,15 @@ func (f FLagPiex)FlagZhanDouJieMian()bool{
 	zdjmxyp:=[][]int{{42,34,10601686},{96,39,10601686},{157,34,10601686},}
 	return r.Find_Pixels(zdjmxyp)
 }
+//战斗界面好友->{96,39,10601686},
+//战斗界面世界->{157,34,10601686},
+//战斗界面加层->{121,608,15006718},
+//通用战斗界面判断
+func (f FLagPiex)FlagZhanDouJieMianJiaCeng()bool{
+	r :=yys_find_img.Result{}
+	zdjmxyp:=[][]int{{121,608,15006718},}
+	return r.Find_Pixels(zdjmxyp)
+}
 //通用战斗界面准备判断
 func (f FLagPiex)FlagZhanDouJieMianZhunBei()bool{
 	r :=yys_find_img.Result{}
