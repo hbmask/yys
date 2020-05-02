@@ -93,7 +93,7 @@ func (h *Yys_windows_screenshot)CreateImage(rect image.Rectangle) (img *image.RG
 
 //获取句柄窗口图像
 func (h *Yys_windows_screenshot)YYS_Capture() (*image.RGBA, error) { //YYS_HWND win.HWND
-	x, y, width, height :=0,0,1138,640
+	x, y, width, height :=0,0,1136,640
 	rect := image.Rect(0, 0, width, height)
 	img, err := h.CreateImage(rect)
 	if err != nil {

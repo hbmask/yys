@@ -33,7 +33,37 @@ func (f FLagPiex)FlagZhanDouJieMianZhunBei()bool{
 	zdjmxyp:=[][]int{{1038,469,9485274},{42,34,10601686},{96,39,10601686},{157,34,10601686},}
 	return r.Find_Pixels(zdjmxyp)
 }
-
+//战斗界面准备前 判断返回是否存在
+//{31,38,10601686},
+//214 196 161 0
+func (f FLagPiex)FlagZhanDouJieMianZhunBeiFanHui()bool{
+	r :=yys_find_img.Result{}
+	zdjmxyp:=[][]int{{42,34,10601686},}
+	return r.Find_Pixels(zdjmxyp)
+}
+//战斗界面判断 准备是否存在
+//{1045,500,4608092},*
+//92 80 70 0
+//{1006,502,3355195},*
+//59 50 51 0
+//{1035,578,8107485},
+func (f FLagPiex)FlagZhanDouJieMianZhunBeiFanHui_ZhunBei()bool{
+	r :=yys_find_img.Result{}
+	zdjmxyp:=[][]int{{1035,578,8107485},}
+	return r.Find_Pixels(zdjmxyp)
+}
+//战斗界面 准备 鼓棒
+//{1044,575,330056},*
+//72 9 5 0
+//{1024,575,528746},*
+//106 17 8 0
+//{1035,578,8107485},
+//221 181 123 0
+//func (f FLagPiex)FlagZhanDouJieMianZhunBeiFanHui_GuDiBu()bool{
+//	r :=yys_find_img.Result{}
+//	zdjmxyp:=[][]int{{1035,578,8107485},}
+//	return r.Find_Pixels(zdjmxyp)
+//}
 
 //通用胜利取色三组
 func (f FLagPiex)FlagShengLi()bool{
@@ -125,6 +155,14 @@ func (f FLagPiex)FlagTanSuo_GouLiangZuDuiJieMian()bool{
 	xyp:=[][]int{{1000,35,8892630},{541,481,6206195},{617,481,6206195},{802,481,6206195},{882,481,6206195},}
 	return r.Find_Pixels(xyp)
 }
+//{38,119,2969200},
+//112 78 45 0
+//狗粮队长状态标记
+func (f FLagPiex)FlagTanSuo_GouLiangFuBenDuiZhang()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{29,127,1586518},}
+	return r.Find_Pixels(xyp)
+}
 //{241,241,13097191},
 //231 216 199 0
 //{270,241,10136017},
@@ -141,18 +179,18 @@ func (f FLagPiex)FlagTanSuo_KunNan28()bool{
 	xyp:=[][]int{{241,241,13097191},{270,241,10136017},{291,241,5595823},{339,241,8556228},{368,241,7438012},}
 	return r.Find_Pixels(xyp)
 }
-//{614,32,11057883},
+//{614,32,11057883},叶儿粑
 //219 186 168 0
-//{786,32,2845414},
+//{786,32,2845414},体力
 //230 106 43 0
-//{999,32,8958679},
+//{999,32,8958679},信封
 //215 178 136 0
-//{1089,32,8629972},
+//{1089,32,8629972},世界聊天
 //212 174 131 0
 //狗粮->进入副本界面(可以看到怪物选择)
 func (f FLagPiex)FlagGouliangFuBenJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{614,32,11057883},{786,32,2845414},{999,32,8958679},{1089,32,8629972},}
+	xyp:=[][]int{{614,32,11057883},{999,32,8958679}}
 	return r.Find_Pixels(xyp)
 }
 //结界突破->界面
@@ -246,7 +284,7 @@ func (f FLagPiex)FlagYuhunJueXingFangJianOnLock()bool{
 //御魂觉醒->房间标记
 func (f FLagPiex) FlagYuHunJueXingFangJian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1095,35,10601686},{736,49,13296379},{1075,615,5289983},}
+	xyp:=[][]int{{1095,35,10601686},{736,49,13296379},{1075,615,5355519},}
 	return r.Find_Pixels(xyp)
 }
 //{1095,35,10601686},
@@ -275,14 +313,14 @@ func (f FLagPiex)FlagYuhunJueXingYiHuiMu()bool{
 	xyp:=[][]int{{498,298,9878744},{661,320,8762591},{568,282,9091550},{568,369,9751273},}
 	return r.Find_Pixels(xyp)
 }
-//{52,50,4867367},
-//39 69 74 0
-//{83,52,4801573},
-//37 68 73 0
+//{56,44,10456145},
+//81 140 159 0
+//{80,64,10654801},
+//81 148 162 0
 //御魂退出战斗数据标记点
 func (f FLagPiex)FlagTuiChuZhanDouShuJu()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{52,50,4867367},{83,52,4801573},}
+	xyp:=[][]int{{56,44,10456145},{80,64,10654801},}
 	return r.Find_Pixels(xyp)
 }
 //{1028,411,14935527},
@@ -359,7 +397,30 @@ func (f FLagPiex)FlagYuHunBuffGold()bool{
 	xyp:=[][]int{{701,199,38883},}
 	return r.Find_Pixels(xyp)
 }
-
+//狗粮经验buff 金色标志 100
+func (f FLagPiex)FlagGouLiangBuffGold100()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{697,319,37603},}
+	return r.Find_Pixels(xyp)
+}
+//狗粮经验buff 金色标志 50
+func (f FLagPiex)FlagGouLiangBuffGold50()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{697,380,37603},}
+	return r.Find_Pixels(xyp)
+}
+//狗粮经验buff 红色标志 100
+func (f FLagPiex)FlagGouLiangBuffRed100()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{697,319,2690226}}
+	return r.Find_Pixels(xyp)
+}
+//狗粮经验buff 红色标志 50
+func (f FLagPiex)FlagGouLiangBuffRed50()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{697,380,2690226},}
+	return r.Find_Pixels(xyp)
+}
 //
 //{124,233,6007889},
 //81 172 91 0
@@ -589,5 +650,35 @@ func (f FLagPiex)FlagJinWanShiWu()bool{
 func (f FLagPiex)FlagWanShiWuHuoDeJiangLi()bool{
 	r :=yys_find_img.Result{}
 	xyp:=[][]int{{376,376,9020091},{503,376,10270155},{550,376,10270155},{600,376,10270155},}
+	return r.Find_Pixels(xyp)
+}
+
+//{447,101,4413055},
+//127 86 67 0
+//{673,101,3886193},
+//113 76 59 0
+//斗技 挑战界面
+func (f FLagPiex)FlagDouJiJieMian()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{447,101,4413055},{673,101,3886193},}
+	return r.Find_Pixels(xyp)
+}
+
+//{1037,575,3550814},
+//94 46 54 0
+//{973,575,10589007},
+//79 147 161 0
+//斗技 拔得头筹
+func (f FLagPiex)FlagDouJiBaDeTouChou()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{1037,575,3550814},{973,575,10589007},}
+	return r.Find_Pixels(xyp)
+}
+//斗技 对战中...
+//{215,22,4740210},
+//114 84 72 0
+func (f FLagPiex)FlagDouJiZhanDouZhong()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{215,24,10601686},}
 	return r.Find_Pixels(xyp)
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"time"
 	"yys/data"
@@ -99,7 +100,6 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 				f.StopYuHunNum++
 				time.Sleep(time.Millisecond*50)
 			}
-
 		}
 	}
 }
@@ -194,9 +194,10 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 				if fp.FlagYuHunBuffGold(){
 					f.DJ_Click_Range(701,199,20,6,"关闭御魂buff")
 					f.YuHunBuffFlag =false
+					time.Sleep(time.Millisecond*500)
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
-					f.Stops()
+					//f.Stops()
 					return
 				}
 				if fp.FlagYuHunBuffRed(){//红色状态
@@ -204,8 +205,7 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 					f.YuHunBuffFlag =false
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
-					f.Stops()
-
+					//f.Stops()
 					return
 				}
 				if f.StopYuHunNum>=20{
@@ -218,6 +218,49 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 
 		}
 	}
+}
+
+//狗粮经验Buff关闭检查
+func (f *TFMain) GouLiangOffBuffJianCha(){
+	r:=yys_find_img.Result{}
+	fp:=flagpiex.FLagPiex{}
+	JiaCeng:=r.Recognition(data.JiaCeng,0.9)
+	if JiaCeng!=nil {
+		f.Dj_click(JiaCeng,"狗粮经验加层")
+		//time.Sleep(time.Millisecond*1200)
+		for  {
+			if fp.FlagGouLiangBuffGold50(){//金色状态
+				if fp.FlagGouLiangBuffGold50(){//金色状态
+					f.DJ_Click_Range(697,319,60,6,"关闭经验100")
+					 }
+				time.Sleep(time.Millisecond*500)
+				f.DJ_Click_Range(697,380,60,6,"关闭经验50")
+				time.Sleep(time.Millisecond*500)
+				f.YuHunBuffFlag =false
+				f.DJ_Click_Range(0,489,600,30,"")
+				f.StopYuHunNum=0
+				//f.Stops()
+				return
+			}
+			if fp.FlagGouLiangBuffRed50(){//红色状态
+				//if !fp.FlagGouLiangBuffRed100(){//红色状态
+				//	f.DJ_Click_Range(697,319,60,6,"关闭经验100")
+				//	}
+				f.YuHunBuffFlag =false
+				f.DJ_Click_Range(0,489,600,30,"")
+				f.StopYuHunNum=0
+				//f.Stops()
+				return
+			}
+			if f.StopYuHunNum>=20{
+				f.StopYuHunNum=0
+				return
+			}
+			f.StopYuHunNum++
+			time.Sleep(time.Millisecond*50)
+		}
+	}
+
 }
 //状态检查 四个选项队长
 func (f *TFMain) Zhuangtai_all(){
@@ -271,50 +314,75 @@ func (f *TFMain) XuanShang(){
 
 //准备
 func (f *TFMain) ZhanDouZhunBei(){
-	r:=yys_find_img.Result{}
-	//准备->查看标记是否存在
-	Kaijuzhunbei_flag:=r.Recognition(data.Kaijuzhunbei_flag,0.85)
-	if Kaijuzhunbei_flag!=nil {
-		//准备->标记->点击准备
-		Kaijuzhunbei_click:=r.Recognition(data.Kaijuzhunbei_click,0.85)
-		if Kaijuzhunbei_click!=nil {
-			f.Dj_click(Kaijuzhunbei_click,"准备战斗")
-			return
+	fp:=flagpiex.FLagPiex{}
+	//返回标记和准备标记同时存在在
+	if fp.FlagZhanDouJieMianZhunBeiFanHui(){
+		if fp.FlagZhanDouJieMianZhunBeiFanHui_ZhunBei(){
+			f.DJ_Click_Range(1004,466,70,60,"准备战斗")
 		}
 	}
+
 }
+//func (f *TFMain) ZhanDouZhunBei(){
+//	r:=yys_find_img.Result{}
+//	//准备->查看标记是否存在
+//	Kaijuzhunbei_flag:=r.Recognition(data.Kaijuzhunbei_flag,0.85)
+//	if Kaijuzhunbei_flag!=nil {
+//		//准备->标记->点击准备
+//		Kaijuzhunbei_click:=r.Recognition(data.Kaijuzhunbei_click,0.85)
+//		if Kaijuzhunbei_click!=nil {
+//			f.Dj_click(Kaijuzhunbei_click,"准备战斗")
+//			return
+//		}
+//	}
+//}
 //战斗退出
 func (f *TFMain) ZhanDouTuiChu(){
 	r:=yys_find_img.Result{}
 	fp:=flagpiex.FLagPiex{}
-	if fp.FlagShengLi()||fp.FlagJingSuMiWenShengLiTuiChu(){
+	fmt.Println(fp.FlagTuiChuZhanDouShuJu())
+	if fp.FlagTuiChuZhanDouShuJu(){
 		f.DJ_Click_TuiChu()
-		f.YYSLos("退出战斗")
+		f.YYSLos("退出战斗-数据")
+		f.ClickDaJiuMaFlag =false//点怪战斗退出重置
+		f.ClickDaoCaoRenFlag =false//点怪战斗退出重置
+		f.FlagNum=false//计数判定
+		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
+		f.OffBuff=0
+		time.Sleep(time.Millisecond*500)
+		return
+	}
+	if fp.FlagShengLiBaoXiang()||fp.FlagTuiChuTanChiGui()||fp.FlagShengLi()||fp.FlagJingSuMiWenShengLiTuiChu(){
+		f.DJ_Click_TuiChu()
+		f.YYSLos("退出战斗-SLBXGUI")
 		f.ClickDaJiuMaFlag =false//战斗退出重置
 		f.ClickDaoCaoRenFlag =false//战斗退出重置
 		f.FlagNum=false//计数判定
 		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
-		//time.Sleep(time.Millisecond*500)
+		f.OffBuff=0
+		time.Sleep(time.Millisecond*500)
 		return
 	}
-	if fp.FlagShengLiBaoXiang(){//通用胜利宝箱
-		f.DJ_Click_TuiChu()
-		f.ClickDaJiuMaFlag =false//战斗退出重置
-		f.ClickDaoCaoRenFlag =false//战斗退出重置
-		f.FlagNum=false//计数判定
-		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
-		//time.Sleep(time.Millisecond*500)
-		return
-	}
-	if fp.FlagTuiChuTanChiGui(){//御魂退出贪吃鬼标记
-		f.DJ_Click_TuiChu()
-		f.ClickDaJiuMaFlag =false//战斗退出重置
-		f.ClickDaoCaoRenFlag =false//战斗退出重置
-		f.FlagNum=false//计数判定
-		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
-		//time.Sleep(time.Millisecond*500)
-		return
-	}
+	//if fp.FlagShengLiBaoXiang(){//通用胜利宝箱
+	//	f.DJ_Click_TuiChu()
+	//	f.ClickDaJiuMaFlag =false//战斗退出重置
+	//	f.ClickDaoCaoRenFlag =false//战斗退出重置
+	//	f.FlagNum=false//计数判定
+	//	f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
+	//	f.OffBuff=0
+	//	//time.Sleep(time.Millisecond*500)
+	//	return
+	//}
+	//if fp.FlagTuiChuTanChiGui(){//御魂退出贪吃鬼标记
+	//	f.DJ_Click_TuiChu()
+	//	f.ClickDaJiuMaFlag =false//战斗退出重置
+	//	f.ClickDaoCaoRenFlag =false//战斗退出重置
+	//	f.FlagNum=false//计数判定
+	//	f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
+	//	f.OffBuff=0
+	//	//time.Sleep(time.Millisecond*500)
+	//	return
+	//}
 	if fp.FlagShiBai(){//通用失败
 		//失败->点击鼓面
 		End_shibai_gu_click:=r.Recognition(data.End_shibai_gu_click,0.89)
@@ -342,13 +410,13 @@ func (f *TFMain) ZhanDouTuiChu(){
 		}
 	}
 	//胜利->点击图案
-	End_dianjituan_click:=r.Recognition(data.End_dianjituan_click,0.85)
-	if End_dianjituan_click!=nil {
-		f.DJ_Click_TuiChu()
-		time.Sleep(time.Millisecond*500)
-		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
-		return
-	}
+	//End_dianjituan_click:=r.Recognition(data.End_dianjituan_click,0.85)
+	//if End_dianjituan_click!=nil {
+	//	f.DJ_Click_TuiChu()
+	//	time.Sleep(time.Millisecond*500)
+	//	f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
+	//	return
+	//}
 	//胜利->点击屏幕
 	End_dianjipingmu_click:=r.Recognition(data.End_dianjipingmu_click,0.85)
 	if End_dianjipingmu_click!=nil {

@@ -21,7 +21,7 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 	cxy :=[]int{}
 	ssd :=[]float32{}
 	for i,_:=range r  {
-		if r[i].Result_img_centen[0]<475&&r[i].Result_img_centen[1]<584{
+		if r[i].Result_img_centen[0]<600&&r[i].Result_img_centen[1]<584{
 			xy =r[i].Result_img_centen //目标坐标
 			cxy =r[i].Clickrangevalue  //随机点击值
 			ssd =r[i].Confidence
@@ -187,12 +187,14 @@ func (f *TFMain)SJ_Click_Range(x,y,xr,yr int,s string) {
 	fmt.Printf("偏移后点击位置:%d,%d %s \n",cx,cy,s)
 	//CS_DBLCLKS
 	tmp :=me_win32.MAKELPARAM(cx,cy)
-	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,tmp)//激活窗口
+	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,tmp)//激活窗口
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+50))
+	//time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+50))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
-	time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+50))
+	//time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+50))
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
 	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))

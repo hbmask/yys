@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"time"
 	"yys/flagpiex"
 )
@@ -51,7 +50,6 @@ func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex){
 			}
 			time.Sleep(time.Millisecond *100)
 			f.OffBuff =f.OffBuff+1
-			fmt.Println(f.OffBuff)
 
 			if fp.FlagYuhunJueXingFangJianOnLock(){
 				f.YuHunJueXingOnClock =true
@@ -60,7 +58,8 @@ func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex){
 			}
 			if i==2{
 				if fp.FlagYuhunJueXingFangJianWeiZhi2()==false&&fp.FlagYuHunJueXingFangJian(){ //是不是2人满了
-					f.DJ_Click_Range(1065,564,50,25,"挑战")}
+					f.DJ_Click_Range(1065,564,50,25,"挑战")
+				}
 					time.Sleep(time.Millisecond*1000)
 			}else if i==3{
 				if fp.FlagYuhunJueXingFangJianWeiZhi3()==false&&fp.FlagYuHunJueXingFangJian(){ //是不是3人满了

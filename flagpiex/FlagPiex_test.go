@@ -25,7 +25,6 @@ func Test_JieTuCaptureRect(T *testing.T){
 	hd :=yys_screenshot.Yys_windows_screenshot{}
 	img, _ := hd.YYS_Capture()//得到一个go类型的窗口句柄图像
 	//ioutil.WriteFile("./output.png", img, 0666) //还原图像
-	fmt.Println()
 	file, _ := os.Create(strconv.Itoa(int(time.Now().UnixNano()))+".png")
 	png.Encode(file,img)
 }
@@ -33,8 +32,7 @@ func Test_JieTuCaptureRect(T *testing.T){
 //手动取色
 	func Test_find_Pixel(t *testing.T){
 	r :=yys_find_img.Result{}
-	//{960,37,8892630},{1025,37,8761302},{1094,37,8761300},
-	colorxy:=[][]int{{121,608},}
+	colorxy:=[][]int{{56,44},{80,64}}
 	//r.Find_Pixel(xyp)
 
 	hwnd := getyyshwnd.YYSHWND{}

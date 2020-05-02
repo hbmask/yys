@@ -9,8 +9,8 @@ import (
 
 func main() {
     //go func() {
-    //    http.ListenAndServe("localhost:6060", nil)
-    //    fmt.Println("启动")
+    //   http.ListenAndServe("localhost:6060", nil)
+    //   fmt.Println("启动")
     //}()
    vcl.Application.SetFormScaled(true)
    vcl.Application.Initialize()
