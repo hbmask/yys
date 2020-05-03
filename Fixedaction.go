@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"time"
 	"yys/data"
@@ -340,8 +339,8 @@ func (f *TFMain) ZhanDouZhunBei(){
 func (f *TFMain) ZhanDouTuiChu(){
 	r:=yys_find_img.Result{}
 	fp:=flagpiex.FLagPiex{}
-	fmt.Println(fp.FlagTuiChuZhanDouShuJu())
 	if fp.FlagTuiChuZhanDouShuJu(){
+
 		f.DJ_Click_TuiChu()
 		f.YYSLos("退出战斗-数据")
 		f.ClickDaJiuMaFlag =false//点怪战斗退出重置
@@ -349,7 +348,7 @@ func (f *TFMain) ZhanDouTuiChu(){
 		f.FlagNum=false//计数判定
 		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		f.OffBuff=0
-		time.Sleep(time.Millisecond*500)
+		time.Sleep(time.Millisecond*1250)
 		return
 	}
 	if fp.FlagShengLiBaoXiang()||fp.FlagTuiChuTanChiGui()||fp.FlagShengLi()||fp.FlagJingSuMiWenShengLiTuiChu(){
