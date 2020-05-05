@@ -519,14 +519,14 @@ func (f FLagPiex)FlagYuLingTiaoZhanJieShangSuo()bool{
 
 //{1060,31,10601686},
 //214 196 161 0
-//{33,30,10278892},
+//{33,30,10213100},
 //236 215 156 0
 //{97,99,4340799},
 //63 60 66 0
 //组队界面
 func (f FLagPiex)FlagALLZuDuiJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1060,31,10601686},{33,30,10278892},{97,99,4340799},}
+	xyp:=[][]int{{1060,31,10601686},{38,34,10872308},{97,99,4340799},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -550,7 +550,7 @@ func (f FLagPiex) FlagYaoQiFengYinXuanZe()bool{
 //妖气封印排队
 func (f FLagPiex)FlagYaoQiFengYinPaiDui()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{354,35,1917532},{361,46,1851223},}
+	xyp:=[][]int{{354,35,1917531},{361,46,1851223},}
 	return r.Find_Pixels(xyp)
 }
 

@@ -379,11 +379,15 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                 }
                 time.Sleep(time.Millisecond *300)
             }
-            if fp.FlagGouliangFuBenJieMian()&&fp.FlagTanSuo_GouLiangFuBenDuiZhang()==false{//狗粮副本界面
-                        f.DJ_Click_Range(32,51,12,14,"队长已经退出")
-                        time.Sleep(time.Millisecond*500)
-                        f.DJ_Click_Range(650,350,100,25,"立刻退出")
+            if  fp.FlagGouliangFuBenJieMian(){
+                time.Sleep(time.Millisecond*500)
+                if fp.FlagGouliangFuBenJieMian()&&fp.FlagTanSuo_GouLiangFuBenDuiZhang()==false{//狗粮副本界面
+                    f.DJ_Click_Range(32,51,12,14,"队长已经退出")
+                    time.Sleep(time.Millisecond*500)
+                    f.DJ_Click_Range(650,350,100,25,"立刻退出")
+                }
             }
+
             f.XuanShang()
             f.ZhanDouTuiChu()
             time.Sleep(time.Millisecond*100)
@@ -898,9 +902,11 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
             //庭院进组
             if fp.FlagTingYuan(){
                 f.DJ_Click_Range(318,558,35,30,"庭院->组队")
+                time.Sleep(time.Millisecond * 500)
                 continue
             }
             //判断是否能找到红色妖气
+            fmt.Println(fp.FlagALLZuDuiJieMian())
             if fp.FlagALLZuDuiJieMian(){
                 YaoQiFengYin_Falg :=r.Recognition(data.YaoQiFengYin_Falg,0.9)
                 if YaoQiFengYin_Falg!=nil{
@@ -916,7 +922,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiRiHeFang_Click :=r.Recognition(data.YaoQiRiHeFang_Click,0.9)
                         if YaoQiRiHeFang_Click!=nil{
                             f.Dj_click(YaoQiRiHeFang_Click,"选择日和坊")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -927,7 +933,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiGuiShiHei_Click :=r.Recognition(data.YaoQiGuiShiHei_Click,0.9)
                         if YaoQiGuiShiHei_Click!=nil{
                             f.Dj_click(YaoQiGuiShiHei_Click,"选择鬼使黑")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -938,7 +944,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiShuTu_Click :=r.Recognition(data.YaoQiShuTu_Click,0.9)
                         if YaoQiShuTu_Click!=nil{
                             f.Dj_click(YaoQiShuTu_Click,"选择淑图")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -950,7 +956,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiXiaoSongWan_Click :=r.Recognition(data.YaoQiXiaoSongWan_Click,0.9)
                         if YaoQiXiaoSongWan_Click!=nil{
                             f.Dj_click(YaoQiXiaoSongWan_Click,"选择小松丸")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -962,7 +968,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiErKouNv_Click :=r.Recognition(data.YaoQiErKouNv_Click,0.9)
                         if YaoQiErKouNv_Click!=nil{
                             f.Dj_click(YaoQiErKouNv_Click,"选择二口女")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -974,7 +980,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiGuNv_Click :=r.Recognition(data.YaoQiGuNv_Click,0.9)
                         if YaoQiGuNv_Click!=nil{
                             f.Dj_click(YaoQiGuNv_Click,"选择骨女")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -986,7 +992,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiEGui_Click :=r.Recognition(data.YaoQiEGui_Click,0.9)
                         if YaoQiEGui_Click!=nil{
                             f.Dj_click(YaoQiEGui_Click,"选择饿鬼")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -998,7 +1004,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiHaiFangZhu_Click :=r.Recognition(data.YaoQiHaiFangZhu_Click,0.9)
                         if YaoQiHaiFangZhu_Click!=nil{
                             f.Dj_click(YaoQiHaiFangZhu_Click,"选择海坊主")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
                             time.Sleep(time.Millisecond*2000)
                         }else {
@@ -1010,7 +1016,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                         YaoQiTiaoTiaoGeGe_Click :=r.Recognition(data.YaoQiTiaoTiaoGeGe_Click,0.9)
                         if YaoQiTiaoTiaoGeGe_Click!=nil{
                             f.Dj_click(YaoQiTiaoTiaoGeGe_Click,"选择跳跳哥")
-                            time.Sleep(time.Millisecond*500)
+                            time.Sleep(time.Millisecond*800)
                             if fp.FlagYaoQiFengYinPaiDui(){
                                 continue
                             }

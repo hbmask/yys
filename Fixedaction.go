@@ -339,8 +339,7 @@ func (f *TFMain) ZhanDouZhunBei(){
 func (f *TFMain) ZhanDouTuiChu(){
 	r:=yys_find_img.Result{}
 	fp:=flagpiex.FLagPiex{}
-	if fp.FlagTuiChuZhanDouShuJu(){
-
+	if fp.FlagTuiChuZhanDouShuJu(){//通过战斗数据退出
 		f.DJ_Click_TuiChu()
 		f.YYSLos("退出战斗-数据")
 		f.ClickDaJiuMaFlag =false//点怪战斗退出重置
@@ -348,12 +347,12 @@ func (f *TFMain) ZhanDouTuiChu(){
 		f.FlagNum=false//计数判定
 		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		f.OffBuff=0
-		time.Sleep(time.Millisecond*1250)
+		time.Sleep(time.Millisecond*1260)
 		return
 	}
 	if fp.FlagShengLiBaoXiang()||fp.FlagTuiChuTanChiGui()||fp.FlagShengLi()||fp.FlagJingSuMiWenShengLiTuiChu(){
 		f.DJ_Click_TuiChu()
-		f.YYSLos("退出战斗-SLBXGUI")
+		f.YYSLos("退出战斗")
 		f.ClickDaJiuMaFlag =false//战斗退出重置
 		f.ClickDaoCaoRenFlag =false//战斗退出重置
 		f.FlagNum=false//计数判定
