@@ -160,7 +160,8 @@ func (f FLagPiex)FlagTanSuo_GouLiangZuDuiJieMian()bool{
 //狗粮队长状态标记
 func (f FLagPiex)FlagTanSuo_GouLiangFuBenDuiZhang()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{29,127,1586518},}
+	//xyp:=[][]int{{29,127,1586518},}
+	xyp:=[][]int{{29,127,1586517},}
 	return r.Find_Pixels(xyp)
 }
 //{241,241,13097191},

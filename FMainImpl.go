@@ -381,6 +381,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
             }
             if  fp.FlagGouliangFuBenJieMian(){
                 time.Sleep(time.Millisecond*500)
+                fmt.Println(fp.FlagGouliangFuBenJieMian(),fp.FlagTanSuo_GouLiangFuBenDuiZhang())
                 if fp.FlagGouliangFuBenJieMian()&&fp.FlagTanSuo_GouLiangFuBenDuiZhang()==false{//狗粮副本界面
                     f.DJ_Click_Range(32,51,12,14,"队长已经退出")
                     time.Sleep(time.Millisecond*500)
