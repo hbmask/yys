@@ -30,10 +30,10 @@ type TFMainFields struct {
     ClickDaoCaoRenFlag  bool //点稻草人
     JuXingBuffFlag bool//觉醒buff状态 启动还是未启动
     YuHunBuffFlag bool //御魂buff状态 启动还是为启动
-    OffBuff int//计数多少次以后关闭buff
-    OffNumGame int//记录副本次数如果是0 停止辅助
-    FlagNum bool//每次对点怪只进行一次操作
-    StopYuHunNum int //记录已经刷了多少次御魂
+    OffBuff int//计数多少次以后关闭buff.
+    OffNumGame int//记录副本次数如果是0 停止辅助..
+    FlagNum bool//每次对点怪只进行一次操作.
+    StopYuHunNum int //记录已经刷了多少次御魂.
     TiaoZhanJiShuoff int//当挑战次数达到上线时,点击后没有进入副本,停止
     HWND win.HWND//窗口句柄
     hotKeyId types.ATOM//热键
