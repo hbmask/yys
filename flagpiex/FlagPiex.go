@@ -285,7 +285,8 @@ func (f FLagPiex)FlagYuhunJueXingFangJianOnLock()bool{
 //御魂觉醒->房间标记
 func (f FLagPiex) FlagYuHunJueXingFangJian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1095,35,10601686},{736,49,13296379},{1075,615,5355519},}
+	//xyp:=[][]int{{1095,35,10601686},{736,49,13296379},{1075,615,5355519},}
+	xyp:=[][]int{{1095,35,10601686},{736,49,13296379},{1075,615,5289983},}
 	return r.Find_Pixels(xyp)
 }
 //{1095,35,10601686},

@@ -110,26 +110,26 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 		JiaCeng:=r.Recognition(data.JiaCeng,0.9)
 		if JiaCeng!=nil {
 			f.Dj_click(JiaCeng,"检查御魂状态")
-			//time.Sleep(time.Millisecond*500)
+			time.Sleep(time.Millisecond*500)
 			for  {
 				if fp.FlagYuHunBuffRed(){//红色状态
 					f.DJ_Click_Range(701,199,20,6,"开启御魂buff")
 					f.YuHunBuffFlag =true
+					//time.Sleep(time.Millisecond*1000)
 					f.DJ_Click_Range(0,489,600,30,"")
-					//time.Sleep(time.Millisecond*500)
 					f.StopYuHunNum=0
 					return
 				}
 				if fp.FlagYuHunBuffGold(){//金色状态
 					//f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
 					f.YuHunBuffFlag =true
+					//time.Sleep(time.Millisecond*500)
 					f.DJ_Click_Range(0,489,600,30,"buff已经开启")
 					//time.Sleep(time.Millisecond*500)
 					//f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
 					return
 				}
-				f.StopYuHunNum++
 				if f.StopYuHunNum>=20{
 					f.StopYuHunNum=0
 					return
