@@ -347,7 +347,7 @@ func (f *TFMain) ZhanDouTuiChu(){
 		f.FlagNum=false//计数判定
 		f.TiaoZhanJiShuoff =0//挑战卷0的情况下 不在继续挑战
 		f.OffBuff=0
-		time.Sleep(time.Millisecond*1260)
+		time.Sleep(time.Millisecond*800)
 		return
 	}
 	if fp.FlagShengLiBaoXiang()||fp.FlagTuiChuTanChiGui()||fp.FlagShengLi()||fp.FlagJingSuMiWenShengLiTuiChu(){
