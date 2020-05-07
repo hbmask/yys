@@ -30,7 +30,7 @@ type TFMainFields struct {
     ClickDaoCaoRenFlag  bool //点稻草人
     JuXingBuffFlag bool//觉醒buff状态 启动还是未启动
     YuHunBuffFlag bool //御魂buff状态 启动还是为启动
-    OffBuff int//计数buff多少次以后关闭
+    OffBuff int//计数多少次以后关闭buff
     OffNumGame int//记录副本次数如果是0 停止辅助
     FlagNum bool//每次对点怪只进行一次操作
     StopYuHunNum int //记录已经刷了多少次御魂
@@ -86,6 +86,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                                 f.DJ_Click_Range(0,489,600,30,"")
                                 //time.Sleep(time.Millisecond*500)
                                 f.StopYuHunNum=0
+                                f.OffBuff=0
                                 break
                             }
                             if fp.FlagYuHunBuffGold(){//金色状态
@@ -95,6 +96,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                                 //time.Sleep(time.Millisecond*500)
                                 //f.DJ_Click_Range(0,489,600,30,"")
                                 f.StopYuHunNum=0
+                                f.OffBuff=0
                                 break
                             }
                             f.StopYuHunNum++
@@ -133,37 +135,38 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     time.Sleep(time.Millisecond*100)
                     continue
                 }
+                //被邀请进组
+                if fp.FlagYuHunZuDuiYaoQing(){ //被邀请进组
+                    H10 :=r.Recognition(data.H10,0.85)
+                    if H10!=nil {
+                        YuHunChiLun_Click :=r.Recognition(data.YuHunChiLun_Click,0.85)
+                        if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
+                            f.Dj_click(YuHunChiLun_Click,"齿轮进入")
+                            //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
+                            time.Sleep(time.Millisecond*200)
+                            continue
+                        }
+                        f.DJ_Click_Range(125,233,5,5,"接受魂10邀请")
+                        time.Sleep(time.Millisecond*200)
+                        continue
+                    }
+                    H11 :=r.Recognition(data.H11,0.85)
+                    if H11!=nil {
+                        YuHunChiLun_Click :=r.Recognition(data.YuHunChiLun_Click,0.85)
+                        if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
+                            f.Dj_click(YuHunChiLun_Click,"齿轮进入")
+                            //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
+                            time.Sleep(time.Millisecond*200)
+                            continue
+                        }
+                        f.DJ_Click_Range(125,233,5,5,"接受魂11邀请")
+                        time.Sleep(time.Millisecond*200)
+                        continue
+                    }
+                }
                 //在庭院,探索,房间
                 if f.OffNumGame==0||fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian_DaShou(){
-                    //被邀请进组
-                    if fp.FlagYuHunZuDuiYaoQing(){
-                        H10 :=r.Recognition(data.H10,0.85)
-                        if H10!=nil {
-                            YuHunChiLun_Click :=r.Recognition(data.YuHunChiLun_Click,0.85)
-                            if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
-                                f.Dj_click(YuHunChiLun_Click,"齿轮进入")
-                                //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
-                                time.Sleep(time.Millisecond*200)
-                                continue
-                            }
-                            f.DJ_Click_Range(125,233,5,5,"接受魂10邀请")
-                            time.Sleep(time.Millisecond*200)
-                            continue
-                        }
-                        H11 :=r.Recognition(data.H11,0.85)
-                        if H11!=nil {
-                            YuHunChiLun_Click :=r.Recognition(data.YuHunChiLun_Click,0.85)
-                            if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
-                                f.Dj_click(YuHunChiLun_Click,"齿轮进入")
-                                //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
-                                time.Sleep(time.Millisecond*200)
-                                continue
-                            }
-                            f.DJ_Click_Range(125,233,5,5,"接受魂11邀请")
-                            time.Sleep(time.Millisecond*200)
-                            continue
-                        }
-                    }
+
 
                     if fp.FlagYuhunJueXingFangJianOnLock(){//房间上锁
                         f.YuHunJueXingOnClock =true //房间上锁=自动准备
@@ -172,11 +175,10 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         f.FlagNum=false//计数判定
                     }
                     time.Sleep(time.Millisecond*100)
-                    if f.OffBuff>=60{//满足条件关闭御魂
+                    if f.OffBuff>=600{//满足条件关闭御魂
                         f.YuHunTingYuanOffBuffJianCha()
                         f.YuHunOffBuffJianCha()
                     }
-                    time.Sleep(time.Millisecond *500)
                     f.OffBuff++
                     fmt.Println(f.OffBuff)
                 }

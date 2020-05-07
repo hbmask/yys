@@ -82,6 +82,7 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 					f.DJ_Click_Range(0,489,600,30,"觉醒开启状态")
 					//time.Sleep(time.Millisecond*500)
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					return
 				}
 				if fp.FlagJueXingBUffRead(){//红色状态打开
@@ -90,6 +91,7 @@ func (f *TFMain) JueXingOnBuffJianCha(){
 					f.DJ_Click_Range(0,489,600,30,"")
 					//time.Sleep(time.Millisecond*500)
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					return
 				}
 				if f.StopYuHunNum>=20{
@@ -118,6 +120,7 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 					//time.Sleep(time.Millisecond*1000)
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					return
 				}
 				if fp.FlagYuHunBuffGold(){//金色状态
@@ -128,6 +131,7 @@ func (f *TFMain) YuHunOnBuffJianCha(){
 					//time.Sleep(time.Millisecond*500)
 					//f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					return
 				}
 				if f.StopYuHunNum>=20{
@@ -157,6 +161,7 @@ func (f *TFMain) YuHunOffBuffJianCha(){
 					f.YuHunBuffFlag =false
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					f.Stops()
 					return
 				}
@@ -165,6 +170,7 @@ func (f *TFMain) YuHunOffBuffJianCha(){
 					f.YuHunBuffFlag =false
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					f.Stops()
 
 					return
@@ -196,6 +202,7 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 					time.Sleep(time.Millisecond*500)
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					//f.Stops()
 					return
 				}
@@ -204,6 +211,7 @@ func (f *TFMain) YuHunTingYuanOffBuffJianCha(){
 					f.YuHunBuffFlag =false
 					f.DJ_Click_Range(0,489,600,30,"")
 					f.StopYuHunNum=0
+					f.OffBuff=0
 					//f.Stops()
 					return
 				}
@@ -238,6 +246,7 @@ func (f *TFMain) GouLiangOffBuffJianCha(){
 				f.YuHunBuffFlag =false
 				f.DJ_Click_Range(0,489,600,30,"")
 				f.StopYuHunNum=0
+				f.OffBuff=0
 				//f.Stops()
 				return
 			}
@@ -248,6 +257,7 @@ func (f *TFMain) GouLiangOffBuffJianCha(){
 				f.YuHunBuffFlag =false
 				f.DJ_Click_Range(0,489,600,30,"")
 				f.StopYuHunNum=0
+				f.OffBuff=0
 				//f.Stops()
 				return
 			}
