@@ -13,12 +13,14 @@ import (
     "github.com/ying32/govcl/vcl/types/messages"
     win2 "github.com/ying32/govcl/vcl/win"
     "math/rand"
+    "net"
     _ "net/http/pprof"
+    "os"
     "strconv"
     "time"
-    "yys/getyyshwnd"
     "yys/data"
     "yys/flagpiex"
+    "yys/getyyshwnd"
     "yys/yys_find_img"
 )
 
@@ -543,6 +545,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         if Yuhun_2_1_chijuan_click != nil {
                             f.Dj_click(Yuhun_2_1_chijuan_click,"选择三层")
                             time.Sleep(time.Second * 1)
+                            continue
                         }
                     }
                     //御魂->业原火->上锁->挑战
@@ -556,6 +559,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                             f.Dj_click(Yuhun_4_suo_tiaozhan_click,"上锁->挑战")
                             f.TiaoZhanJiShuoff +=1
                             time.Sleep(time.Second*1)
+                            continue
                         }
                     }
                     //御魂->业原火->上锁
@@ -563,6 +567,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     if Yuhun_3_meisuo_click!=nil {//御魂->业原火->上锁
                         f.Dj_click(Yuhun_3_meisuo_click,"上锁")
                         time.Sleep(time.Second*1)
+                        continue
                     }
 
                 }
@@ -571,12 +576,14 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 if Yuhun_1_yeyuanhuo_clik!=nil {//御魂->业原火
                     f.Dj_click(Yuhun_1_yeyuanhuo_clik,"御魂->业原火")
                     time.Sleep(time.Second*1)
+                    continue
                 }
                 //探索->御魂
                 Yuhun_0_click :=r.Recognition(data.Yuhun_0_click,0.9)
                 if Yuhun_0_click!=nil { //探索->御魂
                     f.Dj_click(Yuhun_0_click,"探索->御魂")
                     time.Sleep(time.Second*1)
+                    continue
                 }
             }
         }()
@@ -599,12 +606,13 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     f.FlagNum =false
                 }
                 if fp.FlagDouJiBaDeTouChou(){//拔得头筹
+                    f.FlagNum =false
                     f.DJ_Click_TuiChu()
                 }
                 if fp.FlagDouJiZhanDouZhong()&&f.FlagNum==false{//战斗时选择自动
-                    f.FlagNum =true
+                    time.Sleep(time.Second*4)
                     f.DJ_Click_Range(52,576,6,6,"自动战斗")
-
+                    f.FlagNum =true
                 }
                 if time.Now().Hour()==14{
                     f.Stops()
@@ -909,7 +917,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                 continue
             }
             //判断是否能找到红色妖气
-            fmt.Println(fp.FlagALLZuDuiJieMian())
+            //fmt.Println(fp.FlagALLZuDuiJieMian())
             if fp.FlagALLZuDuiJieMian(){
                 YaoQiFengYin_Falg :=r.Recognition(data.YaoQiFengYin_Falg,0.9)
                 if YaoQiFengYin_Falg!=nil{
@@ -1057,7 +1065,28 @@ func (f *TFMain) OnButtonStopClick(sender vcl.IObject) {
     f.Stops()
 }
 
+//获取mac地址
+func getMacAddrs() (macAddrs []string) {
+    netInterfaces, err := net.Interfaces()
+    if err != nil {
+        fmt.Printf("fail to get net interfaces: %v", err)
+        return macAddrs
+    }
+
+    for _, netInterface := range netInterfaces {
+        macAddr := netInterface.HardwareAddr.String()
+        if len(macAddr) == 0 {
+            continue
+        }
+
+        macAddrs = append(macAddrs, macAddr)
+    }
+    return macAddrs
+}
+
 func (f *TFMain) OnFormCreate(sender vcl.IObject) {
+    hname,_ :=os.Hostname()
+    fmt.Println(getMacAddrs(),hname)
     f.ScreenCenter()
     f.hotKeyId = win2.GlobalAddAtom("HotKeyId") - 0xC000
     // rtl.ShiftStateToWord(shift) 这个只是更容易理解，也可以使用 MOD_CONTROL | MOD_ALT 方法
@@ -1091,12 +1120,12 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     f.ButtonBangDing.SetEnabled(false)
     f.ButtonBangDing.SetTextBuf("没做")
     f.SetCaption(strconv.Itoa(int(time.Now().UnixNano())))
-    if time.Now().Year()!=2020&&int(time.Now().Month())<6{
+    if time.Now().Year()!=2020&&int(time.Now().Month())<8{
        f.Close()
     }
 
 }
-type Month int
+//type Month int
 func (f *TFMain) OnFormDestroy(sender vcl.IObject) {//解锁热键
     if f.hotKeyId > 0 {
         win2.UnregisterHotKey(f.Handle(), int32(f.hotKeyId))

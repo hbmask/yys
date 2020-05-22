@@ -110,7 +110,8 @@ func (f FLagPiex)FlagTanSuo()bool{
 //御魂->业原火->上锁
 func (f FLagPiex)FlagYeYuanHuoOnClock()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{496,516,13211553},{520,516,13867168}}
+	//xyp:=[][]int{{496,516,13211553},{520,516,13867168}}
+	xyp:=[][]int{{496,516,13277089},{520,516,13867168}}
 	return r.Find_Pixels(xyp)
 }
 //御魂->业原火->选择三层
@@ -130,7 +131,8 @@ func (f FLagPiex)FlagYeYuanHuoXuanZeSanCeng()bool{
 //御魂->业原火界面
 func (f FLagPiex)FlagYeYuanHuoJiemian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1001,42,9089752},{1094,42,8695508},{321,50,12967418},{800,400,9481005},}
+	//xyp:=[][]int{{1094,42,8695508},{321,50,12967418},{800,400,9481005},}
+	xyp:=[][]int{{1094,42,8695508},{321,50,12967419},{800,400,9481005},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -528,7 +530,7 @@ func (f FLagPiex)FlagYuLingTiaoZhanJieShangSuo()bool{
 //组队界面
 func (f FLagPiex)FlagALLZuDuiJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1060,31,10601686},{38,34,10872308},{97,99,4340799},}
+	xyp:=[][]int{{38,34,10872308},{97,99,4340799},}
 	return r.Find_Pixels(xyp)
 }
 
