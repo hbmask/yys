@@ -6,9 +6,13 @@ import (
 	"math/rand"
 	"time"
 	"yys/getyyshwnd"
+	"yys/me_win32"
 	"yys/yys_find_img"
 )
 
+func init(){
+	rand.Seed(time.Now().UnixNano())
+}
 
 //常用图像匹配点击
 func Dj_click(r *yys_find_img.Result) {
@@ -21,12 +25,14 @@ func Dj_click(r *yys_find_img.Result) {
 	x :=xy[0]+rand.Intn(cxy[0])//屏幕坐标+游戏窗口内容坐标
 	y :=xy[1]+rand.Intn(cxy[1])
 	fmt.Printf("正确位置:%d 随机偏移范围:%d 偏移后点击位置:%d,%d 相似度:%.2f \n",xy,cxy,x,y,r.Confidence)
-	tmp :=win.MAKELONG(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
+	tmp :=me_win32.MAKELPARAM(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
 	//win.SetCursorPos(int32(x+pt.X),int32(y))
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	//win.SetCursorPos(int32(x),int32(y))
-	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,uintptr(tmp))//按下
-	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,uintptr(tmp))//松开
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
+	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
+	time.Sleep(time.Duration(rand.Intn(100)+30))
+	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 
 }
 
@@ -43,12 +49,14 @@ func Dj_click_imgpy(r *yys_find_img.Result,xw ,yh int) {
 	x :=xy[0]+xw+rand.Intn(cxy[0])//屏幕坐标+游戏窗口内容坐标
 	y :=xy[1]+yh+rand.Intn(cxy[1])
 	fmt.Printf("正确位置:%d 随机偏移范围:%d 偏移后点击位置:%d,%d 相似度:%.2f \n",xy,cxy,x,y,r.Confidence)
-	tmp :=win.MAKELONG(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
+	tmp :=me_win32.MAKELPARAM(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
 	//win.SetCursorPos(int32(x+pt.X),int32(y))
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	//win.SetCursorPos(int32(x),int32(y))
-	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,uintptr(tmp))//按下
-	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,uintptr(tmp))//松开
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
+	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
+	time.Sleep(time.Duration(rand.Intn(100)+30))
+	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 
 }
 
@@ -71,11 +79,13 @@ func Dj_clicks(r []*yys_find_img.Result) {
 		y :=xy[1]+rand.Intn(cxy[1])
 		//fmt.Println("Dj_click PT:",pt,x,y,r.Confidence)
 		fmt.Println("Dj_click PT:",x,y,r[i].Confidence)
-		tmp :=win.MAKELONG(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
+		tmp :=me_win32.MAKELPARAM(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
 		win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 		//win.SetCursorPos(int32(x),int32(y))
-		win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,uintptr(tmp))//按下
-		win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,uintptr(tmp))//松开
+		win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
+		win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
+		time.Sleep(time.Duration(rand.Intn(100)+30))
+		win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	}
 }
 
@@ -87,10 +97,12 @@ func DJ_Click_TuiChu() {
 	x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
 	y :=610+rand.Intn(20)
 	fmt.Printf("偏移后点击位置:%d,%d  \n",x,y)
-	tmp :=win.MAKELONG(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
+	tmp :=me_win32.MAKELPARAM(uint16(x),uint16(y))//将两个16位的数联合成一个无符号的32位数
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
-	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,uintptr(tmp))//按下
-	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,uintptr(tmp))//松开
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
+	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
+	time.Sleep(time.Duration(rand.Intn(100)+30))
+	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	time.Sleep(time.Millisecond*500)
 
 }
@@ -103,9 +115,11 @@ func DJ_Click_Range(x,y,xr,yr int) {
 	cx :=x+rand.Intn(xr)//屏幕坐标+游戏窗口内容坐标
 	cy :=y+rand.Intn(yr)
 	fmt.Printf("偏移后点击位置:%d,%d  \n",cx,cy)
-	tmp :=win.MAKELONG(uint16(cx),uint16(cy))//将两个16位的数联合成一个无符号的32位数
+	tmp :=me_win32.MAKELPARAM(uint16(cx),uint16(cy))//将两个16位的数联合成一个无符号的32位数
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
-	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,uintptr(tmp))//按下
-	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,uintptr(tmp))//松开
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
+	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
+	time.Sleep(time.Duration(rand.Intn(100)+30))
+	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	time.Sleep(time.Millisecond*500)
 }

@@ -459,7 +459,7 @@ func (f FLagPiex)FlagYuHunZuDuiYaoQing()bool{
 //悬赏三色定位
 func (f FLagPiex)FlagXuanShangDingWei()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{485,164,4410607},{756,374,6139730},{757,462,5597400},}
+	xyp:=[][]int{{756,374,6139730},{757,462,5597400},}
 	return r.Find_Pixels(xyp)
 }
 
