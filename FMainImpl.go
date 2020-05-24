@@ -304,8 +304,12 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        if GouLiangNKaFlag!=nil{
                            mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
                            GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //从N卡中找到1级N卡
-                           for i,_ :=range mb{
-                               f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
+                           if len(GouLiang1JiN_Click)!=0{
+                               for i,_ :=range mb{
+                                   f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
+                               }
+                           }else {
+                               f.YYSLos("没有找到1级N")
                            }
                        }
                    //1级白
@@ -323,9 +327,13 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        if GouLiangSuCaiFlag!=nil{
                            mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
                            GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //从素材中找到1级白
-                           for i,_ :=range mb{
-                               f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 90, "更换1级白")
-                               time.Sleep(time.Millisecond*500)
+                           if len(GouLiang1JiBai_Click)!=0{
+                               for i,_ :=range mb{
+                                   f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 90, "更换1级白")
+                                   time.Sleep(time.Millisecond*500)
+                               }
+                           }else {
+                               f.YYSLos("没有找到1级白")
                            }
                        }
                    //1级红
@@ -342,9 +350,13 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
                        if GouLiangSuCaiFlag!=nil{
                            mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-                           GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级白
-                           for i,_ :=range mb{
-                               f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换1级红")
+                           GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级红
+                           if len(GouLiang1JiHong_Click)!=0{
+                               for i,_ :=range mb{
+                                   f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换1级红")
+                               }
+                           }else {
+                               f.YYSLos("没有找到1级红")
                            }
                        }
                    //20级白
@@ -361,16 +373,22 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
                        if GouLiangSuCaiFlag!=nil{
                            mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-                           GouLiang1JiHong_Click := r.Recognitions(data.GouLiang20Ji_Click, 0.9) //从素材中找到20级白
-                           for i,_ :=range mb{
-                               f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换20级白")
+                           GouLiang20Ji_Click := r.Recognitions(data.GouLiang20Ji_Click, 0.9) //从素材中找到20级白
+                           if len(GouLiang20Ji_Click)!=0{
+                               for i,_ :=range mb{
+                                   f.move_click(mb[i].Result_img_centen, GouLiang20Ji_Click, 0, 90, "更换20级白")
+                               }
+                           }else {
+                               f.YYSLos("没有找到1级红")
                            }
+
                        }
                    //20级N
                    case 4:
                        GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
                        f.Dj_click(GouLiangNKa_Click,"选择->N")
                        time.Sleep(time.Second*1)
+                       f.YYSLos("此选项暂时无效")
                        if GouLiangNKa_Click!=nil{
 
                        }
