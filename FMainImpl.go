@@ -167,7 +167,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     }
                 }
                 //在庭院,探索,房间
-                if f.OffNumGame==0||fp.FlagTingYuan()||fp.FlagTanSuo()||fp.FlagYuHunJueXingFangJian_DaShou(){
+                if fp.FlagYuHunJueXingFangJian_DaShou()||f.OffNumGame==0||fp.FlagTingYuan()||fp.FlagTanSuo(){
 
 
                     if fp.FlagYuhunJueXingFangJianOnLock(){//房间上锁
