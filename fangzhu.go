@@ -17,7 +17,7 @@ func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex,GuanYuhunNext_
 			}//点击准备
 			time.Sleep(time.Millisecond*300)
 		}
-		if fp.FlagZhanDouJieMianJiaCeng()&&GuanYuhunNext_v==true{//战斗界面->点击加层
+		if fp.FlagZhanDouJieMianJiaCeng()&&GuanYuhunNext_v{//战斗界面->点击加层
 			if  f.YuHunBuffFlag ==false{//御魂buff状态
 				f.DJ_Click_Range(106,595,26,25,"加层检查")
 				for  {

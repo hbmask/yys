@@ -78,7 +78,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     break
                 }
                 f.XuanShang()
-                if fp.FlagZhanDouJieMianJiaCeng(){//战斗界面->点击加层
+                if fp.FlagZhanDouJieMianJiaCeng()&&f.CheckBoxGuanYuHun.Checked(){//战斗界面->点击加层
                     if  f.YuHunBuffFlag ==false{//御魂buff状态
                         f.DJ_Click_Range(106,595,26,25,"加层检查")
                         for  {
