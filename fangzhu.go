@@ -5,7 +5,7 @@ import (
 	"yys/flagpiex"
 )
 
-func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex){
+func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex,GuanYuhunNext_v bool){
 		f.XuanShang()
 		f.ZhanDouTuiChu()
 		//如果没有上锁 手动点击准备
@@ -17,7 +17,7 @@ func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex){
 			}//点击准备
 			time.Sleep(time.Millisecond*300)
 		}
-		if fp.FlagZhanDouJieMianJiaCeng(){//战斗界面->点击加层
+		if fp.FlagZhanDouJieMianJiaCeng()&&GuanYuhunNext_v==true{//战斗界面->点击加层
 			if  f.YuHunBuffFlag ==false{//御魂buff状态
 				f.DJ_Click_Range(106,595,26,25,"加层检查")
 				for  {

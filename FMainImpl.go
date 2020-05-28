@@ -39,7 +39,7 @@ type TFMainFields struct {
     TiaoZhanJiShuoff int//当挑战次数达到上线时,点击后没有进入副本,停止
     HWND win.HWND//窗口句柄
     hotKeyId types.ATOM//热键
-    //GLZB bool//狗粮准备
+    GuanYuHunNext bool//关闭御魂条件传递到下一个参数
 }
 
 
@@ -197,7 +197,12 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 if f.StopFlag == false {
                     break
                 }
-                f.YuHunOrJueXingFangZhu(2,fp)
+                //if f.CheckBoxGuanYuHun.Checked() == true{
+                //    f.GuanYuHunNext =true
+                //}else {
+                //
+                //}
+                f.YuHunOrJueXingFangZhu(2,fp,f.CheckBoxGuanYuHun.Checked())
             }
         }()
     case 2:
@@ -209,7 +214,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 if f.StopFlag == false {
                     break
                 }
-                f.YuHunOrJueXingFangZhu(3,fp)
+                f.YuHunOrJueXingFangZhu(3,fp,f.CheckBoxGuanYuHun.Checked())
             }
         }()
     }
