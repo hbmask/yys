@@ -80,6 +80,7 @@ func (f FLagPiex)FlagShiBai()bool{
 }
 
 
+
 //{461,534,13272126},
 //62 132 202 0
 //{493,534,657763},
@@ -318,14 +319,20 @@ func (f FLagPiex)FlagYuhunJueXingYiHuiMu()bool{
 	xyp:=[][]int{{498,298,9878744},{661,320,8762591},{568,282,9091550},{568,369,9751273},}
 	return r.Find_Pixels(xyp)
 }
-//{56,44,10456145},
-//81 140 159 0
-//{80,64,10654801},
-//81 148 162 0
-//御魂退出战斗数据标记点
-func (f FLagPiex)FlagTuiChuZhanDouShuJu()bool{
+//{72,573,1976635},
+//59 41 30 0
+//{72,599,1646894},
+//46 33 25 0
+//御魂退出战斗数据标记点 下
+func (f FLagPiex)FlagTuiChuZhanDouShuJu1()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{56,44,10456145},{80,64,10654801},}
+	xyp:=[][]int{{72,573,1976635},{72,599,1646894},}
+	return r.Find_Pixels(xyp)
+}
+//御魂退出战斗数据标记点 上
+func (f FLagPiex)FlagTuiChuZhanDouShuJu2()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{72,51,2108221},{72,74,1713717},}
 	return r.Find_Pixels(xyp)
 }
 //{1028,411,14935527},
@@ -666,6 +673,13 @@ func (f FLagPiex)FlagWanShiWuHuoDeJiangLi()bool{
 func (f FLagPiex)FlagDouJiJieMian()bool{
 	r :=yys_find_img.Result{}
 	xyp:=[][]int{{447,101,4413055},{673,101,3886193},}
+	return r.Find_Pixels(xyp)
+}
+//{52,141,5400962},
+//130 105 82 0
+func (f FLagPiex)FlagDouJi1700ZiDongShangZHen()bool{//斗技自动上阵
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{52,141,5400962},}
 	return r.Find_Pixels(xyp)
 }
 

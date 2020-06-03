@@ -349,7 +349,7 @@ func (f *TFMain) ZhanDouZhunBei(){
 func (f *TFMain) ZhanDouTuiChu(){
 	r:=yys_find_img.Result{}
 	fp:=flagpiex.FLagPiex{}
-	if fp.FlagTuiChuZhanDouShuJu(){//通过战斗数据退出
+	if fp.FlagTuiChuZhanDouShuJu1()||fp.FlagTuiChuZhanDouShuJu2(){//通过战斗数据退出
 		f.DJ_Click_TuiChu()
 		f.YYSLos("退出战斗-数据")
 		f.ClickDaJiuMaFlag =false//点怪战斗退出重置

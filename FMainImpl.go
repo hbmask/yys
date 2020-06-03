@@ -32,14 +32,15 @@ type TFMainFields struct {
     ClickDaoCaoRenFlag  bool //点稻草人
     JuXingBuffFlag bool//觉醒buff状态 启动还是未启动
     YuHunBuffFlag bool //御魂buff状态 启动还是为启动
+    FlagNum bool//每次对点怪只进行一次操作.
+    FlagDouJiSZ bool//每次对点怪只进行一次操作.
+    GuanYuHunNext bool//关闭御魂条件传递到下一个参数
     OffBuff int//计数多少次以后关闭buff.
     OffNumGame int//记录副本次数如果是0 停止辅助..
-    FlagNum bool//每次对点怪只进行一次操作.
     StopYuHunNum int //记录已经刷了多少次御魂.
     TiaoZhanJiShuoff int//当挑战次数达到上线时,点击后没有进入副本,停止
     HWND win.HWND//窗口句柄
     hotKeyId types.ATOM//热键
-    GuanYuHunNext bool//关闭御魂条件传递到下一个参数
 }
 
 
@@ -621,22 +622,30 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 if f.StopFlag == false {
                     break
                 }
-
                 f.ZhanDouZhunBei()
                 f.ZhanDouTuiChu()
+                if fp.FlagDouJiZhanDouZhong()&&f.FlagNum==false{//战斗时选择自动
+                    //time.Sleep(time.Second*4)
+                    f.DJ_Click_Range(52,576,6,6,"自动战斗")
+                    f.FlagNum =true
+                    f.FlagDouJiSZ=false
+                }
                 if fp.FlagDouJiJieMian(){//斗技界面
                     f.DJ_Click_Range(918,473,70,40,"斗技挑战")
                     f.FlagNum =false
+                    f.FlagDouJiSZ=false
+                }
+                if fp.FlagDouJi1700ZiDongShangZHen()&&f.FlagDouJiSZ==false{//斗技1700分 自动上阵
+                    f.DJ_Click_Range(52,141,5,5,"斗技自动上阵")
+                    f.FlagNum =false
+                    f.FlagDouJiSZ=true
                 }
                 if fp.FlagDouJiBaDeTouChou(){//拔得头筹
                     f.FlagNum =false
+                    f.FlagDouJiSZ=false
                     f.DJ_Click_TuiChu()
                 }
-                if fp.FlagDouJiZhanDouZhong()&&f.FlagNum==false{//战斗时选择自动
-                    time.Sleep(time.Second*4)
-                    f.DJ_Click_Range(52,576,6,6,"自动战斗")
-                    f.FlagNum =true
-                }
+
                 if time.Now().Hour()==14{
                     f.Stops()
                     f.YYSLos("2点咯..")

@@ -171,8 +171,10 @@ func (f *TFMain)DJ_Click_Range(x,y,xr,yr int,s string) {
 	fmt.Printf("偏移后点击位置:%d,%d %s \n",cx,cy,s)
 	tmp :=me_win32.MAKELPARAM(uint16(cx),uint16(cy))//将两个16位的数联合成一个无符号的32位数
 	//win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
 	time.Sleep(time.Millisecond*time.Duration(rand.Intn(50)+100))
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp)//移动位置
 	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
 	f.YYSLos(s)
 }

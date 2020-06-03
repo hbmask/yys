@@ -32,7 +32,7 @@ func Test_JieTuCaptureRect(T *testing.T){
 //手动取色
 	func Test_find_Pixel(t *testing.T){
 	r :=yys_find_img.Result{}
-	colorxy:=[][]int{{56,44},{80,64}}
+	colorxy:=[][]int{{52,141}}
 	//r.Find_Pixel(xyp)
 
 	hwnd := getyyshwnd.YYSHWND{}
