@@ -178,7 +178,7 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         f.FlagNum=false//计数判定
                     }
                     time.Sleep(time.Millisecond*100)
-                    if f.OffBuff>=600{//满足条件关闭御魂
+                    if f.OffBuff>=300{//满足条件关闭御魂
                         f.YuHunTingYuanOffBuffJianCha()
                         f.YuHunOffBuffJianCha()
                     }

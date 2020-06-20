@@ -329,10 +329,15 @@ func (f FLagPiex)FlagTuiChuZhanDouShuJu1()bool{
 	xyp:=[][]int{{72,573,1976635},{72,599,1646894},}
 	return r.Find_Pixels(xyp)
 }
+
+//{71,51,2108221},
+//61 43 32 0
+//{71,60,5603494},
+//166 128 85 0
 //御魂退出战斗数据标记点 上
 func (f FLagPiex)FlagTuiChuZhanDouShuJu2()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{72,51,2108221},{72,74,1713717},}
+	xyp:=[][]int{{71,51,2108221},{71,60,5603494},}
 	return r.Find_Pixels(xyp)
 }
 //{1028,411,14935527},
