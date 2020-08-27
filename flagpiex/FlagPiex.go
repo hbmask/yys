@@ -98,7 +98,7 @@ func (f FLagPiex)FlagShengLiBaoXiang()bool{
 //通用庭院标记
 func (f FLagPiex)FlagTingYuan()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{960,37,8892630},{1025,37,8761302},{1086,45,7643852},}
+	xyp:=[][]int{{1025,37,8761302},{1086,45,7643852},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -112,7 +112,7 @@ func (f FLagPiex)FlagTanSuo()bool{
 func (f FLagPiex)FlagYeYuanHuoOnClock()bool{
 	r :=yys_find_img.Result{}
 	//xyp:=[][]int{{496,516,13211553},{520,516,13867168}}
-	xyp:=[][]int{{496,516,13277089},{520,516,13867168}}
+	xyp:=[][]int{{496,516,13211553},{520,516,13867168}}
 	return r.Find_Pixels(xyp)
 }
 //御魂->业原火->选择三层
@@ -200,7 +200,7 @@ func (f FLagPiex)FlagGouliangFuBenJieMian()bool{
 //结界突破->界面
 func (f FLagPiex)FlagJieJieTuPoJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{270,550,6206195},{282,480,469365},{744,554,2891670},}
+	xyp:=[][]int{{324,536,11711154},{1068,548,6067901},}
 	return r.Find_Pixels(xyp)
 }
 //{380,110,11912916},
@@ -241,16 +241,24 @@ func (f FLagPiex)FlagJieJieTuPo_ShuaXin()bool{
 //结界突破->界面->刷新冷却
 func (f FLagPiex)FlagJieJieTuPoLenQue()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{881,497,6206195},{890,497,6206195},{900,497,6206195},}
+	xyp:=[][]int{{1073,170,2772863},{1062,192,2707070},}
 	return r.Find_Pixels(xyp)
 }
 
 //结界突破->界面->上锁
 func (f FLagPiex)FlagJieJieTuPoOnLock()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{908,551,14197164},{938,552,16101303},}
+	xyp:=[][]int{{904,538,1581871},{930,537,1581871},}
 	return r.Find_Pixels(xyp)
 }
+//结界突破->寮突破界面->上锁
+func (f FLagPiex)FlagLiaoTuPoOnLock()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{238,540,1647666},{264,540,1581872},}
+	return r.Find_Pixels(xyp)
+}
+
+
 
 
 
@@ -558,16 +566,11 @@ func (f FLagPiex) FlagYaoQiFengYinXuanZe()bool{
 	return r.Find_Pixels(xyp)
 }
 
-//{354,35,1917532},
-//92 66 29 0
-//{354,57,1984876},
-//108 73 30 0
-//{361,46,1851223},
-//87 63 28 0
+//{677,48,10601686},
 //妖气封印排队
 func (f FLagPiex)FlagYaoQiFengYinPaiDui()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{354,35,1917531},{361,46,1851223},}
+	xyp:=[][]int{{677,48,10601686},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -704,5 +707,20 @@ func (f FLagPiex)FlagDouJiBaDeTouChou()bool{
 func (f FLagPiex)FlagDouJiZhanDouZhong()bool{
 	r :=yys_find_img.Result{}
 	xyp:=[][]int{{215,24,10601686},}
+	return r.Find_Pixels(xyp)
+}
+
+
+//结界卡三个点位置
+func (f FLagPiex)FlagJieJieKa()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{772,139,924982},{898,394,924981},{636,399,858931},}
+	return r.Find_Pixels(xyp)
+}
+
+//结界卡 是否有添加字样
+func (f FLagPiex)FlagJieJieKa_JiXuTianJia()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{945,535,1910325}}
 	return r.Find_Pixels(xyp)
 }

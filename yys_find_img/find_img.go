@@ -176,6 +176,10 @@ func (r *Result)Recognition(im_searchs string,threshold float32) *Result {
 	if err!=nil{
 		fmt.Println("Recognition",err)
 		//panic(err)
+		//YYSHWND := getyyshwnd.YYSHWND{}
+		//hwnd:=YYSHWND.Get_yys_hwnd()
+		//e:=expvar.NewInt("erhwnd")
+		//e.Set(int64(hwnd))
 		return nil
 	}
 	im,_ :=gocv.ImageToMatRGBA(imgh)//得到一个Mat类型的图像

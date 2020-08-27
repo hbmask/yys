@@ -53,6 +53,7 @@ func init(){
    hwnd:=YYSHWND.Get_yys_hwnd()
    e:=expvar.NewInt("erhwnd")
    e.Set(int64(hwnd))
+    rand.Seed(time.Now().UnixNano())
 }
 
 
@@ -438,27 +439,49 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
     fp :=flagpiex.FLagPiex{}
 
     jjtpnum9 :=[][]int{//选择进攻点击位置
-       {221,141,100,40},//1
-       {521,141,100,40},//2
-       {830,141,100,40},//3
-       {212,270,100,30},//4
-       {523,270,100,30},//5
-       {833,270,100,30},//6
-       {222,391,100,20},//7
-       {525,390,100,20},//8
-       {830,390,100,20},//9
+       {340,136,80,30},//1
+       {620,136,80,30},//2
+       {900,136,80,30},//3
+       {340,246,80,30},//4
+       {620,246,80,30},//5
+       {900,246,80,30},//6
+       {340,356,80,30},//7
+       {620,356,80,30},//8
+       {900,356,80,30},//9
    }
    jjtpnum9_FuZhu :=[][]int{//判断是否已经攻击
-       {380,110,11912916},
-       {690,110,11715794},
-       {990,110,11912916},
-       {380,230,11912916},
-       {690,230,11715794},
-       {990,230,11912916},
-       {380,350,11912916},
-       {690,350,11715794},
-       {990,350,11912916},
+       {440,136,12898778},
+       {720,136,12898778},
+       {1000,136,12898778},
+       {440,246,12898778},
+       {720,246,12898778},
+       {1000,246,12898778},
+       {440,356,12898778},
+       {720,356,12898778},
+       {1000,356,12898778},
    }
+
+    LiaoTuPo_num8 :=[][]int{//选择进攻点击位置
+        {585,151,80,30},
+        {876,151,80,30},
+        {585,251,80,30},
+        {876,251,80,30},
+        {585,351,80,30},
+        {876,351,80,30},
+        {585,451,80,30},
+        {876,451,80,30},
+    }
+    //寮突破选择位置
+    LiaoTuPo_FuZhu :=[][]int{//判断是否已经攻击
+        {685,151,12898778},
+        {976,151,12898778},
+        {685,251,12898778},
+        {976,251,12898778},
+        {685,351,12898778},
+        {976,351,12898778},
+        {685,451,12898778},
+        {976,451,12898778},
+    }
     switch f.ComboBoxQiTa.ItemIndex() {
     //结界突破 0
     case 0:
@@ -475,7 +498,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 f.XuanShang()
                 //战斗界面
                 if fp.FlagZhanDouJieMian(){
-                    time.Sleep(time.Millisecond*100)
+                    time.Sleep(time.Millisecond*400)
                     continue
                 }
                 //战斗退出
@@ -488,12 +511,12 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                 //如果在突破界面,继续下面操作
                 if fp.FlagJieJieTuPoJieMian(){
                     //自动上锁
-                    if fp.FlagJieJieTuPoOnLock()==false {
+                    if fp.FlagJieJieTuPoOnLock()==true {
                         rd :=rand.Intn(1)
                         if rd==0{
-                            f.DJ_Click_Range(908,551,1,1,"结界突破->上锁0")
+                            f.DJ_Click_Range(904,538,1,1,"结界突破->上锁0")
                         }else{
-                            f.DJ_Click_Range(938,552,1,1,"结界突破->上锁1")
+                            f.DJ_Click_Range(930,537,1,1,"结界突破->上锁1")
                         }
                     }
                     Jiejietupo_1_end_flag :=r.Recognition(data.Jiejietupo_1_end_flag,0.95)
@@ -532,7 +555,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                             //fmt.Println(fp.FlagJieJieTuPoLenQue())
                             if fp.FlagJieJieTuPoLenQue() ==true{ //如果没有冷却执行
 
-                                f.DJ_Click_Range(865,465,130,30,"结界突破->刷新")
+                                f.DJ_Click_Range(1057,169,30,25,"结界突破->刷新")
                                 time.Sleep(time.Second)
                                 f.DJ_Click_Range(603,367,130,30,"结界突破->确定")
                                 time.Sleep(time.Second)
@@ -694,7 +717,7 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                         }
                         f.DJ_Click_Range(995,541,55,47,"挑战")
                         f.TiaoZhanJiShuoff +=1
-                        time.Sleep(time.Millisecond*300)
+                        time.Sleep(time.Millisecond*1000)
                     }
                 }
                 //战斗退出
@@ -712,54 +735,111 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
                     break
                 }
                 f.XuanShang()
-                if fp.FlagZhanDouJieMianZhunBei(){ //如果没有上锁 手动点击准备
-                        f.ZhanDouZhunBei()
-                    time.Sleep(time.Second)
+                //if fp.FlagZhanDouJieMianZhunBei(){ //如果没有上锁 手动点击准备
+                //        f.ZhanDouZhunBei()
+                //    time.Sleep(time.Second)
+                //}
+                //战斗中..等待
+                if fp.FlagZhanDouJieMian(){
+                    time.Sleep(time.Millisecond*400)
+                    continue
                 }
                 f.ZhanDouTuiChu()
                 time.Sleep(time.Millisecond*200)
                 //探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
                 Liaotupo_flag :=r.Recognition(data.Liaotupo_flag,0.9)
                 if Liaotupo_flag!=nil {
-                    time.Sleep(time.Second*30)
+                    time.Sleep(time.Second*5)
                     continue
                 }
+
                 //结界突破->寮突破->记录锚点
                 Jiejietupo_2_liaotupo_ji_flag:=r.Recognition(data.Jiejietupo_2_liaotupo_ji_flag,0.9)
                 if Jiejietupo_2_liaotupo_ji_flag!=nil {
-                    //fmt.Println("请挑战")
-                    //结界突破->寮突破->选择
-                    Jiejietupo_1_xunzhang_click:=r.Recognition(data.Jiejietupo_1_xunzhang_click,0.7)
-                    if Jiejietupo_1_xunzhang_click!=nil {
-                        f.Dj_click(Jiejietupo_1_xunzhang_click,">寮突破->选择")
-                        time.Sleep(time.Second*1)
-                        //探索->结界突破->寮突破->选择->进攻
-                        Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.85)
-                        if Jiejietupo_2_jingong_click!=nil {
-                            if  f.TiaoZhanJiShuoff >=3{//次数达到上限退出
-                                f.YYSLos("次数达到上限退出")
-                                f.Stops()
-                            }
-                            f.Dj_click(Jiejietupo_2_jingong_click,"寮突破->进攻")
-                            f.TiaoZhanJiShuoff +=1
-                            time.Sleep(time.Second*2)
+                    //自动上锁
+                    if fp.FlagLiaoTuPoOnLock()==true {
+                        rd :=rand.Intn(1)
+                        if rd==0{
+                            f.DJ_Click_Range(238,540,1,1,"寮突破->上锁0")
+                        }else{
+                            f.DJ_Click_Range(264,540,1,1,"寮突破->上锁1")
                         }
                     }
-                    continue
-                }else {
-                    //结界突破->寮突破
-                    Jiejietupo_1_liaotupo_click:=r.Recognition(data.Jiejietupo_1_liaotupo_click,0.9)
-                    if Jiejietupo_1_liaotupo_click!=nil {
-                        f.Dj_click(Jiejietupo_1_liaotupo_click,"结界突破->寮突破")
-                        time.Sleep(time.Second*2)
+                    for i,_ :=range LiaoTuPo_num8{
+                        if f.StopFlag==false {
+                            break
+                        }
+                        index :=i
+                        x :=LiaoTuPo_num8[index][0]
+                        y :=LiaoTuPo_num8[index][1]
+                        xrange :=LiaoTuPo_num8[index][2]
+                        yrange :=LiaoTuPo_num8[index][3]
+
+                        x_FuZhu :=LiaoTuPo_FuZhu[index][0]
+                        y_FuZhu :=LiaoTuPo_FuZhu[index][1]
+                        coloerrfe :=LiaoTuPo_FuZhu[index][2]
+
+                        if r.Find_Pixels_jjtp9num(x_FuZhu,y_FuZhu, coloerrfe){
+                            f.DJ_Click_Range(x,y,xrange,yrange,"寮突破->选择")
+                            time.Sleep(time.Millisecond*1000)
+                            Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.9)
+                            if Jiejietupo_2_jingong_click!=nil {
+                                f.Dj_click(Jiejietupo_2_jingong_click,"寮突破->进攻")
+                                time.Sleep(time.Second*2)
+                                //fmt.Println("True:",jjtpnum9,i)
+                                break
+                            }
+                        }else {
+                            fmt.Println("跳过无效的",LiaoTuPo_num8[index])
+                            if i ==7{
+                                //fmt.Println(fp.FlagJieJieTuPoLenQue())
+                                //if fp.FlagJieJieTuPoLenQue() ==true{ //如果没有冷却执行
+                                //
+                                //    f.DJ_Click_Range(1057,169,30,25,"结界突破->刷新")
+                                //    time.Sleep(time.Second)
+                                //    f.DJ_Click_Range(603,367,130,30,"结界突破->确定")
+                                //    time.Sleep(time.Second)
+                                //}
+                                f.Stops()
+                            }
+                        }
+
                     }
-                }
+
+                    //
+                    ////fmt.Println("请挑战")
+                    ////结界突破->寮突破->选择
+                    //Jiejietupo_1_xunzhang_click:=r.Recognition(data.Jiejietupo_1_xunzhang_click,0.7)
+                    //if Jiejietupo_1_xunzhang_click!=nil {
+                    //    f.Dj_click(Jiejietupo_1_xunzhang_click,">寮突破->选择")
+                    //    time.Sleep(time.Second*1)
+                    //    //探索->结界突破->寮突破->选择->进攻
+                    //    Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.85)
+                    //    if Jiejietupo_2_jingong_click!=nil {
+                    //        if  f.TiaoZhanJiShuoff >=3{//次数达到上限退出
+                    //            f.YYSLos("次数达到上限退出")
+                    //            f.Stops()
+                    //        }
+                    //        f.Dj_click(Jiejietupo_2_jingong_click,"寮突破->进攻")
+                    //        f.TiaoZhanJiShuoff +=1
+                    //        time.Sleep(time.Second*2)
+                    //    }
+                    //}
+                    //continue
+                } //else {
+                    //结界突破->寮突破
+                //    Jiejietupo_1_liaotupo_click:=r.Recognition(data.Jiejietupo_1_liaotupo_click,0.9)
+                //    if Jiejietupo_1_liaotupo_click!=nil {
+                //        f.Dj_click(Jiejietupo_1_liaotupo_click,"结界突破->寮突破")
+                //        time.Sleep(time.Second*2)
+                //    }
+                //}
                 //探索->结界突破
-                Jiejietupo_0 :=r.Recognition(data.Jiejietupo_0,0.9)
-                if Jiejietupo_0!=nil {
-                    f.Dj_click(Jiejietupo_0,"探索->结界突破")
-                    time.Sleep(time.Second*2)
-                }
+                //Jiejietupo_0 :=r.Recognition(data.Jiejietupo_0,0.9)
+                //if Jiejietupo_0!=nil {
+                //    f.Dj_click(Jiejietupo_0,"探索->结界突破")
+                //    time.Sleep(time.Second*2)
+                //}
             }
         }()
     //全自动挂机5
@@ -828,83 +908,92 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
         go func() {
             f.StopFlag=true
             for{
+                fmt.Println()
                 if f.StopFlag==false {
-                    break
+                   break
                 }
                 f.XuanShang()
-                f.ZhanDouZhunBei()
-                f.ZhanDouTuiChu()
-                //if fp.FlagWanShiWuTiaoZhan(){//挑战
-                TiaoZhan :=r.Recognition(data.TiaoZhan,0.85)
-                if TiaoZhan!=nil{
-                    f.Dj_click(TiaoZhan,"挑战")
-                    time.Sleep(time.Second*1)
-                }
-                if fp.FlagJinWanShiWu() {
-                    f.DJ_Click_Range(456,351,1,1,"进入万事屋")
-                    time.Sleep(time.Second*2)
-                }
-                //突发情况
-                TuFaZhuangKuang :=r.Recognition(data.TuFaZhuangKuang,0.85)
-                if TuFaZhuangKuang!=nil{
-                    f.DJ_Click_Range(46,550,50,50,"")
-                    //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
-                    time.Sleep(time.Second*1)
+                if fp.FlagJieJieKa_JiXuTianJia(){
+                    f.DJ_Click_Range(923,523,30,12,"结界卡->继续添加")
+                    time.Sleep(time.Millisecond*500)
+                    f.DJ_Click_Range(694,514,130,30,"结界卡->开始合成")
+                    time.Sleep(time.Millisecond*700)
                     continue
                 }
-
+                f.Stops()
+                //f.ZhanDouZhunBei()
+                //f.ZhanDouTuiChu()
+                ////if fp.FlagWanShiWuTiaoZhan(){//挑战
+                //TiaoZhan :=r.Recognition(data.TiaoZhan,0.85)
+                //if TiaoZhan!=nil{
+                //    f.Dj_click(TiaoZhan,"挑战")
+                //    time.Sleep(time.Second*1)
                 //}
-                if fp.FlagHuoDongWanShiWu(){
-                    //领取
-                    HuoDongWanShiWu2 :=r.Recognition(data.HuoDongWanShiWu2,0.85)
-                    if HuoDongWanShiWu2!=nil{
-                        f.Dj_click(HuoDongWanShiWu2,"领取")
-                        //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
-                        time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(46,550,50,50,"")
-                        time.Sleep(time.Second*1)
-                        continue
-                    }
-                    //提交
-                    HuoDongTijiao :=r.Recognition(data.HuoDongTijiao,0.85)
-                    if HuoDongTijiao!=nil{
-                        f.Dj_click(HuoDongTijiao,"提交")
-                        time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(46,550,50,50,"")
-                        time.Sleep(time.Second*1)
-                        continue
-                    }
-
-                    //灵气激发 大妖考研
-                    //LingQIJiFa :=r.Recognition(data.LingQIJiFa,0.85)
-                    //DaYaoKaoYan :=r.Recognition(data.DaYaoKaoYan,0.85)
-                    //if LingQIJiFa!=nil||DaYaoKaoYan!=nil{
-                    QianWang :=r.Recognition(data.QianWang,0.85)
-                    if QianWang!=nil{
-                        f.Dj_click(QianWang,"前往")
-                        time.Sleep(time.Second*3)
-                    }
-
-                    if fp.FlagWanShiWuChuFa(){//式神寻访 出发
-                        f.DJ_Click_Range(192,514,1,1,"1")
-                        time.Sleep(time.Second)
-                        f.DJ_Click_Range(313,505,1,1,"2")
-                        time.Sleep(time.Second)
-                        f.DJ_Click_Range(439,520,1,1,"3")
-                        time.Sleep(time.Second)
-                        f.DJ_Click_Range(550,504,1,1,"4")
-                        time.Sleep(time.Second*1)
-                        f.DJ_Click_Range(1038,500,1,1,"出发")
-                        time.Sleep(time.Second*3)
-                        f.DJ_Click_Range(46,550,50,50,"")
-                         }
-                    //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
-                    time.Sleep(time.Second*2)
-                }
-                //获得奖励
-                if fp.FlagWanShiWuHuoDeJiangLi(){
-                    f.DJ_Click_Range(46,550,50,50,"")
-                }
+                //if fp.FlagJinWanShiWu() {
+                //    f.DJ_Click_Range(456,351,1,1,"进入万事屋")
+                //    time.Sleep(time.Second*2)
+                //}
+                ////突发情况
+                //TuFaZhuangKuang :=r.Recognition(data.TuFaZhuangKuang,0.85)
+                //if TuFaZhuangKuang!=nil{
+                //    f.DJ_Click_Range(46,550,50,50,"")
+                //    //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                //    time.Sleep(time.Second*1)
+                //    continue
+                //}
+                //
+                ////}
+                //if fp.FlagHuoDongWanShiWu(){
+                //    //领取
+                //    HuoDongWanShiWu2 :=r.Recognition(data.HuoDongWanShiWu2,0.85)
+                //    if HuoDongWanShiWu2!=nil{
+                //        f.Dj_click(HuoDongWanShiWu2,"领取")
+                //        //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                //        time.Sleep(time.Second*1)
+                //        f.DJ_Click_Range(46,550,50,50,"")
+                //        time.Sleep(time.Second*1)
+                //        continue
+                //    }
+                //    //提交
+                //    HuoDongTijiao :=r.Recognition(data.HuoDongTijiao,0.85)
+                //    if HuoDongTijiao!=nil{
+                //        f.Dj_click(HuoDongTijiao,"提交")
+                //        time.Sleep(time.Second*1)
+                //        f.DJ_Click_Range(46,550,50,50,"")
+                //        time.Sleep(time.Second*1)
+                //        continue
+                //    }
+                //
+                //    //灵气激发 大妖考研
+                //    //LingQIJiFa :=r.Recognition(data.LingQIJiFa,0.85)
+                //    //DaYaoKaoYan :=r.Recognition(data.DaYaoKaoYan,0.85)
+                //    //if LingQIJiFa!=nil||DaYaoKaoYan!=nil{
+                //    QianWang :=r.Recognition(data.QianWang,0.85)
+                //    if QianWang!=nil{
+                //        f.Dj_click(QianWang,"前往")
+                //        time.Sleep(time.Second*3)
+                //    }
+                //
+                //    if fp.FlagWanShiWuChuFa(){//式神寻访 出发
+                //        f.DJ_Click_Range(192,514,1,1,"1")
+                //        time.Sleep(time.Second)
+                //        f.DJ_Click_Range(313,505,1,1,"2")
+                //        time.Sleep(time.Second)
+                //        f.DJ_Click_Range(439,520,1,1,"3")
+                //        time.Sleep(time.Second)
+                //        f.DJ_Click_Range(550,504,1,1,"4")
+                //        time.Sleep(time.Second*1)
+                //        f.DJ_Click_Range(1038,500,1,1,"出发")
+                //        time.Sleep(time.Second*3)
+                //        f.DJ_Click_Range(46,550,50,50,"")
+                //         }
+                //    //f.DJ_Click_Range(910,569,39,41,"万事屋收取")
+                //    time.Sleep(time.Second*2)
+                //}
+                ////获得奖励
+                //if fp.FlagWanShiWuHuoDeJiangLi(){
+                //    f.DJ_Click_Range(46,550,50,50,"")
+                //}
             }
         }()
     }
@@ -923,6 +1012,13 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                 break
             }
             f.XuanShang()
+            //战斗界面
+            if fp.FlagZhanDouJieMian() {
+                time.Sleep(time.Millisecond * 500)
+                continue
+            }
+            //战斗退出
+            f.ZhanDouTuiChu()
             //庭院->妖气封印排队等待
             if fp.FlagYaoQiFengYinPaiDui(){
                 time.Sleep(time.Millisecond*500)
@@ -934,14 +1030,6 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
                 time.Sleep(time.Second)
                 continue
             }
-            //战斗界面
-            if fp.FlagZhanDouJieMian() {
-                time.Sleep(time.Millisecond * 100)
-                continue
-            }
-            //战斗退出
-            f.ZhanDouTuiChu()
-
             //庭院进组
             if fp.FlagTingYuan(){
                 f.DJ_Click_Range(318,558,35,30,"庭院->组队")
@@ -1152,7 +1240,7 @@ func (f *TFMain) OnFormCreate(sender vcl.IObject) {
     f.ButtonBangDing.SetEnabled(false)
     f.ButtonBangDing.SetTextBuf("没做")
     f.SetCaption(strconv.Itoa(int(time.Now().UnixNano())))
-    if time.Now().Year()!=2020&&int(time.Now().Month())<8{
+    if time.Now().Year()!=2020&&int(time.Now().Month())<11{
        f.Close()
     }
 
@@ -1200,7 +1288,7 @@ func (f *TFMain) Stops() {
 
 func (f *TFMain) YYSLos(s string){
     if s !=""{
-        t:=time.Now().Format("15:04:05")
+        t:=time.Now().Format("15:04:05"                                                                                                                                                                   )
         f.ListBoxLog.Items().Add(t+":"+s)
         f.ListBoxLog.SetItemIndex(f.ListBoxLog.Items().Count()-1)
     }
@@ -1209,4 +1297,9 @@ func (f *TFMain) YYSLos(s string){
 
 
 
+
+
+func (f *TFMain) OnComboBoxQiTaChange(sender vcl.IObject) {
+
+}
 

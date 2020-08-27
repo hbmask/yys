@@ -9,7 +9,6 @@ import (
 	"testing"
 	"time"
 	"yys/getyyshwnd"
-	"yys/yys_find_img"
 	"yys/yys_screenshot"
 )
 
@@ -31,8 +30,17 @@ func Test_JieTuCaptureRect(T *testing.T){
 
 //手动取色
 	func Test_find_Pixel(t *testing.T){
-	r :=yys_find_img.Result{}
-	colorxy:=[][]int{{71,51},{71,60}}
+	//r :=yys_find_img.Result{}
+	colorxy:=[][]int{
+		{685,151},
+		{976,151},
+		{685,251},
+		{976,251},
+		{685,351},
+		{976,351},
+		{685,451},
+		{976,451},
+	}
 	//r.Find_Pixel(xyp)
 
 	hwnd := getyyshwnd.YYSHWND{}
@@ -41,10 +49,10 @@ func Test_JieTuCaptureRect(T *testing.T){
 	for i,_ :=range colorxy{
 		colorPixel :=win.GetPixel(hdc,int32(colorxy[i][0]),int32(colorxy[i][1]))
 		fmt.Printf("{%d,%d,%d},\n",colorxy[i][0],colorxy[i][1],colorPixel)
-		c :=uint32(colorPixel)
+		//c :=uint32(colorPixel)
 		//if c != uint32(colorxy[i][2]) {
 		//	return false
 		//}
-		r.ColorrfeToRGB(c)
+		//r.ColorrfeToRGB(c)
 	}
 }

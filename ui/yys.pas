@@ -47,6 +47,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure ButtonYaoQiZhiXingClick(Sender: TObject);
     procedure ButtonBangDingClick(Sender: TObject);
+    procedure ComboBoxQiTaChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,6 +90,7 @@ procedure TFMain.ButtonYuhunZhixingClick(Sender: TObject);
 begin
                   //
 end;
+
 
 procedure TFMain.FormCreate(Sender: TObject);
 begin

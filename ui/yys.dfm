@@ -924,6 +924,7 @@ object FMain: TFMain
       ItemIndex = 0
       TabOrder = 0
       Text = #32467#30028#31361#30772
+      OnChange = ComboBoxQiTaChange
       Items.Strings = (
         #32467#30028#31361#30772
         #19994#21407#28779#30196
@@ -933,7 +934,7 @@ object FMain: TFMain
         #20840#33258#21160
         #21484#21796#21397#32440
         #31454#36895#31192#38395#25361#25112
-        #19975#20107#23627#25910#21462)
+        #32467#30028#21345)
     end
     object ButtonQiTaZhiXing: TButton
       Left = 104
