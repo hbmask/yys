@@ -65,6 +65,10 @@ func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex,GuanYuhunNext_
 			}
 			time.Sleep(time.Millisecond*100)
 		}
+		//战斗失败 继续战斗
+		if fp.FlagYuHun_JiXu_ZhanDou(){
+			f.DJ_Click_Range(604,365,100,30,"战斗失败->继续战斗")
+		}
 		//第一次战斗结束邀请队友继续
 		if fp.FlagTuiChuYaoQingJiXu(){
 			f.DJ_Click_Range(487,313,21,15,"我继续邀请队友")
@@ -101,6 +105,7 @@ func (f *TFMain) YuHunOrJueXingFangZhu(i int,fp flagpiex.FLagPiex,GuanYuhunNext_
 			}
 
 		}
+
 		//time.Sleep(time.Millisecond*100)
 
 }

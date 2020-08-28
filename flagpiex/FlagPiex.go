@@ -724,3 +724,9 @@ func (f FLagPiex)FlagJieJieKa_JiXuTianJia()bool{
 	xyp:=[][]int{{945,535,1910325}}
 	return r.Find_Pixels(xyp)
 }
+
+func (f FLagPiex)FlagYuHun_JiXu_ZhanDou()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{624,386,1910325},{708,386,1910325}}
+	return r.Find_Pixels(xyp)
+}
