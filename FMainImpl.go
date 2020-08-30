@@ -148,9 +148,11 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                             f.Dj_click(YuHunChiLun_Click,"齿轮进入")
                             //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
                             time.Sleep(time.Millisecond*200)
+                            f.YuHunJueXingOnClock =false
                             continue
                         }
                         f.DJ_Click_Range(125,233,5,5,"接受魂10邀请")
+                        f.YuHunJueXingOnClock =false
                         time.Sleep(time.Millisecond*200)
                         continue
                     }
@@ -160,10 +162,12 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                         if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
                             f.Dj_click(YuHunChiLun_Click,"齿轮进入")
                             //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
+                            f.YuHunJueXingOnClock =false
                             time.Sleep(time.Millisecond*200)
                             continue
                         }
                         f.DJ_Click_Range(125,233,5,5,"接受魂11邀请")
+                        f.YuHunJueXingOnClock =false
                         time.Sleep(time.Millisecond*200)
                         continue
                     }
