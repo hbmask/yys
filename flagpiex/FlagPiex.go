@@ -724,9 +724,36 @@ func (f FLagPiex)FlagJieJieKa_JiXuTianJia()bool{
 	xyp:=[][]int{{945,535,1910325}}
 	return r.Find_Pixels(xyp)
 }
-
+//御魂战斗失败是否继续战斗
 func (f FLagPiex)FlagYuHun_JiXu_ZhanDou()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{624,386,1910325},{708,386,1910325}}
+	xyp:=[][]int{{624,386,6206195},{708,386,6206195}}
+	return r.Find_Pixels(xyp)
+}
+//房间挑战
+func (f FLagPiex)Flag_FangJian_TiaoZhan()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{1088,569,8311532}}
+	return r.Find_Pixels(xyp)
+}
+
+//寮突破 界面识别
+func (f FLagPiex) Flag_LiaoTuPo_JieMian()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{371,491,5553374}}
+	return r.Find_Pixels(xyp)
+}
+
+//寮突破 进攻次数识别
+func (f FLagPiex)Flag_LiaoTuPo_JinGongCiShu()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{312,497,11844546}}
+	return r.Find_Pixels(xyp)
+}
+
+//寮突破 公婆后 从新标记 位置
+func (f FLagPiex)Flag_LiaoTuPo_Po()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{367,323,9233407}}
 	return r.Find_Pixels(xyp)
 }

@@ -813,7 +813,7 @@ object FMain: TFMain
     object ComboBoxGouLiang: TComboBox
       Left = 3
       Top = 13
-      Width = 73
+      Width = 95
       Height = 21
       Style = csDropDownList
       ItemIndex = 0
@@ -827,9 +827,9 @@ object FMain: TFMain
         '20'#32423'N')
     end
     object ButtonGouLiangZhiXing: TButton
-      Left = 82
+      Left = 104
       Top = 13
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
@@ -846,7 +846,7 @@ object FMain: TFMain
     object ComboBoxYuHun: TComboBox
       Left = 3
       Top = 17
-      Width = 73
+      Width = 95
       Height = 21
       Cursor = crArrow
       Style = csDropDownList
@@ -862,9 +862,9 @@ object FMain: TFMain
         #25151#20027#19977#20154#38431)
     end
     object ButtonYuhunZhixing: TButton
-      Left = 82
+      Left = 104
       Top = 17
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
@@ -881,17 +881,18 @@ object FMain: TFMain
     object ComboBoxBangDing: TComboBox
       Left = 3
       Top = 14
-      Width = 73
+      Width = 95
       Height = 21
+      Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Items.Strings = (
         '')
     end
     object ButtonBangDing: TButton
-      Left = 82
+      Left = 104
       Top = 14
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #32465#23450
       TabOrder = 1
@@ -900,7 +901,7 @@ object FMain: TFMain
     object ButtonStop: TButton
       Left = 3
       Top = 34
-      Width = 154
+      Width = 162
       Height = 25
       Caption = #26242#20572'['#24555#25463#38190'->HOME]'
       TabOrder = 2
@@ -917,12 +918,13 @@ object FMain: TFMain
     object ComboBoxQiTa: TComboBox
       Left = 3
       Top = 18
-      Width = 73
+      Width = 95
       Height = 21
       Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Text = #32467#30028#31361#30772
+      OnChange = ComboBoxQiTaChange
       Items.Strings = (
         #32467#30028#31361#30772
         #19994#21407#28779#30196
@@ -930,12 +932,14 @@ object FMain: TFMain
         #33258#21160#24481#28789
         #23534#31361#30772
         #20840#33258#21160
-        #21484#21796#21397#32440)
+        #21484#21796#21397#32440
+        #31454#36895#31192#38395#25361#25112
+        #32467#30028#21345)
     end
     object ButtonQiTaZhiXing: TButton
-      Left = 82
+      Left = 104
       Top = 18
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
@@ -952,7 +956,7 @@ object FMain: TFMain
     object ComboBoxYaoQi: TComboBox
       Left = 3
       Top = 18
-      Width = 73
+      Width = 95
       Height = 21
       Style = csDropDownList
       ItemIndex = 0
@@ -970,9 +974,9 @@ object FMain: TFMain
         #36339#36339#21733#21733)
     end
     object ButtonYaoQiZhiXing: TButton
-      Left = 82
+      Left = 104
       Top = 18
-      Width = 75
+      Width = 61
       Height = 21
       Caption = #25191#34892
       TabOrder = 1
