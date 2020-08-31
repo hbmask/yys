@@ -1,5 +1,7 @@
 package yys_screenshot
-
+/*
+截取窗口中的图像 存入内存中
+*/
 import (
 	"errors"
 	win "github.com/lxn/win"
@@ -94,35 +96,40 @@ func (h *Yys_windows_screenshot)CreateImage(rect image.Rectangle) (img *image.RG
 //获取句柄窗口图像
 func (h *Yys_windows_screenshot)YYS_Capture() (*image.RGBA, error) { //YYS_HWND win.HWND
 	x, y, width, height :=0,0,1136,640
+	//创建一个空白矩形
 	rect := image.Rect(0, 0, width, height)
+	//将空白矩形转换为GOLANG 的图像结构, 可以通过修改该位置实现自定义大小截图
 	img, err := h.CreateImage(rect)
 	if err != nil {
 		return nil, err
 	}
 	hd := getyyshwnd.YYSHWND{}
+	//得到指定的窗口句柄
 	hwnd := hd.Get_yys_hwnd()
 	//fmt.Println("hwnd:",hwnd)
 	if hwnd ==0{
 		return nil,nil
 	}
+	// 返回句柄窗口的设备环境、覆盖整个窗口，包括非客户区，标题栏，菜单，边框
+	//# 创建设备描述表
 	hdc := win.GetDC(hwnd)
 	if hdc == 0 {
 		return nil, errors.New("GetDC failed")
 	}
 	defer win.ReleaseDC(hwnd, hdc)
-
+	//# 创建内存设备描述表
 	memory_device := win.CreateCompatibleDC(hdc)
 	if memory_device == 0 {
 		return nil, errors.New("CreateCompatibleDC failed")
 	}
 	defer win.DeleteDC(memory_device)
-
+	//# 创建位图对象
 	bitmap := win.CreateCompatibleBitmap(hdc, int32(width), int32(height))
 	if bitmap == 0 {
 		return nil, errors.New("CreateCompatibleBitmap failed")
 	}
 	defer win.DeleteObject(win.HGDIOBJ(bitmap))
-
+	//位图头信息创建
 	var header win.BITMAPINFOHEADER
 	header.BiSize = uint32(unsafe.Sizeof(header))
 	header.BiPlanes = 1
@@ -256,9 +263,10 @@ func (h *Yys_windows_screenshot)YYS_Capture_HWNDs(hwnd win.HWND) (*image.RGBA, e
 	return img, nil
 }
 
-
+//通过句柄进行截图
 func (h *Yys_windows_screenshot)YYS_Capture_HWND(hwnd win.HWND) (*image.RGBA, error) { //YYS_HWND win.HWND
 	x, y, width, height :=0,0,1138,640
+	//创建一个空白矩形
 	rect := image.Rect(0, 0, width, height)
 	img, err := h.CreateImage(rect)
 	if err != nil {

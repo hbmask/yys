@@ -1,5 +1,7 @@
 package yys_find_img
-
+/*
+识别是否是需求场景
+*/
 import (
 	"fmt"
 	"github.com/lxn/win"

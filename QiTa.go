@@ -296,36 +296,6 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			continue
 		}
 		f.ZhanDouTuiChu()
-		if fp.Flag_LiaoTuPo_Po(){
-			//探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
-			Liaotupo_flag :=r.Recognition(data.Liaotupo_flag2,0.9)
-			if Liaotupo_flag!=nil {
-				//if fp.Flag_LiaoTuPo_JinGongCiShu(){
-				if fp.Flag_LiaoTuPo_JieMian(){
-					time.Sleep(time.Millisecond*300)
-					//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
-					f.DJ_Click_Range(32,40,10,4,"寮突破->探索5破")
-					time.Sleep(time.Second*300)
-					fmt.Println("等待恢复中.....")
-				}
-				continue
-			}
-		}else {
-			//探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
-			Liaotupo_flag :=r.Recognition(data.Liaotupo_flag,0.9)
-			if Liaotupo_flag!=nil {
-				//if fp.Flag_LiaoTuPo_JinGongCiShu(){
-				if fp.Flag_LiaoTuPo_JieMian(){
-					time.Sleep(time.Millisecond*300)
-					//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
-					f.DJ_Click_Range(32,40,10,4,"寮突破->探索5分钟")
-					time.Sleep(time.Second*300)
-					fmt.Println("等待恢复中.....")
-				}
-				continue
-			}
-		}
-
 		//探索场景
 		if fp.FlagTanSuo(){
 			f.DJ_Click_Range(254,572,46,30,"探索->结界突破")
@@ -336,6 +306,35 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		//Jiejietupo_2_liaotupo_ji_flag:=r.Recognition(data.Jiejietupo_2_liaotupo_ji_flag,0.9)
 		//if Jiejietupo_2_liaotupo_ji_flag!=nil {
 		if fp.Flag_LiaoTuPo_JieMian(){
+			if fp.Flag_LiaoTuPo_Po(){
+				//探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
+				Liaotupo_flag :=r.Recognition(data.Liaotupo_flag2,0.9)
+				if Liaotupo_flag!=nil {
+					//if fp.Flag_LiaoTuPo_JinGongCiShu(){
+					if fp.Flag_LiaoTuPo_JieMian(){
+						time.Sleep(time.Millisecond*300)
+						//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
+						f.DJ_Click_Range(32,40,10,4,"寮突破->探索5破")
+						time.Sleep(time.Second*300)
+						fmt.Println("等待恢复中.....")
+					}
+					continue
+				}
+			}else {
+				//探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
+				Liaotupo_flag :=r.Recognition(data.Liaotupo_flag,0.9)
+				if Liaotupo_flag!=nil {
+					//if fp.Flag_LiaoTuPo_JinGongCiShu(){
+					if fp.Flag_LiaoTuPo_JieMian(){
+						time.Sleep(time.Millisecond*300)
+						//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
+						f.DJ_Click_Range(32,40,10,4,"寮突破->探索5分钟")
+						time.Sleep(time.Second*300)
+						fmt.Println("等待恢复中.....")
+					}
+					continue
+				}
+			}
 			//自动上锁
 			if fp.FlagLiaoTuPoOnLock()==true {
 				rd :=rand.Intn(1)
