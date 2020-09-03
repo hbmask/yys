@@ -1,7 +1,6 @@
 package yys_find_img
-/*
- 匹配游戏中对应场景的图像
- */
+//匹配游戏中对应场景的图像
+
 import "C"
 import (
 	"encoding/base64"

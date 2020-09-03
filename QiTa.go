@@ -314,8 +314,8 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 					if fp.Flag_LiaoTuPo_JieMian(){
 						time.Sleep(time.Millisecond*300)
 						//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
-						f.DJ_Click_Range(32,40,10,4,"寮突破->探索5破")
-						time.Sleep(time.Second*300)
+						f.DJ_Click_Range(32,40,10,4,"寮突破->探索15破")
+						time.Sleep(time.Second*900)
 						fmt.Println("等待恢复中.....")
 					}
 					continue
@@ -328,8 +328,8 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 					if fp.Flag_LiaoTuPo_JieMian(){
 						time.Sleep(time.Millisecond*300)
 						//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
-						f.DJ_Click_Range(32,40,10,4,"寮突破->探索5分钟")
-						time.Sleep(time.Second*300)
+						f.DJ_Click_Range(32,40,10,4,"寮突破->探索15分")
+						time.Sleep(time.Second*900)
 						fmt.Println("等待恢复中.....")
 					}
 					continue

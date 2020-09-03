@@ -18,8 +18,12 @@ func (f *TFMain) YaoQiFengYing_XuanZeShiShen(r yys_find_img.Result,imgsdata stri
 	if rt!=nil{
 		f.Dj_click(rt,ShiShenName)
 		time.Sleep(time.Millisecond*800)
-		f.Dj_click(r.Recognition(data.YaoQiZiDongPiPeiClick,0.9),"自动匹配")
-		time.Sleep(time.Millisecond*2000)
+		ZiDongPiPei :=r.Recognition(data.YaoQiZiDongPiPeiClick,0.9)
+		if ZiDongPiPei!=nil{
+			f.Dj_click(ZiDongPiPei,"自动匹配")
+			time.Sleep(time.Millisecond*2000)
+		}
+
 	}else {
 		f.mv_mouse_Range(433,267,1,-300,"")
 	}
