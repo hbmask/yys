@@ -212,7 +212,9 @@ func (f *TFMain) ZiDongDouJi(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			f.Stops()
 			f.YYSLos("2点咯..")
 		}
-
+		if fp.FlagDouJiShenJi(){
+			f.DJ_Click_Range(918,473,70,40,"斗技挑战")
+		}
 	}
 }
 //自动御灵

@@ -683,6 +683,12 @@ func (f FLagPiex)FlagDouJiJieMian()bool{
 	xyp:=[][]int{{447,101,4413055},{673,101,3886193},}
 	return r.Find_Pixels(xyp)
 }
+//斗技 升级后
+func (f FLagPiex)FlagDouJiShenJi()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{741,312,3293656},}
+	return r.Find_Pixels(xyp)
+}
 //{52,141,5400962},
 //130 105 82 0
 func (f FLagPiex)FlagDouJi1700ZiDongShangZHen()bool{//斗技自动上阵
