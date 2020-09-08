@@ -426,7 +426,7 @@ func (f *TFMain) JinSuMiWenTiaoZhan(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		}
 		//竞速秘闻挑战
 		if fp.FlagJingSuMiWenTiaoZhan(){
-			f.DJ_Click_Range(990,481,60,60,"竞速秘闻->挑战")
+			f.DJ_Click_Range(1033,498,10,60,"竞速秘闻->挑战")
 			time.Sleep(time.Millisecond*500)
 		}
 		//战斗退出

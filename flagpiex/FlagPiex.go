@@ -574,18 +574,11 @@ func (f FLagPiex)FlagYaoQiFengYinPaiDui()bool{
 	return r.Find_Pixels(xyp)
 }
 
-//{990,481,12111066},
-//218 204 184 0
-//{990,541,10408688},
-//240 210 158 0
-//{1054,541,10473454},
-//238 207 159 0
-//{1054,484,12114411},
-//235 217 184 0
+
 //竞速秘闻挑战
 func (f FLagPiex)FlagJingSuMiWenTiaoZhan()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{990,481,12111066},{990,541,10408688},{1054,541,10473454},{1054,484,12114411},}
+	xyp:=[][]int{{1033,498,12177372},{1033,566,12966885}}
 	return r.Find_Pixels(xyp)
 }
 
