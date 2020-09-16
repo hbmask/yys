@@ -13,27 +13,18 @@ import (
 func (f *TFMain) JieJieTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 	f.Zhuangtai_3()
 	fmt.Println("结界突破 0")
-	jjtpnum9 :=[][]int{//选择进攻点击位置
-		{340,136,80,30},//1
-		{620,136,80,30},//2
-		{900,136,80,30},//3
-		{340,246,80,30},//4
-		{620,246,80,30},//5
-		{900,246,80,30},//6
-		{340,356,80,30},//7
-		{620,356,80,30},//8
-		{900,356,80,30},//9
-	}
-	jjtpnum9_FuZhu :=[][]int{//判断是否已经攻击
-		{440,136,12898778},
-		{720,136,12898778},
-		{1000,136,12898778},
-		{440,246,12898778},
-		{720,246,12898778},
-		{1000,246,12898778},
-		{440,356,12898778},
-		{720,356,12898778},
-		{1000,356,12898778},
+	//选择点击位置
+	jjtpnum9_XuanZe :=[][]int{ //判断是否已经攻击
+		//x  y   -x ,xr,yr, color
+		{403,148,303,80,30,12372953},
+		{694,148,594,80,30,12439002},
+		{992,148,892,80,30,12439002},
+		{393,265,293,80,30,12439002},
+		{694,265,594,80,30,12439002},
+		{986,265,886,80,30,12439002},
+		{395,389,295,80,30,12439002},
+		{688,389,588,80,30,12439002},
+		{990,389,890,80,30,12439002},
 	}
 	for{
 		if f.StopFlag==false {
@@ -58,48 +49,47 @@ func (f *TFMain) JieJieTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			if fp.FlagJieJieTuPoOnLock()==true {
 				rd :=rand.Intn(1)
 				if rd==0{
-					f.DJ_Click_Range(904,538,1,1,"结界突破->上锁0")
+					f.DJ_Click_Range(736,533,1,1,"结界突破->上锁0")
 				}else{
-					f.DJ_Click_Range(930,537,1,1,"结界突破->上锁1")
+					f.DJ_Click_Range(746,533,1,1,"结界突破->上锁1")
 				}
 			}
+			//当没有票时候停止
 			Jiejietupo_1_end_flag :=r.Recognition(data.Jiejietupo_1_end_flag,0.95)
 			if Jiejietupo_1_end_flag!=nil {
 				f.Stops()
 				break
 			}
-			for i,_ :=range jjtpnum9{
+			for i,_ :=range jjtpnum9_XuanZe{
 				if f.StopFlag==false {
 					break
 				}
 				index :=i
-				x :=jjtpnum9[index][0]
-				y :=jjtpnum9[index][1]
-				xrange :=jjtpnum9[index][2]
-				yrange :=jjtpnum9[index][3]
+				//x  y   -x ,xr,yr, color
+				x :=jjtpnum9_XuanZe[index][0]
+				y :=jjtpnum9_XuanZe[index][1]
+				x_XuanZe := jjtpnum9_XuanZe[index][2]
+				xrange :=jjtpnum9_XuanZe[index][3]
+				yrange :=jjtpnum9_XuanZe[index][4]
+				coloerrfe := jjtpnum9_XuanZe[index][5]
 
-				x_FuZhu :=jjtpnum9_FuZhu[index][0]
-				y_FuZhu :=jjtpnum9_FuZhu[index][1]
-				coloerrfe :=jjtpnum9_FuZhu[index][2]
-
-				if r.Find_Pixels_jjtp9num(x_FuZhu,y_FuZhu, coloerrfe){
-					f.DJ_Click_Range(x,y,xrange,yrange,"结界突破->选择")
+				if r.Find_Pixels_jjtp9num(x,y, coloerrfe){
+					f.DJ_Click_Range(x_XuanZe,y,xrange,yrange,"结界突破->选择")
 					time.Sleep(time.Millisecond*600)
 					Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.9)
 					if Jiejietupo_2_jingong_click!=nil {
 						f.Dj_click(Jiejietupo_2_jingong_click,"结界突破->进攻")
 						time.Sleep(time.Second*2)
-						//fmt.Println("True:",jjtpnum9,i)
 						break
 					}
 				}else {
-					fmt.Println("跳过无效的",jjtpnum9[index])
+					fmt.Println("跳过无效的",jjtpnum9_XuanZe[index])
 				}
 				if i ==8{
 					//fmt.Println(fp.FlagJieJieTuPoLenQue())
 					if fp.FlagJieJieTuPoLenQue() ==true{ //如果没有冷却执行
 
-						f.DJ_Click_Range(1057,169,30,25,"结界突破->刷新")
+						f.DJ_Click_Range(869,519,30,25,"结界突破->刷新")
 						time.Sleep(time.Second)
 						f.DJ_Click_Range(603,367,130,30,"结界突破->确定")
 						time.Sleep(time.Second)
@@ -264,27 +254,19 @@ func (f *TFMain) ZiDongYuLin(r yys_find_img.Result,fp flagpiex.FLagPiex){
 }
 //寮突破
 func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
-	LiaoTuPo_num8 :=[][]int{//选择进攻点击位置
-		{585,151,80,30},
-		{876,151,80,30},
-		{585,251,80,30},
-		{876,251,80,30},
-		{585,351,80,30},
-		{876,351,80,30},
-		{585,451,80,30},
-		{876,451,80,30},
-	}
 	//寮突破选择位置
-	LiaoTuPo_FuZhu :=[][]int{//判断是否已经攻击
-		{685,151,12898778},
-		{976,151,12898778},
-		{685,251,12898778},
-		{976,251,12898778},
-		{685,351,12898778},
-		{976,351,12898778},
-		{685,451,12898778},
-		{976,451,12898778},
+	LiaoTuPo_XuanZe :=[][]int{ //判断是否已经攻击
+		//x  y   -x ,xr,yr, color
+		{643,137,542,80,30,12439002},
+		{947,137,840,80,30,12439002},
+		{643,258,542,80,30,12439002},
+		{947,258,840,80,30,12439002},
+		{643,379,542,80,30,12439002},
+		{947,379,840,80,30,12439002},
+		{643,499,542,80,30,12439002},
+		{947,499,840,80,30,12439002},
 	}
+
 	f.Zhuangtai_3()
 	fmt.Println("寮突破 4")
 	for{
@@ -302,7 +284,7 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		if fp.FlagTanSuo(){
 			f.DJ_Click_Range(254,572,46,30,"探索->结界突破")
 			time.Sleep(time.Second*1)
-			f.DJ_Click_Range(94,370,26,100,"结界突破->寮突破")
+			f.DJ_Click_Range(1078,329,26,100,"结界突破->寮突破")
 		}
 		//结界突破->寮突破->记录锚点
 		//Jiejietupo_2_liaotupo_ji_flag:=r.Recognition(data.Jiejietupo_2_liaotupo_ji_flag,0.9)
@@ -310,13 +292,13 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		if fp.Flag_LiaoTuPo_JieMian(){
 			if fp.Flag_LiaoTuPo_Po(){
 				//探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
-				Liaotupo_flag :=r.Recognition(data.Liaotupo_flag2,0.9)
+				Liaotupo_flag :=r.Recognition(data.Liaotupo_flag,0.9)
 				if Liaotupo_flag!=nil {
 					//if fp.Flag_LiaoTuPo_JinGongCiShu(){
 					if fp.Flag_LiaoTuPo_JieMian(){
 						time.Sleep(time.Millisecond*300)
 						//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
-						f.DJ_Click_Range(32,40,10,4,"寮突破->探索15破")
+						f.DJ_Click_Range(1066,113,10,4,"寮突破->探索15破")
 						time.Sleep(time.Second*900)
 						fmt.Println("等待恢复中.....")
 					}
@@ -330,7 +312,7 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 					if fp.Flag_LiaoTuPo_JieMian(){
 						time.Sleep(time.Millisecond*300)
 						//f.DJ_Click_Range(44,24,1,30,"寮突破->探索5分钟")
-						f.DJ_Click_Range(32,40,10,4,"寮突破->探索15分")
+						f.DJ_Click_Range(1066,113,10,4,"寮突破->探索15分")
 						time.Sleep(time.Second*900)
 						fmt.Println("等待恢复中.....")
 					}
@@ -338,30 +320,29 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 				}
 			}
 			//自动上锁
-			if fp.FlagLiaoTuPoOnLock()==true {
+			if fp.FlagLiaoTuPoOnLock() {
 				rd :=rand.Intn(1)
 				if rd==0{
-					f.DJ_Click_Range(238,540,1,1,"寮突破->上锁0")
+					f.DJ_Click_Range(177,550,1,1,"寮突破->上锁0")
 				}else{
-					f.DJ_Click_Range(264,540,1,1,"寮突破->上锁1")
+					f.DJ_Click_Range(200,550,1,1,"寮突破->上锁1")
 				}
 			}
-			for i,_ :=range LiaoTuPo_num8{
+			for i,_ :=range LiaoTuPo_XuanZe {
 				if f.StopFlag==false {
 					break
 				}
+				//x  y   -x ,xr,yr, color
 				index :=i
-				x :=LiaoTuPo_num8[index][0]
-				y :=LiaoTuPo_num8[index][1]
-				xrange :=LiaoTuPo_num8[index][2]
-				yrange :=LiaoTuPo_num8[index][3]
+				x := LiaoTuPo_XuanZe[index][0]
+				y := LiaoTuPo_XuanZe[index][1]
+				xrange := LiaoTuPo_XuanZe[index][3]
+				yrange := LiaoTuPo_XuanZe[index][4]
+				x_xuanze := LiaoTuPo_XuanZe[index][2]
+				coloerrfe := LiaoTuPo_XuanZe[index][5]
 
-				x_FuZhu :=LiaoTuPo_FuZhu[index][0]
-				y_FuZhu :=LiaoTuPo_FuZhu[index][1]
-				coloerrfe :=LiaoTuPo_FuZhu[index][2]
-
-				if r.Find_Pixels_jjtp9num(x_FuZhu,y_FuZhu, coloerrfe){
-					f.DJ_Click_Range(x,y,xrange,yrange,"寮突破->选择")
+				if r.Find_Pixels_jjtp9num(x, y, coloerrfe){
+					f.DJ_Click_Range(x_xuanze,y,xrange,yrange,"寮突破->选择")
 					time.Sleep(time.Millisecond*1000)
 					Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.9)
 					if Jiejietupo_2_jingong_click!=nil {
@@ -370,7 +351,7 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 					}
 					break
 				}else {
-					fmt.Println("跳过无效的",LiaoTuPo_num8[index])
+					fmt.Println("跳过无效的", LiaoTuPo_XuanZe[index])
 					if i ==7{
 						f.Stops()
 					}
@@ -423,6 +404,20 @@ func (f *TFMain) JinSuMiWenTiaoZhan(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		if fp.FlagZhanDouJieMian(){
 			time.Sleep(time.Millisecond*100)
 			continue
+		}
+
+		//活动点击挑战
+		if f.StopFlag==false {
+			break
+		}
+		f.XuanShang()
+		if r.Recognition(data.HD,0.95)!=nil {
+			f.Stops()
+			break
+		}
+		if fp.FlagHuDong_TZ(){
+			f.DJ_Click_Range(995,567,10,60,"竞速秘闻->挑战")
+			time.Sleep(time.Millisecond*500)
 		}
 		//竞速秘闻挑战
 		if fp.FlagJingSuMiWenTiaoZhan(){

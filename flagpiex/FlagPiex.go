@@ -200,7 +200,7 @@ func (f FLagPiex)FlagGouliangFuBenJieMian()bool{
 //结界突破->界面
 func (f FLagPiex)FlagJieJieTuPoJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{324,536,11711154},{1068,548,6067901},}
+	xyp:=[][]int{{114,574,6659779}}
 	return r.Find_Pixels(xyp)
 }
 //{380,110,11912916},
@@ -241,20 +241,20 @@ func (f FLagPiex)FlagJieJieTuPo_ShuaXin()bool{
 //结界突破->界面->刷新冷却
 func (f FLagPiex)FlagJieJieTuPoLenQue()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1073,170,2772863},{1062,192,2707070},}
+	xyp:=[][]int{{869,519,6206195}}
 	return r.Find_Pixels(xyp)
 }
 
 //结界突破->界面->上锁
 func (f FLagPiex)FlagJieJieTuPoOnLock()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{904,538,1581871},{930,537,1581871},}
+	xyp:=[][]int{{736,533,1318440},}
 	return r.Find_Pixels(xyp)
 }
 //结界突破->寮突破界面->上锁
 func (f FLagPiex)FlagLiaoTuPoOnLock()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{238,540,1647666},{264,540,1581872},}
+	xyp:=[][]int{{177,550,1581871},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -581,7 +581,12 @@ func (f FLagPiex)FlagJingSuMiWenTiaoZhan()bool{
 	xyp:=[][]int{{1033,498,12177372},{1033,566,12966885}}
 	return r.Find_Pixels(xyp)
 }
-
+//20200916活动
+func (f FLagPiex)FlagHuDong_TZ()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{978,470,10912396},{995,567,12638178}}
+	return r.Find_Pixels(xyp)
+}
 //{432,64,1121155},
 //131 27 17 0
 //{406,101,1186973},
@@ -739,7 +744,7 @@ func (f FLagPiex)Flag_FangJian_TiaoZhan()bool{
 //寮突破 界面识别
 func (f FLagPiex) Flag_LiaoTuPo_JieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{371,491,5553374}}
+	xyp:=[][]int{{87,581,8367052}}
 	return r.Find_Pixels(xyp)
 }
 
@@ -750,9 +755,9 @@ func (f FLagPiex)Flag_LiaoTuPo_JinGongCiShu()bool{
 	return r.Find_Pixels(xyp)
 }
 
-//寮突破 公婆后 从新标记 位置
+//寮突破 攻破后 从新标记 位置
 func (f FLagPiex)Flag_LiaoTuPo_Po()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{367,323,9233407}}
+	xyp:=[][]int{{395,142,12439002}}
 	return r.Find_Pixels(xyp)
 }
