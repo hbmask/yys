@@ -258,7 +258,7 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 	LiaoTuPo_XuanZe :=[][]int{ //判断是否已经攻击
 		//x  y   -x ,xr,yr, color
 		{643,137,542,80,30,12439002},
-		{947,137,840,80,30,12439002},
+		{947,137,840,80,30,12372954},
 		{643,258,542,80,30,12439002},
 		{947,258,840,80,30,12439002},
 		{643,379,542,80,30,12439002},
@@ -411,7 +411,7 @@ func (f *TFMain) JinSuMiWenTiaoZhan(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			break
 		}
 		f.XuanShang()
-		if r.Recognition(data.HD,0.95)!=nil {
+		if r.Recognition(data.HD,0.99)!=nil {
 			f.Stops()
 			break
 		}
