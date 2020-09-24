@@ -75,7 +75,7 @@ func (f *TFMain) JieJieTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 
 				if r.Find_Pixels_jjtp9num(x,y, coloerrfe){
 					f.DJ_Click_Range(x_XuanZe,y,xrange,yrange,"结界突破->选择")
-					time.Sleep(time.Millisecond*600)
+					time.Sleep(time.Millisecond*750)
 					Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.9)
 					if Jiejietupo_2_jingong_click!=nil {
 						f.Dj_click(Jiejietupo_2_jingong_click,"结界突破->进攻")
@@ -285,6 +285,7 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			f.DJ_Click_Range(254,572,46,30,"探索->结界突破")
 			time.Sleep(time.Second*1)
 			f.DJ_Click_Range(1078,329,26,100,"结界突破->寮突破")
+			time.Sleep(time.Second*1)
 		}
 		//结界突破->寮突破->记录锚点
 		//Jiejietupo_2_liaotupo_ji_flag:=r.Recognition(data.Jiejietupo_2_liaotupo_ji_flag,0.9)
