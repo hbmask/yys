@@ -105,7 +105,7 @@ func (f FLagPiex)FlagTingYuan()bool{
 //通用探索标记
 func (f FLagPiex)FlagTanSuo()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{1000,35,8892630},{105,586,2911137},{621,11,5619679},}
+	xyp:=[][]int{{1000,35,8826838},{105,586,2911137},{930,26,10601686},}
 	return r.Find_Pixels(xyp)
 }
 //御魂->业原火->上锁
@@ -482,7 +482,7 @@ func (f FLagPiex)FlagYuHunZuDuiYaoQing()bool{
 //悬赏三色定位
 func (f FLagPiex)FlagXuanShangDingWei()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{756,374,6139730},{757,462,5597400},}
+	xyp:=[][]int{{756,374,5942096},{757,462,5728728},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -581,10 +581,16 @@ func (f FLagPiex)FlagJingSuMiWenTiaoZhan()bool{
 	xyp:=[][]int{{1033,498,12177372},{1033,566,12966885}}
 	return r.Find_Pixels(xyp)
 }
-//20200916活动
+//20200924活动
 func (f FLagPiex)FlagHuDong_TZ()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{978,470,10912396},{995,567,12638178}}
+	xyp:=[][]int{{827,455,14788273}}
+	return r.Find_Pixels(xyp)
+}
+
+func (f FLagPiex)FlagHuDong_TZ_SUO()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{828,455,1581871}}
 	return r.Find_Pixels(xyp)
 }
 //{432,64,1121155},

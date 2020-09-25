@@ -284,7 +284,7 @@ func (f *TFMain) LiaoTuPo(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		if fp.FlagTanSuo(){
 			f.DJ_Click_Range(254,572,46,30,"探索->结界突破")
 			time.Sleep(time.Second*1)
-			f.DJ_Click_Range(1078,329,26,100,"结界突破->寮突破")
+			f.DJ_Click_Range(1078,329,26,50,"结界突破->寮突破")
 			time.Sleep(time.Second*1)
 		}
 		//结界突破->寮突破->记录锚点
@@ -412,12 +412,16 @@ func (f *TFMain) JinSuMiWenTiaoZhan(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			break
 		}
 		f.XuanShang()
-		if r.Recognition(data.HD,0.99)!=nil {
-			f.Stops()
-			break
+		//if r.Recognition(data.HD,0.99)!=nil {
+		//	f.Stops()
+		//	break
+		//}
+		if fp.FlagHuDong_TZ_SUO(){
+			f.DJ_Click_Range(828,455,1,1,"活动->上锁")
+			time.Sleep(time.Millisecond*500)
 		}
 		if fp.FlagHuDong_TZ(){
-			f.DJ_Click_Range(995,567,10,60,"竞速秘闻->挑战")
+			f.DJ_Click_Range(1048,578,20,30,"活动->挑战")
 			time.Sleep(time.Millisecond*500)
 		}
 		//竞速秘闻挑战
