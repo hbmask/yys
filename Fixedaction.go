@@ -312,7 +312,7 @@ func (f *TFMain) XuanShang(){
 		xuanshangdata:= []string{data.XuanShangTiLi,data.XuanShangGouYu}
 		rdata :=r.RecognitionsBuTongTuAn(xuanshangdata,0.9)
 		if len(rdata)==0{
-			f.DJ_Click_Range(820,455,30,12,"拒绝悬赏")
+			f.DJ_Click_Range(820,455,30,12,"拒绝悬赏1")
 			return
 		}else {
 			f.DJ_Click_Range(821,368,30,12,"接受悬赏")
