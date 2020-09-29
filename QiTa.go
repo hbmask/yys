@@ -183,7 +183,7 @@ func (f *TFMain) ZiDongDouJi(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			f.FlagDouJiSZ=false
 		}
 		if fp.FlagDouJiJieMian(){//斗技界面
-			f.DJ_Click_Range(918,473,70,40,"斗技挑战")
+			f.DJ_Click_Range(1049,555,40,40,"斗技挑战")
 			f.FlagNum =false
 			f.FlagDouJiSZ=false
 		}

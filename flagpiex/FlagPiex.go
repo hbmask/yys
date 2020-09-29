@@ -482,7 +482,7 @@ func (f FLagPiex)FlagYuHunZuDuiYaoQing()bool{
 //悬赏三色定位
 func (f FLagPiex)FlagXuanShangDingWei()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{756,374,5942096},{757,462,5728728},}
+	xyp:=[][]int{{484,162,4282352},{484,123,7770803},}
 	return r.Find_Pixels(xyp)
 }
 
@@ -684,7 +684,7 @@ func (f FLagPiex)FlagWanShiWuHuoDeJiangLi()bool{
 //斗技 挑战界面
 func (f FLagPiex)FlagDouJiJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{447,101,4413055},{673,101,3886193},}
+	xyp:=[][]int{{266,79,8576242},{183,25,1455961},}
 	return r.Find_Pixels(xyp)
 }
 //斗技 升级后
