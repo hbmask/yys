@@ -584,7 +584,7 @@ func (f FLagPiex)FlagJingSuMiWenTiaoZhan()bool{
 //20200924活动
 func (f FLagPiex)FlagHuDong_TZ()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{826,455,14788273}}
+	xyp:=[][]int{{48,46,16314864}}
 	return r.Find_Pixels(xyp)
 }
 

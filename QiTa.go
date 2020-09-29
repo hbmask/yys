@@ -421,7 +421,7 @@ func (f *TFMain) JinSuMiWenTiaoZhan(r yys_find_img.Result,fp flagpiex.FLagPiex){
 			time.Sleep(time.Millisecond*500)
 		}
 		if fp.FlagHuDong_TZ(){
-			f.DJ_Click_Range(1048,578,20,30,"活动->挑战")
+			f.DJ_Click_Range(1040,550,20,30,"活动->挑战")
 			time.Sleep(time.Millisecond*500)
 		}
 		//竞速秘闻挑战
