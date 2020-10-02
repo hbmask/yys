@@ -52,7 +52,7 @@ func init(){
    YYSHWND := getyyshwnd.YYSHWND{}
    hwnd:=YYSHWND.Get_yys_hwnd()
    e.Set(int64(hwnd))
-    rand.Seed(time.Now().UnixNano())
+   rand.Seed(time.Now().UnixNano())
 }
 
 
