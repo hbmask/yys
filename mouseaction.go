@@ -20,14 +20,18 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 	xy :=[]int{}
 	cxy :=[]int{}
 	ssd :=[]float32{}
-	for i,_:=range r  {
+	for i,_:=range r  {//遍历一级狗粮
 		if r[i].Result_img_centen[0]<600&&r[i].Result_img_centen[1]<584{
 			xy =r[i].Result_img_centen //目标坐标
 			cxy =r[i].Clickrangevalue  //随机点击值
 			ssd =r[i].Confidence
 			break
 		}
+
 	}
+	//if xy[0] == 0{
+	//	return
+	//}
 	//r := yys_find_img.Result{}
 	mvx :=uint16(flagman[0])//鼠标移动到满字范围
 	mvy :=uint16(flagman[1]+yr)
@@ -52,7 +56,7 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 
 	//time.Sleep(time.Millisecond*500)
 	f.YYSLos(s)
-	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+400))
+	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))
 
 }
 //常用图像匹配点击

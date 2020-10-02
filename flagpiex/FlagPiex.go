@@ -27,6 +27,12 @@ func (f FLagPiex)FlagZhanDouJieMianJiaCeng()bool{
 	zdjmxyp:=[][]int{{121,608,15006718},}
 	return r.Find_Pixels(zdjmxyp)
 }
+
+func (f FLagPiex)FlagK28GouLiangFangJian()bool{
+	r :=yys_find_img.Result{}
+	zdjmxyp:=[][]int{{40,33,10674931},{278,574,15002346},}
+	return r.Find_Pixels(zdjmxyp)
+}
 //通用战斗界面准备判断
 func (f FLagPiex)FlagZhanDouJieMianZhunBei()bool{
 	r :=yys_find_img.Result{}

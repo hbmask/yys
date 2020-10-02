@@ -47,11 +47,10 @@ type TFMainFields struct {
 func NewTFMainFields( stopflag bool,yuhunjuexingonclock bool,clickdajiuma bool,clickdaocaoren bool)TFMainFields{
     return TFMainFields{StopFlag:stopflag,YuHunJueXingOnClock:yuhunjuexingonclock,ClickDaJiuMaFlag:clickdajiuma,ClickDaoCaoRenFlag:clickdaocaoren,}
 }
-
+var e=expvar.NewInt("erhwnd")
 func init(){
    YYSHWND := getyyshwnd.YYSHWND{}
    hwnd:=YYSHWND.Get_yys_hwnd()
-   e:=expvar.NewInt("erhwnd")
    e.Set(int64(hwnd))
     rand.Seed(time.Now().UnixNano())
 }
@@ -235,13 +234,15 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
             if f.StopFlag == false {
                     break
                 }
-            if fp.FlagYuHunZuDuiYaoQing(){//有困难28标志和邀请勾选
+            //有困难28标志和邀请勾选
+            if fp.FlagYuHunZuDuiYaoQing(){
                 KunNan28_Flag:=r.Recognition(data.GouLiangKunNan28_Flag,0.85)//少女与面具
                 if KunNan28_Flag!=nil{
                     f.DJ_Click_Range(125,233,5,5,"接受狗粮28邀请")
                 }
             }
-            if fp.FlagTanSuo_GouLiang()||fp.FlagTanSuo_GouLiangZuDuiJieMian(){//&&fp.FlagTanSuo_KunNan28(){//探索界面与狗粮组队界面
+            //探索界面与狗粮组队界面
+            if fp.FlagTanSuo_GouLiang()||fp.FlagTanSuo_GouLiangZuDuiJieMian(){//&&fp.FlagTanSuo_KunNan28(){
                 if f.OffBuff>=120{//满足条件关闭御魂
                     f.GouLiangOffBuffJianCha()
                     f.OffBuff=0
@@ -249,6 +250,14 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                 f.OffBuff++
                 time.Sleep(time.Millisecond*100)
             }
+            //K28房间开宝箱
+            if fp.FlagK28GouLiangFangJian(){
+                K28BaoXiang_Click:=r.Recognition(data.K28BaoXiang_Click,0.9)//K28房间开宝箱
+                if K28BaoXiang_Click!=nil {
+                    f.Dj_click(K28BaoXiang_Click,"开宝箱啦")
+                }
+            }
+            //战斗界面->点击加层
             if fp.FlagZhanDouJieMianJiaCeng(){//战斗界面->点击加层
                if  f.YuHunBuffFlag ==false{//狗粮buff状态
                    f.DJ_Click_Range(106,595,26,25,"狗粮经验加层")
@@ -287,12 +296,13 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                    }
                }
             }
+            //战斗界面
             if fp.FlagZhanDouJieMian(){//战斗界面
                 if fp.FlagZhanDouJieMianZhunBei(){//战斗准备界面
                     zbGouliangManJi_Flag:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,1100,420,0.85)//获取更换满级的目标
                     if len(zbGouliangManJi_Flag)<3&&len(zbGouliangManJi_Flag)>0{
-                        f.ZhanDouZhunBei()
-                        time.Sleep(time.Second)
+                      f.ZhanDouZhunBei()
+                      time.Sleep(time.Second)
                     }
                    switch f.ComboBoxGouLiang.ItemIndex() {
                    //1级N
@@ -304,7 +314,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
                            if GouLiangNKa_Click!=nil{
                                f.Dj_click(GouLiangNKa_Click,"选择->N")
-                               time.Sleep(time.Millisecond*600)}
+                               time.Sleep(time.Millisecond*100)
+                           }
                        }
                        GouLiangNKaFlag:=r.Recognition(data.GouLiangNKaFlag,0.9)//狗粮N
                        if GouLiangNKaFlag!=nil{
@@ -312,7 +323,11 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //从N卡中找到1级N卡
                            if len(GouLiang1JiN_Click)!=0{
                                for i,_ :=range mb{
+                                   if i==1{
+                                       GouLiang1JiN_Click = r.Recognitions(data.GouLiang1JiN_Click, 0.9)//获取第二次1级红坐标
+                                   }
                                    f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
+                                   //time.Sleep(time.Millisecond*200)
                                }
                            }else {
                                f.YYSLos("没有找到1级N")
@@ -327,7 +342,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//素材
                            if GouLiangSuCai_Click!=nil{
                                f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*600)}
+                               time.Sleep(time.Millisecond*100)
+                           }
                        }
                        GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮N
                        if GouLiangSuCaiFlag!=nil{
@@ -335,8 +351,11 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //从素材中找到1级白
                            if len(GouLiang1JiBai_Click)!=0{
                                for i,_ :=range mb{
+                                   if i==1{
+                                       GouLiang1JiBai_Click = r.Recognitions(data.GouLiang1JiBai_Click, 0.9)//获取第二次1级红坐标
+                                   }
                                    f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 90, "更换1级白")
-                                   time.Sleep(time.Millisecond*500)
+                                   //time.Sleep(time.Millisecond*100)
                                }
                            }else {
                                f.YYSLos("没有找到1级白")
@@ -351,7 +370,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
                            if GouLiangSuCai_Click!=nil{
                                f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*600)}
+                               time.Sleep(time.Millisecond*100)
+                           }
                        }
                        GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
                        if GouLiangSuCaiFlag!=nil{
@@ -359,7 +379,11 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级红
                            if len(GouLiang1JiHong_Click)!=0{
                                for i,_ :=range mb{
+                                   if i==1{
+                                       GouLiang1JiHong_Click = r.Recognitions(data.GouLiang1JiHong_Click, 0.9)//获取第二次1级红坐标
+                                   }
                                    f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换1级红")
+                                   //time.Sleep(time.Millisecond*200)
                                }
                            }else {
                                f.YYSLos("没有找到1级红")
@@ -374,7 +398,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
                            if GouLiangSuCai_Click!=nil{
                                f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*600)}
+                               time.Sleep(time.Millisecond*100)
+                           }
                        }
                        GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
                        if GouLiangSuCaiFlag!=nil{
@@ -382,7 +407,11 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                            GouLiang20Ji_Click := r.Recognitions(data.GouLiang20Ji_Click, 0.9) //从素材中找到20级白
                            if len(GouLiang20Ji_Click)!=0{
                                for i,_ :=range mb{
+                                   if i==1{
+                                       GouLiang20Ji_Click = r.Recognitions(data.GouLiang20Ji_Click, 0.9)//获取第二次1级红坐标
+                                   }
                                    f.move_click(mb[i].Result_img_centen, GouLiang20Ji_Click, 0, 90, "更换20级白")
+                                   //time.Sleep(time.Millisecond*200)
                                }
                            }else {
                                f.YYSLos("没有找到1级红")
@@ -402,17 +431,18 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                     GouliangManJi_Flag:=r.Recognitions(data.GouliangManJi_Flag,0.85)//获取满级图像
                     if len(GouliangManJi_Flag)==3&&fp.FlagGouLiangDiBan()==false{//3个满级后更换狗粮
                             f.SJ_Click_Range(150,450,10,10,"进入更换狗粮界面.")
-                            time.Sleep(time.Second*1)
+                            time.Sleep(time.Millisecond*700)
                     }
                 }
-                time.Sleep(time.Millisecond *300)
+                //time.Sleep(time.Millisecond *300)
             }
+            //队长离开副本后 退出
             if  fp.FlagGouliangFuBenJieMian(){
                 time.Sleep(time.Millisecond*500)
                 fmt.Println(fp.FlagGouliangFuBenJieMian(),fp.FlagTanSuo_GouLiangFuBenDuiZhang())
                 if fp.FlagGouliangFuBenJieMian()&&fp.FlagTanSuo_GouLiangFuBenDuiZhang()==false{//狗粮副本界面
                     f.DJ_Click_Range(32,51,12,14,"队长已经退出")
-                    time.Sleep(time.Millisecond*500)
+                    time.Sleep(time.Millisecond*400)
                     f.DJ_Click_Range(650,350,100,25,"立刻退出")
                 }
             }
@@ -436,10 +466,6 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
     f.Off_All_Buttone()
     r := yys_find_img.Result{}
     fp :=flagpiex.FLagPiex{}
-
-
-
-
     switch f.ComboBoxQiTa.ItemIndex() {
     //结界突破 0
     case 0:
