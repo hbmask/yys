@@ -20,28 +20,28 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 	xy :=[]int{}
 	cxy :=[]int{}
 	ssd :=[]float32{}
-	for i,_:=range r  {//遍历一级狗粮
+	for i,_:=range r  {//遍历一级狗粮范围 x小于600 y小于584
 		if r[i].Result_img_centen[0]<600&&r[i].Result_img_centen[1]<584{
-			xy =r[i].Result_img_centen //目标坐标
+			xy =r[i].Result_img_centen //目标狗粮坐标
 			cxy =r[i].Clickrangevalue  //随机点击值
 			ssd =r[i].Confidence
 			break
 		}
-
 	}
 	//if xy[0] == 0{
 	//	return
 	//}
 	//r := yys_find_img.Result{}
-	mvx :=uint16(flagman[0])//鼠标移动到满字范围
+	mvx :=uint16(flagman[0])//满字坐标
 	mvy :=uint16(flagman[1]+yr)
 	//xy 图像点击目标
 	//cxy 图像点击时候添加随机值
-	x :=uint16(xy[0]+10)//+rand.Intn(cxy[0])//游戏窗口内容坐标
-	y :=uint16(xy[1]+10)//+rand.Intn(cxy[1])
+	x :=uint16(xy[0])//+rand.Intn(cxy[0])//游戏窗口内容坐标
+	y :=uint16(xy[1])//+rand.Intn(cxy[1])
 	fmt.Printf("正确位置:%d 随机偏移范围:%d 偏移后点击位置:%d,%d 相似度:%.2f %s \n",xy,cxy,x,y,ssd,s)
 	tmp :=me_win32.MAKELPARAM(x,y)//将两个16位的数联合成一个无符号的32位数 按下位置
-	tmp_mv :=me_win32.MAKELPARAM(mvx,mvy)//将两个16位的数联合成一个无符号的32位数 按下位置
+	tmp_mv :=me_win32.MAKELPARAM(mvx,mvy)//将两个16位的数联合成一个无符号的32位数 移动到满字
+	//tmp_r :=me_win32.MAKELPARAM(0,360)//将两个16位的数联合成一个无符号的32位数 按下位置
 	//win.SetCursorPos(int32(x+pt.X),int32(y))
 	//win.GetCaretPos(&ptmv)
 	//pt :=win.POINT{}
@@ -49,14 +49,21 @@ func (f *TFMain)move_click(flagman []int,r []*yys_find_img.Result,xr int,yr int,
 	win.SendMessage(hwnd,win.WM_ACTIVATE,win.WA_ACTIVE,0)//激活窗口
 	win.SendMessage(hwnd,win.WM_LBUTTONDOWN,win.MK_LBUTTON,tmp)//按下
 	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
-	time.Sleep(time.Duration(rand.Intn(100)+30))
 	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
-	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp)//松开
+	//for mvi:=xy[1];mvi>=int(mvy);mvi-- {//狗粮位置移动到满的位置
+	//	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,me_win32.MAKELPARAM(mvx,uint16(mvi)))//移动位置
+	//	mvi=mvi-10
+	//	time.Sleep(time.Millisecond)
+	//}
+	//time.Sleep(time.Millisecond*time.Duration(rand.Intn(100)+1000))
+	win.SendMessage(hwnd,win.WM_MOUSEMOVE,win.MK_LBUTTON,tmp_mv)//移动位置
+	win.SendMessage(hwnd,win.WM_LBUTTONUP,win.MK_LBUTTON,tmp_mv)//松开
+	//win.SendMessage(hwnd, win.WM_MOUSEWHEEL, win.MK_LBUTTON, tmp);  // 向上滚
 	//fmt.Println("鼠标最后移动松开的位置",int32(mvx)+pt.X,int32(mvy)+pt.Y)
 
 	//time.Sleep(time.Millisecond*500)
 	f.YYSLos(s)
-	time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+300))
+	//time.Sleep(time.Millisecond*time.Duration(rand.Intn(200)+500))
 
 }
 //常用图像匹配点击
@@ -148,9 +155,9 @@ func (f *TFMain)DJ_Click_TuiChu() {
 	switch s {
 	case 0:
 		x =10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标
-		y =610+rand.Intn(20)
+		y =620+rand.Intn(20)
 	case 1:
-		x =1035+rand.Intn(90)//屏幕坐标+游戏窗口内容坐标
+		x =1050+rand.Intn(60)//屏幕坐标+游戏窗口内容坐标
 		y =80+rand.Intn(170)
 	}
 	//x :=10+rand.Intn(1100)//屏幕坐标+游戏窗口内容坐标

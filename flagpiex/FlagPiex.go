@@ -515,6 +515,11 @@ func (f FLagPiex)FlagGouLiangDiBan()bool{
 	return r.Find_Pixels(xyp)
 }
 
+func (f FLagPiex)FlagHuanGouLiangShiSHenKuan()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{400,634,2241866},{889,634,1912127}}
+	return r.Find_Pixels(xyp)
+}
 //{998,60,7380681},
 //201 158 112 0
 //{794,33,6006978},
@@ -771,5 +776,18 @@ func (f FLagPiex)Flag_LiaoTuPo_JinGongCiShu()bool{
 func (f FLagPiex)Flag_LiaoTuPo_Po()bool{
 	r :=yys_find_img.Result{}
 	xyp:=[][]int{{395,142,12439002}}
+	return r.Find_Pixels(xyp)
+}
+
+//狗粮确定
+func (f FLagPiex)Flag_GouLiang_Shengji_ok_1()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{727,559,5478622}}
+	return r.Find_Pixels(xyp)
+}
+//狗粮确定后继续
+func (f FLagPiex)Flag_GouLiang_Shengji_ok_2()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{741,567,3030424}}
 	return r.Find_Pixels(xyp)
 }

@@ -139,15 +139,17 @@ func (r *Result)RecognitionsGouLiang_2Man(im_searchs string,x int,y int,threshol
 	defer im_search.Close()
 	defer im.Close()
 	rs :=r.Find_all_template(im,im_search,threshold)
-	rsman :=rs
+	rsman :=[]*Result{}
 	for i,_ :=range rs{
-		if rs[i].Result_img_centen[0]>x{//过滤第三个满级
-			if rs[i].Result_img_centen[1]<y{
-				rsman =append(rs[:i],rs[i+1:]...)
-			}
+		if rs[i].Result_img_centen[0]<x&&rs[i].Result_img_centen[1]<y{//过滤第三个满级
+			//rsman =append(rs[:i],rs[i+1:]...)
+			rsman =append(rsman,rs[i])
+			//fmt.Println(rs[i].Result_img_centen[0],rs[i].Result_img_centen[1],len(rsman))
 		}
 	}
-
+	//for i,_ :=range rsman{
+	//	fmt.Println(rsman[i])
+	//}
 	return rsman
 }
 

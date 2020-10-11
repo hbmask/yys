@@ -16,6 +16,7 @@ import (
     "net"
     _ "net/http/pprof"
     "os"
+    "sort"
     "strconv"
     "time"
     "yys/data"
@@ -219,6 +220,11 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
         }()
     }
 }
+
+
+
+
+
 //狗粮
 func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
     //f.CheckBoxGuanYuHun.SetChecked(true)
@@ -246,6 +252,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                 if f.OffBuff>=120{//满足条件关闭御魂
                     f.GouLiangOffBuffJianCha()
                     f.OffBuff=0
+                    f.YuHunBuffFlag =false
                 }
                 f.OffBuff++
                 time.Sleep(time.Millisecond*100)
@@ -259,170 +266,180 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
             }
             //战斗界面->点击加层
             if fp.FlagZhanDouJieMianJiaCeng(){//战斗界面->点击加层
-               if  f.YuHunBuffFlag ==false{//狗粮buff状态
-                   f.DJ_Click_Range(106,595,26,25,"狗粮经验加层")
-                   for  {
-                       if fp.FlagGouLiangBuffRed50(){//红色状态
-                           if fp.FlagGouLiangBuffRed100() { //100红色状态
-                               f.DJ_Click_Range(697,319,60,6,"开启100%经验")
-                           }
-                           time.Sleep(time.Millisecond*500)
-                           f.DJ_Click_Range(697,380,60,6,"开启50%经验")
-                           f.YuHunBuffFlag =true
-                           f.DJ_Click_Range(0,489,600,30,"")
-                           //time.Sleep(time.Millisecond*500)
-                           f.StopYuHunNum=0
-                           break
-                       }
-                       if fp.FlagGouLiangBuffGold50(){//金色状态
-                           //if fp.FlagGouLiangBuffGold100() { //100金色状态
-                           //    f.YuHunBuffFlag =true
-                           //}
-                           //f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
-                           f.YuHunBuffFlag =true
-                           f.DJ_Click_Range(0,489,600,30,"buff已经开启")
-                           //time.Sleep(time.Millisecond*500)
-                           //f.DJ_Click_Range(0,489,600,30,"")
-                           f.StopYuHunNum=0
-                           break
-                       }
-                       f.StopYuHunNum++
-                       if f.StopYuHunNum>=20{
-                           f.StopYuHunNum=0
-                           break
-                       }
-                       f.StopYuHunNum++
-                       time.Sleep(time.Millisecond*50)
-                   }
-               }
+             if  f.YuHunBuffFlag ==false{//狗粮buff状态
+                 f.DJ_Click_Range(106,595,26,25,"狗粮经验加层")
+                 for  {
+                     if fp.FlagGouLiangBuffRed50(){//红色状态
+                         if fp.FlagGouLiangBuffRed100() { //100红色状态
+                             f.DJ_Click_Range(697,319,60,6,"开启100%经验")
+                         }
+                         time.Sleep(time.Millisecond*500)
+                         f.DJ_Click_Range(697,380,60,6,"开启50%经验")
+                         f.YuHunBuffFlag =true
+                         f.DJ_Click_Range(0,489,600,30,"")
+                         //time.Sleep(time.Millisecond*500)
+                         f.StopYuHunNum=0
+                         break
+                     }
+                     if fp.FlagGouLiangBuffGold50(){//金色状态
+                         //if fp.FlagGouLiangBuffGold100() { //100金色状态
+                         //    f.YuHunBuffFlag =true
+                         //}
+                         //f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
+                         f.YuHunBuffFlag =true
+                         f.DJ_Click_Range(0,489,600,30,"buff已经开启")
+                         //time.Sleep(time.Millisecond*500)
+                         //f.DJ_Click_Range(0,489,600,30,"")
+                         f.StopYuHunNum=0
+                         break
+                     }
+                     f.StopYuHunNum++
+                     if f.StopYuHunNum>=20{
+                         f.StopYuHunNum=0
+                         break
+                     }
+                     f.StopYuHunNum++
+                     time.Sleep(time.Millisecond*50)
+                 }
+             }
             }
             //战斗界面
             if fp.FlagZhanDouJieMian(){//战斗界面
                 if fp.FlagZhanDouJieMianZhunBei(){//战斗准备界面
                     zbGouliangManJi_Flag:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,1100,420,0.85)//获取更换满级的目标
                     if len(zbGouliangManJi_Flag)<3&&len(zbGouliangManJi_Flag)>0{
-                      f.ZhanDouZhunBei()
-                      time.Sleep(time.Second)
+                     f.ZhanDouZhunBei()
+                     time.Sleep(time.Second)
                     }
                    switch f.ComboBoxGouLiang.ItemIndex() {
                    //1级N
                    case 0:
-                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
-                       if GouLiangQuanBu_Click!=nil{
-                           f.Dj_click(GouLiangQuanBu_Click,"全部")
-                           time.Sleep(time.Millisecond*500)
-                           GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
-                           if GouLiangNKa_Click!=nil{
-                               f.Dj_click(GouLiangNKa_Click,"选择->N")
-                               time.Sleep(time.Millisecond*100)
-                           }
-                       }
-                       GouLiangNKaFlag:=r.Recognition(data.GouLiangNKaFlag,0.9)//狗粮N
-                       if GouLiangNKaFlag!=nil{
-                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-                           GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //从N卡中找到1级N卡
-                           if len(GouLiang1JiN_Click)!=0{
-                               for i,_ :=range mb{
-                                   if i==1{
-                                       GouLiang1JiN_Click = r.Recognitions(data.GouLiang1JiN_Click, 0.9)//获取第二次1级红坐标
-                                   }
-                                   f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
-                                   //time.Sleep(time.Millisecond*200)
-                               }
-                           }else {
-                               f.YYSLos("没有找到1级N")
-                           }
-                       }
+                       f.GouLiangGengHuan(r,data.GouLiangNKa_Click,"N",data.GouliangManJi_Flag,data.GouLiang1JiN_Click,"1级N")
+                       //GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       //if GouLiangQuanBu_Click!=nil{
+                       //    f.Dj_click(GouLiangQuanBu_Click,"全部")
+                       //    time.Sleep(time.Millisecond*300)
+                       //    GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
+                       //    if GouLiangNKa_Click!=nil{
+                       //        f.Dj_click(GouLiangNKa_Click,"选择->N")
+                       //        time.Sleep(time.Millisecond*100)
+                       //    }
+                       //}
+                       //GouLiangNKaFlag:=r.Recognition(data.GouLiangNKaFlag,0.9)//狗粮N
+                       //if GouLiangNKaFlag!=nil{
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                       //    GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //从N卡中找到1级N卡
+                       //    if len(GouLiang1JiN_Click)!=0{
+                       //        for i,_ :=range mb{
+                       //            if i==1{
+                       //                time.Sleep(time.Millisecond*500)
+                       //                GouLiang1JiN_Click = r.Recognitions(data.GouLiang1JiN_Click, 0.9)//获取第二次1级红坐标
+                       //            }
+                       //            f.move_click(mb[i].Result_img_centen, GouLiang1JiN_Click, 0, 90, "更换1级N")
+                       //            //time.Sleep(time.Millisecond*200)
+                       //        }
+                       //    }else {
+                       //        f.YYSLos("没有找到1级N")
+                       //    }
+                       //}
                    //1级白
                    case 1:
-                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
-                       if GouLiangQuanBu_Click!=nil{
-                           f.Dj_click(GouLiangQuanBu_Click,"全部")
-                           time.Sleep(time.Millisecond*500)
-                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//素材
-                           if GouLiangSuCai_Click!=nil{
-                               f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*100)
-                           }
-                       }
-                       GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮N
-                       if GouLiangSuCaiFlag!=nil{
-                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-                           GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //从素材中找到1级白
-                           if len(GouLiang1JiBai_Click)!=0{
-                               for i,_ :=range mb{
-                                   if i==1{
-                                       GouLiang1JiBai_Click = r.Recognitions(data.GouLiang1JiBai_Click, 0.9)//获取第二次1级红坐标
-                                   }
-                                   f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 90, "更换1级白")
-                                   //time.Sleep(time.Millisecond*100)
-                               }
-                           }else {
-                               f.YYSLos("没有找到1级白")
-                           }
-                       }
+                       f.GouLiangGengHuan(r,data.GouLiangSuCai_Click,"素材",data.GouLiangSuCaiFlag,data.GouLiang1JiBai_Click,"1级白")
+                       //GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       //if GouLiangQuanBu_Click!=nil{
+                       //    f.Dj_click(GouLiangQuanBu_Click,"全部")
+                       //    time.Sleep(time.Millisecond*300)
+                       //    GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//素材
+                       //    if GouLiangSuCai_Click!=nil{
+                       //        f.Dj_click(GouLiangSuCai_Click,"选择->素材")
+                       //        time.Sleep(time.Millisecond*100)
+                       //    }
+                       //}
+                       //GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//素材
+                       //if GouLiangSuCaiFlag!=nil{
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,750,360,0.85)//获取更换满级的目标坐标
+                       //    GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //从素材中找到1级白
+                       //    if len(GouLiang1JiBai_Click)!=0{
+                       //        for i,_ :=range mb{
+                       //            if i>0{
+                       //                time.Sleep(time.Millisecond*600)
+                       //               GouLiang1JiBai_Click = r.Recognitions(data.GouLiang1JiBai_Click, 0.9)//获取第二次1级坐标 刷新
+                       //            }
+                       //                f.move_click(mb[i].Result_img_centen, GouLiang1JiBai_Click, 0, 120, strconv.Itoa(len(mb))+"更换1级白0|"+strconv.Itoa(i))
+                       //
+                       //
+                       //            //time.Sleep(time.Second)
+                       //        }
+                       //    }else {
+                       //        f.YYSLos("没有找到1级白")
+                       //    }
+                       //}
                    //1级红
                    case 2:
-                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
-                       if GouLiangQuanBu_Click!=nil{
-                           f.Dj_click(GouLiangQuanBu_Click,"全部")
-                           time.Sleep(time.Millisecond*500)
-                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
-                           if GouLiangSuCai_Click!=nil{
-                               f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*100)
-                           }
-                       }
-                       GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
-                       if GouLiangSuCaiFlag!=nil{
-                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-                           GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级红
-                           if len(GouLiang1JiHong_Click)!=0{
-                               for i,_ :=range mb{
-                                   if i==1{
-                                       GouLiang1JiHong_Click = r.Recognitions(data.GouLiang1JiHong_Click, 0.9)//获取第二次1级红坐标
-                                   }
-                                   f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 90, "更换1级红")
-                                   //time.Sleep(time.Millisecond*200)
-                               }
-                           }else {
-                               f.YYSLos("没有找到1级红")
-                           }
-                       }
+                       f.GouLiangGengHuan(r,data.GouLiangSuCai_Click,"素材",data.GouLiangSuCaiFlag,data.GouLiang1JiHong_Click,"1级红")
+                       //GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       //if GouLiangQuanBu_Click!=nil{
+                       //    f.Dj_click(GouLiangQuanBu_Click,"全部")
+                       //    time.Sleep(time.Millisecond*300)
+                       //    GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
+                       //    if GouLiangSuCai_Click!=nil{
+                       //        f.Dj_click(GouLiangSuCai_Click,"选择->素材")
+                       //        time.Sleep(time.Millisecond*100)
+                       //    }
+                       //}
+                       //GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
+                       //if GouLiangSuCaiFlag!=nil{
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                       //    GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级红
+                       //    if len(GouLiang1JiHong_Click)!=0{
+                       //        for i,_ :=range mb{
+                       //            if i==1{
+                       //                time.Sleep(time.Millisecond*500)
+                       //                GouLiang1JiHong_Click = r.Recognitions(data.GouLiang1JiHong_Click, 0.9)//获取第二次1级红坐标
+                       //            }
+                       //            f.move_click(mb[i].Result_img_centen, GouLiang1JiHong_Click, 0, 120, "更换1级红")
+                       //            //time.Sleep(time.Millisecond*200)
+                       //        }
+                       //    }else {
+                       //        f.YYSLos("没有找到1级红")
+                       //    }
+                       //}
                    //20级白
                    case 3:
-                       GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
-                       if GouLiangQuanBu_Click!=nil{
-                           f.Dj_click(GouLiangQuanBu_Click,"全部")
-                           time.Sleep(time.Millisecond*500)
-                           GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
-                           if GouLiangSuCai_Click!=nil{
-                               f.Dj_click(GouLiangSuCai_Click,"选择->素材")
-                               time.Sleep(time.Millisecond*100)
-                           }
-                       }
-                       GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
-                       if GouLiangSuCaiFlag!=nil{
-                           mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-                           GouLiang20Ji_Click := r.Recognitions(data.GouLiang20Ji_Click, 0.9) //从素材中找到20级白
-                           if len(GouLiang20Ji_Click)!=0{
-                               for i,_ :=range mb{
-                                   if i==1{
-                                       GouLiang20Ji_Click = r.Recognitions(data.GouLiang20Ji_Click, 0.9)//获取第二次1级红坐标
-                                   }
-                                   f.move_click(mb[i].Result_img_centen, GouLiang20Ji_Click, 0, 90, "更换20级白")
-                                   //time.Sleep(time.Millisecond*200)
-                               }
-                           }else {
-                               f.YYSLos("没有找到1级红")
-                           }
-
-                       }
+                       f.GouLiangGengHuan(r,data.GouLiangSuCai_Click,"素材",data.GouLiangSuCaiFlag,data.GouLiang20Ji_Click,"20级白")
+                       //GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+                       //if GouLiangQuanBu_Click!=nil{
+                       //    f.Dj_click(GouLiangQuanBu_Click,"全部")
+                       //    time.Sleep(time.Millisecond*300)
+                       //    GouLiangSuCai_Click:=r.Recognition(data.GouLiangSuCai_Click,0.9)//狗粮素材
+                       //    if GouLiangSuCai_Click!=nil{
+                       //        f.Dj_click(GouLiangSuCai_Click,"选择->素材")
+                       //        time.Sleep(time.Millisecond*100)
+                       //    }
+                       //}
+                       //GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
+                       //if GouLiangSuCaiFlag!=nil{
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                       //    GouLiang20Ji_Click := r.Recognitions(data.GouLiang20Ji_Click, 0.9) //从素材中找到20级白
+                       //    if len(GouLiang20Ji_Click)!=0{
+                       //        for i,_ :=range mb{
+                       //            if i==1{
+                       //                time.Sleep(time.Millisecond*500)
+                       //                GouLiang20Ji_Click = r.Recognitions(data.GouLiang20Ji_Click, 0.9)//获取第二次1级红坐标
+                       //            }
+                       //            f.move_click(mb[i].Result_img_centen, GouLiang20Ji_Click, 0, 120, "更换20级白")
+                       //            //time.Sleep(time.Millisecond*200)
+                       //        }
+                       //    }else {
+                       //        f.YYSLos("没有找到1级红")
+                       //    }
+                       //
+                       //}
                    //20级N
                    case 4:
                        GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
                        f.Dj_click(GouLiangNKa_Click,"选择->N")
-                       time.Sleep(time.Second*1)
+                       time.Sleep(time.Millisecond*500)
                        f.YYSLos("此选项暂时无效")
                        if GouLiangNKa_Click!=nil{
 
@@ -431,7 +448,13 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                     GouliangManJi_Flag:=r.Recognitions(data.GouliangManJi_Flag,0.85)//获取满级图像
                     if len(GouliangManJi_Flag)==3&&fp.FlagGouLiangDiBan()==false{//3个满级后更换狗粮
                             f.SJ_Click_Range(150,450,10,10,"进入更换狗粮界面.")
-                            time.Sleep(time.Millisecond*700)
+                            //time.Sleep(time.Millisecond*600)
+                        for  {//直到到达指定界面退出循环
+                            if fp.FlagHuanGouLiangShiSHenKuan()==true{
+                                break
+                            }
+                            time.Sleep(time.Millisecond*50)
+                        }
                     }
                 }
                 //time.Sleep(time.Millisecond *300)
@@ -446,13 +469,100 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                     f.DJ_Click_Range(650,350,100,25,"立刻退出")
                 }
             }
-
             f.XuanShang()
             f.ZhanDouTuiChu()
             time.Sleep(time.Millisecond*100)
         }
     }()
 }
+//更换狗粮流程
+//GouLiang_LeiXing ->全部->选择狗粮类型
+//LeiXingName ->(log 显示替换的什么狗粮) N卡
+//LEiXingFlag ->选择狗粮类型后 确定 flg常驻 N字样
+//Find_GLImg ->查找常驻狗粮的匹配图像 比如 白蛋 红蛋 N卡
+//GL_Name ->log显示更换狗粮等级和类型 1级N
+func (f *TFMain) GouLiangGengHuan(r yys_find_img.Result,GouLiang_LeiXing string,LeiXingName string, LeiXingFlag string,Find_GLImg string,GL_Name string){
+
+    GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
+    if GouLiangQuanBu_Click!=nil{
+        f.Dj_click(GouLiangQuanBu_Click,"全部")
+        time.Sleep(time.Millisecond*300)
+        GouLiang_LeiXing_Click:=r.Recognition(GouLiang_LeiXing,0.9)//狗粮N 素材 标记要更换的类型
+        if GouLiang_LeiXing_Click!=nil{
+            f.Dj_click(GouLiang_LeiXing_Click,"选择->"+LeiXingName)
+            time.Sleep(time.Millisecond*100)
+        }
+    }
+    LEiXing_Flag:=r.Recognition(LeiXingFlag,0.9) //狗粮N 看是否已经是所选择的狗粮类型 比如说 素材
+    if LEiXing_Flag!=nil{
+        mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+        Find_GL_Img := r.Recognitions(Find_GLImg, 0.9) //从N卡中找到1级N卡 在类型中查找是否符合匹配图像
+        Find_GL_Img = f.Sort_Result_L(Find_GL_Img)
+        if len(Find_GL_Img)!=0{//检查是否有 匹配的图像个数
+            for i,_ :=range mb{
+                if i==1{
+                    time.Sleep(time.Second)
+                    Find_GL_Img = r.Recognitions(Find_GLImg, 0.9)//获取第二次1级红坐标
+                    Find_GL_Img = f.Sort_Result_R(Find_GL_Img)
+                }
+                f.move_click(mb[i].Result_img_centen, Find_GL_Img, 0, 120, "更换"+GL_Name)
+                //time.Sleep(time.Millisecond*200)
+            }
+        }else {
+            f.YYSLos("没有找到"+GL_Name)
+        }
+    }
+}
+//从小到大排序
+func (f *TFMain) Sort_Result_L(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
+    SortRs :=[]*yys_find_img.Result{}
+    var rsint []int
+    for i :=0;i<len(rs);i++{//取x横坐标 到 切片中
+        rsint=append(rsint,rs[i].Result_img_centen[0])
+    }
+    sort.Ints(rsint[:])//正常排序
+    fmt.Println(rsint,len(rs))
+    for i:=0;i<len(rs);i++{//通过活得的切片对Result进行从小到大排序
+        for j:=0;j<len(rs);j++{
+            if rsint[i] == rs[j].Result_img_centen[0]{
+                SortRs =append(SortRs,rs[j])
+                fmt.Println(SortRs[i],"从小到大")
+                continue
+        }
+       }
+    }
+    return SortRs
+}
+//倒序 从大到小
+func (f *TFMain) Sort_Result_R(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
+    SortRs :=[]*yys_find_img.Result{}
+    var rsint []int
+    for i :=0;i<len(rs);i++{
+        rsint=append(rsint,rs[i].Result_img_centen[0])
+    }
+    //sort.Ints(rsint[:])
+    //sort.Reverse()
+    sort.Sort(sort.Reverse(sort.IntSlice(rsint)))//倒序
+    fmt.Println(rsint,len(rs))
+    for i:=0;i<len(rs);i++{
+        for j:=0;j<len(rs);j++{
+            if rsint[i] == rs[j].Result_img_centen[0]{
+                SortRs =append(SortRs,rs[j])
+                fmt.Println(SortRs[i],"从大到小")
+                continue
+            }
+        }
+    }
+    return SortRs
+}
+
+
+
+
+
+
+
+
 //结界突破
 //业原火痴
 //自动斗技
@@ -471,316 +581,22 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
     case 0:
         f.StopFlag=true
         go f.JieJieTuPo(r,fp)
-        //go func() {
-        //
-        //    f.StopFlag=true
-        //    for{
-        //        if f.StopFlag==false {
-        //            break
-        //        }
-        //        f.XuanShang()
-        //        //战斗界面
-        //        if fp.FlagZhanDouJieMian(){
-        //            time.Sleep(time.Millisecond*400)
-        //            continue
-        //        }
-        //        //战斗退出
-        //        f.ZhanDouTuiChu()
-        //        //探索场景
-        //        if fp.FlagTanSuo(){
-        //            f.DJ_Click_Range(254,572,46,30,"探索->结界突破")
-        //            time.Sleep(time.Millisecond*100)
-        //        }
-        //        //如果在突破界面,继续下面操作
-        //        if fp.FlagJieJieTuPoJieMian(){
-        //            //自动上锁
-        //            if fp.FlagJieJieTuPoOnLock()==true {
-        //                rd :=rand.Intn(1)
-        //                if rd==0{
-        //                    f.DJ_Click_Range(904,538,1,1,"结界突破->上锁0")
-        //                }else{
-        //                    f.DJ_Click_Range(930,537,1,1,"结界突破->上锁1")
-        //                }
-        //            }
-        //            Jiejietupo_1_end_flag :=r.Recognition(data.Jiejietupo_1_end_flag,0.95)
-        //            if Jiejietupo_1_end_flag!=nil {
-        //                f.Stops()
-        //                break
-        //            }
-        //            for i,_ :=range jjtpnum9{
-        //                if f.StopFlag==false {
-        //                    break
-        //                }
-        //                index :=i
-        //                x :=jjtpnum9[index][0]
-        //                y :=jjtpnum9[index][1]
-        //                xrange :=jjtpnum9[index][2]
-        //                yrange :=jjtpnum9[index][3]
-        //
-        //                x_FuZhu :=jjtpnum9_FuZhu[index][0]
-        //                y_FuZhu :=jjtpnum9_FuZhu[index][1]
-        //                coloerrfe :=jjtpnum9_FuZhu[index][2]
-        //
-        //                if r.Find_Pixels_jjtp9num(x_FuZhu,y_FuZhu, coloerrfe){
-        //                    f.DJ_Click_Range(x,y,xrange,yrange,"结界突破->选择")
-        //                    time.Sleep(time.Millisecond*600)
-        //                    Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.9)
-        //                    if Jiejietupo_2_jingong_click!=nil {
-        //                        f.Dj_click(Jiejietupo_2_jingong_click,"结界突破->进攻")
-        //                        time.Sleep(time.Second*2)
-        //                        //fmt.Println("True:",jjtpnum9,i)
-        //                        break
-        //                    }
-        //                }else {
-        //                    fmt.Println("跳过无效的",jjtpnum9[index])
-        //                }
-        //                if i ==8{
-        //                    //fmt.Println(fp.FlagJieJieTuPoLenQue())
-        //                    if fp.FlagJieJieTuPoLenQue() ==true{ //如果没有冷却执行
-        //
-        //                        f.DJ_Click_Range(1057,169,30,25,"结界突破->刷新")
-        //                        time.Sleep(time.Second)
-        //                        f.DJ_Click_Range(603,367,130,30,"结界突破->确定")
-        //                        time.Sleep(time.Second)
-        //                    }
-        //                    continue
-        //                }
-        //            }
-        //            time.Sleep(time.Millisecond*100)
-        //        }
-        //    }
-        //}()
     //业原火痴 1
     case 1:
         f.StopFlag=true
         go f.YeYuanHuoChi(r,fp)
-        //go func() {
-        //    f.StopFlag=true
-        //    for {
-        //        if f.StopFlag==false {
-        //            break
-        //        }
-        //        f.XuanShang()
-        //        if fp.FlagZhanDouJieMian(){
-        //            time.Sleep(time.Millisecond*1000)
-        //            continue
-        //        }
-        //        f.ZhanDouTuiChu()//退出战斗
-        //        //业原火界面
-        //        if fp.FlagYeYuanHuoJiemian(){//业原火界面
-        //            //御魂->业原火>选择三层
-        //            if fp.FlagYeYuanHuoXuanZeSanCeng()==false {//御魂->业原火>选择三层
-        //                Yuhun_2_1_chijuan_click := r.Recognition(data.Yuhun_2_1_chijuan_click, 0.9)
-        //                if Yuhun_2_1_chijuan_click != nil {
-        //                    f.Dj_click(Yuhun_2_1_chijuan_click,"选择三层")
-        //                    time.Sleep(time.Second * 1)
-        //                    continue
-        //                }
-        //            }
-        //            //御魂->业原火->上锁->挑战
-        //            if fp.FlagYeYuanHuoOnClock(){//御魂->业原火->上锁->挑战
-        //                Yuhun_4_suo_tiaozhan_click:=r.Recognition(data.Yuhun_4_suo_tiaozhan_click,0.9)
-        //                if Yuhun_4_suo_tiaozhan_click!=nil {
-        //                    if f.ShiShiCiShu() ==0||f.TiaoZhanJiShuoff>=3{ //次数达到上限退出
-        //                        f.YYSLos("次数达到上限退出")
-        //                        f.Stops()
-        //                    }
-        //                    f.Dj_click(Yuhun_4_suo_tiaozhan_click,"上锁->挑战")
-        //                    f.TiaoZhanJiShuoff +=1
-        //                    time.Sleep(time.Second*1)
-        //                    continue
-        //                }
-        //            }
-        //            //御魂->业原火->上锁
-        //            Yuhun_3_meisuo_click:=r.Recognition(data.Yuhun_3_meisuo_click,0.9)
-        //            if Yuhun_3_meisuo_click!=nil {//御魂->业原火->上锁
-        //                f.Dj_click(Yuhun_3_meisuo_click,"上锁")
-        //                time.Sleep(time.Second*1)
-        //                continue
-        //            }
-        //
-        //        }
-        //        //御魂->业原火
-        //        Yuhun_1_yeyuanhuo_clik:=r.Recognition(data.Yuhun_1_yeyuanhuo_clik,0.9)
-        //        if Yuhun_1_yeyuanhuo_clik!=nil {//御魂->业原火
-        //            f.Dj_click(Yuhun_1_yeyuanhuo_clik,"御魂->业原火")
-        //            time.Sleep(time.Second*1)
-        //            continue
-        //        }
-        //        //探索->御魂
-        //        Yuhun_0_click :=r.Recognition(data.Yuhun_0_click,0.9)
-        //        if Yuhun_0_click!=nil { //探索->御魂
-        //            f.Dj_click(Yuhun_0_click,"探索->御魂")
-        //            time.Sleep(time.Second*1)
-        //            continue
-        //        }
-        //    }
-        //}()
     //自动斗技 2
     case 2:
         f.StopFlag=true
         go f.ZiDongDouJi(r,fp)
-        //go func() {
-        //    f.StopFlag = true
-        //    for {
-        //        if f.StopFlag == false {
-        //            break
-        //        }
-        //        f.ZhanDouZhunBei()
-        //        f.ZhanDouTuiChu()
-        //        if fp.FlagDouJiZhanDouZhong()&&f.FlagNum==false{//战斗时选择自动
-        //            //time.Sleep(time.Second*4)
-        //            f.DJ_Click_Range(52,576,6,6,"自动战斗")
-        //            f.FlagNum =true
-        //            f.FlagDouJiSZ=false
-        //        }
-        //        if fp.FlagDouJiJieMian(){//斗技界面
-        //            f.DJ_Click_Range(918,473,70,40,"斗技挑战")
-        //            f.FlagNum =false
-        //            f.FlagDouJiSZ=false
-        //        }
-        //        if fp.FlagDouJi1700ZiDongShangZHen()&&f.FlagDouJiSZ==false{//斗技1700分 自动上阵
-        //            f.DJ_Click_Range(52,141,5,5,"斗技自动上阵")
-        //            f.FlagNum =false
-        //            f.FlagDouJiSZ=true
-        //        }
-        //        if fp.FlagDouJiBaDeTouChou(){//拔得头筹
-        //            f.FlagNum =false
-        //            f.FlagDouJiSZ=false
-        //            f.DJ_Click_TuiChu()
-        //        }
-        //
-        //        if time.Now().Hour()==14{
-        //            f.Stops()
-        //            f.YYSLos("2点咯..")
-        //        }
-        //
-        //    }
-        //
-        //}()
     //自动御灵 3
     case 3:
         f.StopFlag=true
         go f.ZiDongYuLin(r,fp)
-        //go func() {
-        //    f.StopFlag = true
-        //    for {
-        //        if f.StopFlag == false {
-        //            break
-        //        }
-        //        f.XuanShang()
-        //        //战斗界面
-        //        if fp.FlagZhanDouJieMian() {//战斗界面
-        //            time.Sleep(time.Millisecond * 100)
-        //            continue
-        //        }
-        //        if fp.FlagYuLingTiaoZhanJieMian(){//战斗界面战斗准备
-        //            if fp.FlagYuLingTiaoZhanJieMianSanCeng()!=true {
-        //                f.DJ_Click_Range(240,472,100,50,"选择三层")
-        //                time.Sleep(time.Millisecond*100)
-        //            }
-        //            if fp.FlagYuLingTiaoZhanJieShangSuo()!=true{
-        //                rand.Seed(time.Now().UnixNano())
-        //                i :=rand.Intn(1)
-        //                if i==0{
-        //                    f.DJ_Click_Range(495,516,1,1,"上锁1")
-        //                    time.Sleep(time.Millisecond*100)
-        //                }else {
-        //                    f.DJ_Click_Range(519,516,1,1,"上锁2")
-        //                    time.Sleep(time.Millisecond*100)
-        //                }
-        //            }else {
-        //
-        //                //在挑战记录执行副本次数
-        //                if f.ShiShiCiShu() ==0 ||f.TiaoZhanJiShuoff >=3{//次数达到上限退出
-        //                    f.YYSLos("次数达到上限退出")
-        //                    f.Stops()
-        //                }
-        //                f.DJ_Click_Range(995,541,55,47,"挑战")
-        //                f.TiaoZhanJiShuoff +=1
-        //                time.Sleep(time.Millisecond*1000)
-        //            }
-        //        }
-        //        //战斗退出
-        //        f.ZhanDouTuiChu()
-        //        }
-        //    }()
     //寮突破 4
     case 4:
         f.StopFlag=true
         go f.LiaoTuPo(r,fp)
-        //go func() {
-        //    f.StopFlag=true
-        //    for{
-        //        if f.StopFlag==false {
-        //            break
-        //        }
-        //        f.XuanShang()
-        //        //if fp.FlagZhanDouJieMianZhunBei(){ //如果没有上锁 手动点击准备
-        //        //        f.ZhanDouZhunBei()
-        //        //    time.Sleep(time.Second)
-        //        //}
-        //        //战斗中..等待
-        //        if fp.FlagZhanDouJieMian(){
-        //            time.Sleep(time.Millisecond*400)
-        //            continue
-        //        }
-        //        f.ZhanDouTuiChu()
-        //        time.Sleep(time.Millisecond*200)
-        //        //探索->结界突破->寮突破->选择->进攻->如果没有机会等待.
-        //        Liaotupo_flag :=r.Recognition(data.Liaotupo_flag,0.9)
-        //        if Liaotupo_flag!=nil {
-        //            time.Sleep(time.Second*5)
-        //            continue
-        //        }
-        //
-        //        //结界突破->寮突破->记录锚点
-        //        Jiejietupo_2_liaotupo_ji_flag:=r.Recognition(data.Jiejietupo_2_liaotupo_ji_flag,0.9)
-        //        if Jiejietupo_2_liaotupo_ji_flag!=nil {
-        //            //自动上锁
-        //            if fp.FlagLiaoTuPoOnLock()==true {
-        //                rd :=rand.Intn(1)
-        //                if rd==0{
-        //                    f.DJ_Click_Range(238,540,1,1,"寮突破->上锁0")
-        //                }else{
-        //                    f.DJ_Click_Range(264,540,1,1,"寮突破->上锁1")
-        //                }
-        //            }
-        //            for i,_ :=range LiaoTuPo_num8{
-        //                if f.StopFlag==false {
-        //                    break
-        //                }
-        //                index :=i
-        //                x :=LiaoTuPo_num8[index][0]
-        //                y :=LiaoTuPo_num8[index][1]
-        //                xrange :=LiaoTuPo_num8[index][2]
-        //                yrange :=LiaoTuPo_num8[index][3]
-        //
-        //                x_FuZhu :=LiaoTuPo_FuZhu[index][0]
-        //                y_FuZhu :=LiaoTuPo_FuZhu[index][1]
-        //                coloerrfe :=LiaoTuPo_FuZhu[index][2]
-        //
-        //                if r.Find_Pixels_jjtp9num(x_FuZhu,y_FuZhu, coloerrfe){
-        //                    f.DJ_Click_Range(x,y,xrange,yrange,"寮突破->选择")
-        //                    time.Sleep(time.Millisecond*1000)
-        //                    Jiejietupo_2_jingong_click :=r.Recognition(data.Jiejietupo_2_jingong_click,0.9)
-        //                    if Jiejietupo_2_jingong_click!=nil {
-        //                        f.Dj_click(Jiejietupo_2_jingong_click,"寮突破->进攻")
-        //                        time.Sleep(time.Second*2)
-        //                        //fmt.Println("True:",jjtpnum9,i)
-        //                        break
-        //                    }
-        //                }else {
-        //                    fmt.Println("跳过无效的",LiaoTuPo_num8[index])
-        //                    if i ==7{
-        //                        f.Stops()
-        //                    }
-        //                }
-        //
-        //            }
-        //        }
-        //    }
-        //}()
     //全自动挂机5
     case 5:
         f.Zhuangtai_all()
@@ -789,80 +605,13 @@ func (f *TFMain) OnButtonQiTaZhiXingClick(sender vcl.IObject) {
     case 6:
         f.StopFlag=true
         go f.ZhaoHuanCeZhi(r,fp)
-        //go func() {
-        //    f.StopFlag=true
-        //    for {
-        //        if f.StopFlag==false {
-        //            break
-        //        }
-        //        f.XuanShang()
-        //        Cezhi_zaohuan_click :=r.Recognition(data.Cezhi_zaohuan_click,0.9)
-        //        if Cezhi_zaohuan_click!=nil {
-        //            f.Dj_click(Cezhi_zaohuan_click,"再次召唤厕纸")
-        //            time.Sleep(time.Second*1)
-        //        }
-        //        Cezhi_click :=r.Recognitions(data.Cezhi_click,0.9)
-        //        if Cezhi_click!=nil {
-        //            f.Dj_clicks(Cezhi_click,"召唤祖安")
-        //            //time.Sleep(time.Second*1)
-        //        }
-        //
-        //    }
-        //}()
     //竞速秘闻挑战
     case 7:
         f.StopFlag=true
         go f.JinSuMiWenTiaoZhan(r,fp)
-        //go func() {
-        //
-        //    f.StopFlag=true
-        //    for{
-        //        if f.StopFlag==false {
-        //            break
-        //        }
-        //        f.XuanShang()
-        //        //战斗准备界面
-        //        if fp.FlagZhanDouJieMianZhunBei(){
-        //            //自动上锁
-        //            f.ZhanDouZhunBei()
-        //            time.Sleep(time.Millisecond*500)
-        //        }
-        //        //战斗界面
-        //        if fp.FlagZhanDouJieMian(){
-        //            time.Sleep(time.Millisecond*100)
-        //            continue
-        //        }
-        //        //竞速秘闻挑战
-        //        if fp.FlagJingSuMiWenTiaoZhan(){
-        //           f.DJ_Click_Range(990,481,60,60,"竞速秘闻->挑战")
-        //           time.Sleep(time.Millisecond*500)
-        //        }
-        //        //战斗退出
-        //        f.ZhanDouTuiChu()
-        //    }
-        //
-        //}()
     case 8://结界卡合成
         f.StopFlag=true
         f.JieJieKaHeCheng(r,fp)
-        //go func() {
-        //    f.StopFlag=true
-        //    for{
-        //        fmt.Println()
-        //        if f.StopFlag==false {
-        //           break
-        //        }
-        //        f.XuanShang()
-        //        if fp.FlagJieJieKa_JiXuTianJia(){
-        //            f.DJ_Click_Range(923,523,30,12,"结界卡->继续添加")
-        //            time.Sleep(time.Millisecond*500)
-        //            f.DJ_Click_Range(694,514,130,30,"结界卡->开始合成")
-        //            time.Sleep(time.Millisecond*700)
-        //            continue
-        //        }
-        //        f.Stops()
-        //    }
-        //}()
     }
 
 }
