@@ -385,6 +385,9 @@ func (f *TFMain) ZhaoHuanCeZhi(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		if fp.Flag_GouLiang_Shengji_ok_2(){
 			f.DJ_Click_Range(741,567,1,1,"继续升级狗粮")
 		}
+		if fp.Flag_GouLiang_Shengji_ok_3(){
+			f.DJ_Click_Range(741,567,1,1,"继续升级狗粮")
+		}
 		//Cezhi_click :=r.Recognitions(data.Cezhi_click,0.9)
 		//if Cezhi_click!=nil {
 		//	f.Dj_clicks(Cezhi_click,"召唤祖安")

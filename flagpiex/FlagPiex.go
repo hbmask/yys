@@ -791,3 +791,8 @@ func (f FLagPiex)Flag_GouLiang_Shengji_ok_2()bool{
 	xyp:=[][]int{{741,567,3030424}}
 	return r.Find_Pixels(xyp)
 }
+func (f FLagPiex)Flag_GouLiang_Shengji_ok_3()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{368,382,4287375}}
+	return r.Find_Pixels(xyp)
+}
