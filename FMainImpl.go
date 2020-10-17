@@ -267,40 +267,40 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
             //战斗界面->点击加层
             if fp.FlagZhanDouJieMianJiaCeng(){//战斗界面->点击加层
              if  f.YuHunBuffFlag ==false{//狗粮buff状态
-                 f.DJ_Click_Range(106,595,26,25,"狗粮经验加层")
-                 for  {
-                     if fp.FlagGouLiangBuffRed50(){//红色状态
-                         if fp.FlagGouLiangBuffRed100() { //100红色状态
-                             f.DJ_Click_Range(697,319,60,6,"开启100%经验")
-                         }
-                         time.Sleep(time.Millisecond*500)
-                         f.DJ_Click_Range(697,380,60,6,"开启50%经验")
-                         f.YuHunBuffFlag =true
-                         f.DJ_Click_Range(0,489,600,30,"")
-                         //time.Sleep(time.Millisecond*500)
-                         f.StopYuHunNum=0
-                         break
-                     }
-                     if fp.FlagGouLiangBuffGold50(){//金色状态
-                         //if fp.FlagGouLiangBuffGold100() { //100金色状态
-                         //    f.YuHunBuffFlag =true
-                         //}
-                         //f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
-                         f.YuHunBuffFlag =true
-                         f.DJ_Click_Range(0,489,600,30,"buff已经开启")
-                         //time.Sleep(time.Millisecond*500)
-                         //f.DJ_Click_Range(0,489,600,30,"")
-                         f.StopYuHunNum=0
-                         break
-                     }
-                     f.StopYuHunNum++
-                     if f.StopYuHunNum>=20{
-                         f.StopYuHunNum=0
-                         break
-                     }
-                     f.StopYuHunNum++
-                     time.Sleep(time.Millisecond*50)
-                 }
+                f.DJ_Click_Range(106,595,26,25,"狗粮经验加层")
+                for  {
+                    if fp.FlagGouLiangBuffRed50(){//红色状态
+                        if fp.FlagGouLiangBuffRed100() { //100红色状态
+                            f.DJ_Click_Range(697,319,60,6,"开启100%经验")
+                        }
+                        time.Sleep(time.Millisecond*500)
+                        f.DJ_Click_Range(697,380,60,6,"开启50%经验")
+                        f.YuHunBuffFlag =true
+                        f.DJ_Click_Range(0,489,600,30,"")
+                        //time.Sleep(time.Millisecond*500)
+                        f.StopYuHunNum=0
+                        break
+                    }
+                    if fp.FlagGouLiangBuffGold50(){//金色状态
+                        //if fp.FlagGouLiangBuffGold100() { //100金色状态
+                        //    f.YuHunBuffFlag =true
+                        //}
+                        //f.DJ_Click_Range(317,489,600,61,"御魂buff已打开")
+                        f.YuHunBuffFlag =true
+                        f.DJ_Click_Range(0,489,600,30,"buff已经开启")
+                        //time.Sleep(time.Millisecond*500)
+                        //f.DJ_Click_Range(0,489,600,30,"")
+                        f.StopYuHunNum=0
+                        break
+                    }
+                    f.StopYuHunNum++
+                    if f.StopYuHunNum>=20{
+                        f.StopYuHunNum=0
+                        break
+                    }
+                    f.StopYuHunNum++
+                    time.Sleep(time.Millisecond*50)
+                }
              }
             }
             //战斗界面
@@ -496,6 +496,7 @@ func (f *TFMain) GouLiangGengHuan(r yys_find_img.Result,GouLiang_LeiXing string,
     LEiXing_Flag:=r.Recognition(LeiXingFlag,0.9) //狗粮N 看是否已经是所选择的狗粮类型 比如说 素材
     if LEiXing_Flag!=nil{
         mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+        mb =f.Sort_Result_R(mb)
         Find_GL_Img := r.Recognitions(Find_GLImg, 0.9) //从N卡中找到1级N卡 在类型中查找是否符合匹配图像
         Find_GL_Img = f.Sort_Result_L(Find_GL_Img)
         if len(Find_GL_Img)!=0{//检查是否有 匹配的图像个数
