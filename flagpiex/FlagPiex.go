@@ -491,6 +491,11 @@ func (f FLagPiex)FlagXuanShangDingWei()bool{
 	xyp:=[][]int{{484,162,4282352},{484,123,7770803},}
 	return r.Find_Pixels(xyp)
 }
+func (f FLagPiex)FlagXuanShangDingWei2()bool{
+	r :=yys_find_img.Result{}
+	xyp:=[][]int{{484,162,16481411},{484,123,7770803},}
+	return r.Find_Pixels(xyp)
+}
 
 //{61,555,2698040},
 //56 43 41 0

@@ -308,7 +308,7 @@ func (f *TFMain) On_All_Buttone() {
 func (f *TFMain) XuanShang(){
 	r:=yys_find_img.Result{}
 	fp :=flagpiex.FLagPiex{}
-	if fp.FlagXuanShangDingWei(){
+	if fp.FlagXuanShangDingWei()||fp.FlagXuanShangDingWei2(){
 		xuanshangdata:= []string{data.XuanShangTiLi,data.XuanShangGouYu}
 		rdata :=r.RecognitionsBuTongTuAn(xuanshangdata,0.9)
 		if len(rdata)==0{

@@ -46,7 +46,7 @@ type TFMainFields struct {
 
 
 func NewTFMainFields( stopflag bool,yuhunjuexingonclock bool,clickdajiuma bool,clickdaocaoren bool)TFMainFields{
-    return TFMainFields{StopFlag:stopflag,YuHunJueXingOnClock:yuhunjuexingonclock,ClickDaJiuMaFlag:clickdajiuma,ClickDaoCaoRenFlag:clickdaocaoren,}
+    return TFMainFields{StopFlag:stopflag,YuHunJueXingOnClock:yuhunjuexingonclock,ClickDaJiuMaFlag:clickdajiuma,ClickDaoCaoRenFlag:clickdaocaoren}
 }
 var e=expvar.NewInt("erhwnd")
 func init(){
@@ -143,9 +143,9 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                 if fp.FlagYuHunZuDuiYaoQing(){ //被邀请进组
                     H10 :=r.Recognition(data.H10,0.85)
                     if H10!=nil {
-                        YuHunChiLun_Click :=r.Recognition(data.YuHunChiLun_Click,0.85)
-                        if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
-                            f.Dj_click(YuHunChiLun_Click,"齿轮进入")
+                        YuHunChiLunClick :=r.Recognition(data.YuHunChiLun_Click,0.85)
+                        if YuHunChiLunClick !=nil{ //被邀请进组选择齿轮
+                            f.Dj_click(YuHunChiLunClick,"齿轮进入")
                             //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
                             time.Sleep(time.Millisecond*200)
                             f.YuHunJueXingOnClock =false
@@ -158,9 +158,9 @@ func (f *TFMain) OnButtonYuhunZhixingClick(sender vcl.IObject) {
                     }
                     H11 :=r.Recognition(data.H11,0.85)
                     if H11!=nil {
-                        YuHunChiLun_Click :=r.Recognition(data.YuHunChiLun_Click,0.85)
-                        if YuHunChiLun_Click!=nil{ //被邀请进组选择齿轮
-                            f.Dj_click(YuHunChiLun_Click,"齿轮进入")
+                        YuHunChiLunClick :=r.Recognition(data.YuHunChiLun_Click,0.85)
+                        if YuHunChiLunClick !=nil{ //被邀请进组选择齿轮
+                            f.Dj_click(YuHunChiLunClick,"齿轮进入")
                             //f.DJ_Click_Range(198,212,30,30,"从此轮进组")
                             f.YuHunJueXingOnClock =false
                             time.Sleep(time.Millisecond*200)
@@ -242,8 +242,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                 }
             //有困难28标志和邀请勾选
             if fp.FlagYuHunZuDuiYaoQing(){
-                KunNan28_Flag:=r.Recognition(data.GouLiangKunNan28_Flag,0.85)//少女与面具
-                if KunNan28_Flag!=nil{
+                KunNan28Flag :=r.Recognition(data.GouLiangKunNan28_Flag,0.85) //少女与面具
+                if KunNan28Flag !=nil{
                     f.DJ_Click_Range(125,233,5,5,"接受狗粮28邀请")
                 }
             }
@@ -259,9 +259,9 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
             }
             //K28房间开宝箱
             if fp.FlagK28GouLiangFangJian(){
-                K28BaoXiang_Click:=r.Recognition(data.K28BaoXiang_Click,0.9)//K28房间开宝箱
-                if K28BaoXiang_Click!=nil {
-                    f.Dj_click(K28BaoXiang_Click,"开宝箱啦")
+                K28BaoXiangClick :=r.Recognition(data.K28BaoXiang_Click,0.9) //K28房间开宝箱
+                if K28BaoXiangClick !=nil {
+                    f.Dj_click(K28BaoXiangClick,"开宝箱啦")
                 }
             }
             //战斗界面->点击加层
@@ -306,8 +306,8 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
             //战斗界面
             if fp.FlagZhanDouJieMian(){//战斗界面
                 if fp.FlagZhanDouJieMianZhunBei(){//战斗准备界面
-                    zbGouliangManJi_Flag:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,1100,420,0.85)//获取更换满级的目标
-                    if len(zbGouliangManJi_Flag)<3&&len(zbGouliangManJi_Flag)>0{
+                    zbGouliangManJiFlag :=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,1100,420,0.85) //获取更换满级的目标
+                    if len(zbGouliangManJiFlag)<3&&len(zbGouliangManJiFlag)>0{
                      f.ZhanDouZhunBei()
                      time.Sleep(time.Second)
                     }
@@ -319,15 +319,15 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        //if GouLiangQuanBu_Click!=nil{
                        //    f.Dj_click(GouLiangQuanBu_Click,"全部")
                        //    time.Sleep(time.Millisecond*300)
-                       //    GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
-                       //    if GouLiangNKa_Click!=nil{
-                       //        f.Dj_click(GouLiangNKa_Click,"选择->N")
+                       //    GouLiangNKaClick:=r.Recognition(data.GouLiangNKaClick,0.9)//狗粮N
+                       //    if GouLiangNKaClick!=nil{
+                       //        f.Dj_click(GouLiangNKaClick,"选择->N")
                        //        time.Sleep(time.Millisecond*100)
                        //    }
                        //}
                        //GouLiangNKaFlag:=r.Recognition(data.GouLiangNKaFlag,0.9)//狗粮N
                        //if GouLiangNKaFlag!=nil{
-                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJiFlag,790,420,0.85)//获取更换满级的目标
                        //    GouLiang1JiN_Click := r.Recognitions(data.GouLiang1JiN_Click, 0.9) //从N卡中找到1级N卡
                        //    if len(GouLiang1JiN_Click)!=0{
                        //        for i,_ :=range mb{
@@ -357,7 +357,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        //}
                        //GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//素材
                        //if GouLiangSuCaiFlag!=nil{
-                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,750,360,0.85)//获取更换满级的目标坐标
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJiFlag,750,360,0.85)//获取更换满级的目标坐标
                        //    GouLiang1JiBai_Click := r.Recognitions(data.GouLiang1JiBai_Click, 0.9) //从素材中找到1级白
                        //    if len(GouLiang1JiBai_Click)!=0{
                        //        for i,_ :=range mb{
@@ -389,7 +389,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        //}
                        //GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
                        //if GouLiangSuCaiFlag!=nil{
-                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJiFlag,790,420,0.85)//获取更换满级的目标
                        //    GouLiang1JiHong_Click := r.Recognitions(data.GouLiang1JiHong_Click, 0.9) //从素材中找到1级红
                        //    if len(GouLiang1JiHong_Click)!=0{
                        //        for i,_ :=range mb{
@@ -419,7 +419,7 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        //}
                        //GouLiangSuCaiFlag:=r.Recognition(data.GouLiangSuCaiFlag,0.9)//狗粮
                        //if GouLiangSuCaiFlag!=nil{
-                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
+                       //    mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJiFlag,790,420,0.85)//获取更换满级的目标
                        //    GouLiang20Ji_Click := r.Recognitions(data.GouLiang20Ji_Click, 0.9) //从素材中找到20级白
                        //    if len(GouLiang20Ji_Click)!=0{
                        //        for i,_ :=range mb{
@@ -437,16 +437,16 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
                        //}
                    //20级N
                    case 4:
-                       GouLiangNKa_Click:=r.Recognition(data.GouLiangNKa_Click,0.9)//狗粮N
-                       f.Dj_click(GouLiangNKa_Click,"选择->N")
+                       GouLiangNKaClick :=r.Recognition(data.GouLiangNKa_Click,0.9) //狗粮N
+                       f.Dj_click(GouLiangNKaClick,"选择->N")
                        time.Sleep(time.Millisecond*500)
                        f.YYSLos("此选项暂时无效")
-                       if GouLiangNKa_Click!=nil{
+                       if GouLiangNKaClick !=nil{
 
                        }
                    }
-                    GouliangManJi_Flag:=r.Recognitions(data.GouliangManJi_Flag,0.85)//获取满级图像
-                    if len(GouliangManJi_Flag)==3&&fp.FlagGouLiangDiBan()==false{//3个满级后更换狗粮
+                    GouliangManJiFlag :=r.Recognitions(data.GouliangManJi_Flag,0.85) //获取满级图像
+                    if len(GouliangManJiFlag)==3&&fp.FlagGouLiangDiBan()==false{     //3个满级后更换狗粮
                             f.SJ_Click_Range(150,450,10,10,"进入更换狗粮界面.")
                             //time.Sleep(time.Millisecond*600)
                         for  {//直到到达指定界面退出循环
@@ -481,41 +481,41 @@ func (f *TFMain) OnButtonGouLiangZhiXingClick(sender vcl.IObject) {
 //LEiXingFlag ->选择狗粮类型后 确定 flg常驻 N字样
 //Find_GLImg ->查找常驻狗粮的匹配图像 比如 白蛋 红蛋 N卡
 //GL_Name ->log显示更换狗粮等级和类型 1级N
-func (f *TFMain) GouLiangGengHuan(r yys_find_img.Result,GouLiang_LeiXing string,LeiXingName string, LeiXingFlag string,Find_GLImg string,GL_Name string){
+func (f *TFMain) GouLiangGengHuan(r yys_find_img.Result, GouLiangLeiXing string,LeiXingName string, LeiXingFlag string, FindGLImg string, GLName string){
 
-    GouLiangQuanBu_Click:=r.Recognition(data.GouLiangQuanBu_Click,0.9)//狗粮->全部
-    if GouLiangQuanBu_Click!=nil{
-        f.Dj_click(GouLiangQuanBu_Click,"全部")
+    GouLiangQuanBuClick :=r.Recognition(data.GouLiangQuanBu_Click,0.9) //狗粮->全部
+    if GouLiangQuanBuClick !=nil{
+        f.Dj_click(GouLiangQuanBuClick,"全部")
         time.Sleep(time.Millisecond*300)
-        GouLiang_LeiXing_Click:=r.Recognition(GouLiang_LeiXing,0.9)//狗粮N 素材 标记要更换的类型
-        if GouLiang_LeiXing_Click!=nil{
-            f.Dj_click(GouLiang_LeiXing_Click,"选择->"+LeiXingName)
+        GouLiangLeiXingClick :=r.Recognition(GouLiangLeiXing,0.9) //狗粮N 素材 标记要更换的类型
+        if GouLiangLeiXingClick !=nil{
+            f.Dj_click(GouLiangLeiXingClick,"选择->"+LeiXingName)
             time.Sleep(time.Millisecond*100)
         }
     }
-    LEiXing_Flag:=r.Recognition(LeiXingFlag,0.9) //狗粮N 看是否已经是所选择的狗粮类型 比如说 素材
-    if LEiXing_Flag!=nil{
+    LEiXingFlag :=r.Recognition(LeiXingFlag,0.9) //狗粮N 看是否已经是所选择的狗粮类型 比如说 素材
+    if LEiXingFlag !=nil{
         mb:=r.RecognitionsGouLiang_2Man(data.GouliangManJi_Flag,790,420,0.85)//获取更换满级的目标
-        mb =f.Sort_Result_R(mb)
-        Find_GL_Img := r.Recognitions(Find_GLImg, 0.9) //从N卡中找到1级N卡 在类型中查找是否符合匹配图像
-        Find_GL_Img = f.Sort_Result_L(Find_GL_Img)
-        if len(Find_GL_Img)!=0{//检查是否有 匹配的图像个数
-            for i,_ :=range mb{
+        mb =f.SortResultR(mb)
+        FindGLImgs := r.Recognitions(FindGLImg, 0.9) //从N卡中找到1级N卡 在类型中查找是否符合匹配图像
+        FindGLImgs = f.SortResultL(FindGLImgs)
+        if len(FindGLImgs)!=0{ //检查是否有 匹配的图像个数
+            for i :=range mb{
                 if i==1{
                     time.Sleep(time.Second)
-                    Find_GL_Img = r.Recognitions(Find_GLImg, 0.9)//获取第二次1级红坐标
-                    Find_GL_Img = f.Sort_Result_R(Find_GL_Img)
+                    FindGLImgs = r.Recognitions(FindGLImg, 0.9) //获取第二次1级红坐标
+                    FindGLImgs = f.SortResultR(FindGLImgs)
                 }
-                f.move_click(mb[i].Result_img_centen, Find_GL_Img, 0, 120, "更换"+GL_Name)
+                f.move_click(mb[i].Result_img_centen, FindGLImgs, 0, 120, "更换"+GLName)
                 //time.Sleep(time.Millisecond*200)
             }
         }else {
-            f.YYSLos("没有找到"+GL_Name)
+            f.YYSLos("没有找到"+ GLName)
         }
     }
 }
 //从小到大排序
-func (f *TFMain) Sort_Result_L(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
+func (f *TFMain) SortResultL(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
     SortRs :=[]*yys_find_img.Result{}
     var rsint []int
     for i :=0;i<len(rs);i++{//取x横坐标 到 切片中
@@ -535,7 +535,7 @@ func (f *TFMain) Sort_Result_L(rs []*yys_find_img.Result)[]*yys_find_img.Result 
     return SortRs
 }
 //倒序 从大到小
-func (f *TFMain) Sort_Result_R(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
+func (f *TFMain) SortResultR(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
     SortRs :=[]*yys_find_img.Result{}
     var rsint []int
     for i :=0;i<len(rs);i++{
@@ -661,8 +661,8 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
             //判断是否能找到红色妖气
             //fmt.Println(fp.FlagALLZuDuiJieMian())
             if fp.FlagALLZuDuiJieMian(){
-                YaoQiFengYin_Falg :=r.Recognition(data.YaoQiFengYin_Falg,0.9)
-                if YaoQiFengYin_Falg!=nil{
+                YaoQiFengYinFalg :=r.Recognition(data.YaoQiFengYin_Falg,0.9)
+                if YaoQiFengYinFalg !=nil{
                     YaoQiFengYinQuXiaoPiPeiFlag :=r.Recognition(data.YaoQiFengYinQuXiaoPiPeiFlag,0.9)
                     //取消匹配存在返回
                     if YaoQiFengYinQuXiaoPiPeiFlag !=nil{
