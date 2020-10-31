@@ -426,12 +426,17 @@ func (f *TFMain) JinSuMiWenTiaoZhan(r yys_find_img.Result,fp flagpiex.FLagPiex){
 		//	f.Stops()
 		//	break
 		//}
-		if fp.FlagHuDong_TZ_SUO(){
-			f.DJ_Click_Range(828,455,1,1,"活动->上锁")
-			time.Sleep(time.Millisecond*500)
+		//庭院进组
+		if fp.FlagTingYuan(){
+			f.DJ_Click_Range(318,558,35,30,"庭院->组队")
+			time.Sleep(time.Millisecond * 500)
+			continue
 		}
 		if fp.FlagHuDong_TZ(){
-			f.DJ_Click_Range(1040,550,20,30,"活动->挑战")
+			f.DJ_Click_Range(980,196,10,10,"活动->挑战")
+			time.Sleep(time.Millisecond*100)
+		}else if fp.FlagHuDong_TZ_SUO(){
+			f.DJ_Click_Range(447,574,5,10,"活动->刷新")
 			time.Sleep(time.Millisecond*500)
 		}
 		//竞速秘闻挑战

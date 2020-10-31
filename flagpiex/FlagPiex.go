@@ -600,13 +600,13 @@ func (f FLagPiex)FlagJingSuMiWenTiaoZhan()bool{
 //20200924活动
 func (f FLagPiex)FlagHuDong_TZ()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{48,46,16314864}}
+	xyp:=[][]int{{980,196,2046314}}
 	return r.Find_Pixels(xyp)
 }
 
 func (f FLagPiex)FlagHuDong_TZ_SUO()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{828,455,1581871}}
+	xyp:=[][]int{{447,574,6206195}}
 	return r.Find_Pixels(xyp)
 }
 //{432,64,1121155},
