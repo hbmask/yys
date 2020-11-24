@@ -516,7 +516,8 @@ func (f *TFMain) GouLiangGengHuan(r yys_find_img.Result, GouLiangLeiXing string,
 }
 //从小到大排序
 func (f *TFMain) SortResultL(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
-    SortRs :=[]*yys_find_img.Result{}
+
+    var SortRs []*yys_find_img.Result
     var rsint []int
     for i :=0;i<len(rs);i++{//取x横坐标 到 切片中
         rsint=append(rsint,rs[i].Result_img_centen[0])
@@ -536,7 +537,7 @@ func (f *TFMain) SortResultL(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
 }
 //倒序 从大到小
 func (f *TFMain) SortResultR(rs []*yys_find_img.Result)[]*yys_find_img.Result  {
-    SortRs :=[]*yys_find_img.Result{}
+    var SortRs []*yys_find_img.Result
     var rsint []int
     for i :=0;i<len(rs);i++{
         rsint=append(rsint,rs[i].Result_img_centen[0])
@@ -625,7 +626,7 @@ func (f *TFMain) OnButtonYaoQiZhiXingClick(sender vcl.IObject) {
     go func() {
         f.StopFlag=true
         for {
-            if f.StopFlag == false {
+            if !f.StopFlag {
                 break
             }
             f.XuanShang()
