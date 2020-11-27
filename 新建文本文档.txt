@@ -1,2 +1,2 @@
 go build -i -ldflags="-s -w -H windowsgui"
-go build -o D:\SynologyDrive\golang\newyys -i -ldflags="-s -w -H windowsgui"
+go build -o E:\SynologyDrive\golang\newyys -i -ldflags="-s -w -H windowsgui"
