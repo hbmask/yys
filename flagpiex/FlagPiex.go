@@ -206,7 +206,7 @@ func (f FLagPiex)FlagGouliangFuBenJieMian()bool{
 //结界突破->界面
 func (f FLagPiex)FlagJieJieTuPoJieMian()bool{
 	r :=yys_find_img.Result{}
-	xyp:=[][]int{{114,574,6659779}}
+	xyp:=[][]int{{205,538,4144548}}
 	return r.Find_Pixels(xyp)
 }
 //{380,110,11912916},
